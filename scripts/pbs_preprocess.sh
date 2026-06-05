@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N shap_enso_preprocess
-#PBS -A NAML0001
+#PBS -A UCUB0143
 #PBS -l select=1:ncpus=8:mem=64GB
 #PBS -l walltime=08:00:00
 #PBS -q casper

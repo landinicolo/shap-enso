@@ -60,7 +60,7 @@ shap:
   output_dir: "/glade/work/acsubram/GitRepos/shap-enso/data/shap"
 
 hpc:
-  account: "NAML0001"
+  account: "UCUB0143"
   queue_cpu: "casper"
   queue_gpu: "gpudev"
   walltime_preprocess: "04:00:00"
