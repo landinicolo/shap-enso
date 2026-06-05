@@ -4,26 +4,33 @@ channels:
   - defaults
 dependencies:
   - python=3.11
+
+  # --- core scientific stack ---
   - numpy
   - pandas
   - xarray
-  - scipy
-  - scikit-learn
-  - matplotlib
-  - cartopy
-  - netcdf4
-  - zarr
-  - dask
-  - dask-jobqueue       # PBS-aware dask clusters on Casper
-  - bottleneck          # speeds up xarray reductions
+  - scikit-learn          # regression/classification metrics, label_binarize
+  - dask                  # lazy xarray Zarr backends (.open_zarr / .compute)
+
+  # --- data I/O ---
+  - netcdf4               # xarray backend for ERA5 / GODAS .nc files
+  - zarr                  # SHAP and preprocessed data stores
+  - requests              # NOAA Niño 3.4 index download
+
+  # --- config ---
   - pyyaml
-  - xesmf               # conservative/bilinear regridding
+
+  # --- regridding ---
+  - xesmf                 # bilinear regridding to common 2° grid
+
+  # --- visualization ---
+  - matplotlib
+  - cartopy               # spatial SHAP maps (fallback to imshow if absent)
+
   - pip
   - pip:
-    - shap>=0.44
-    - torch>=2.2
-    - torchvision
-    - marimo
-    - xgboost>=2.0
-    - cdsapi             # Copernicus CDS API client for ERA5
-    - captum             # gradient-based attribution for PyTorch
+    - torch>=2.2          # LSTM / CNN — pip for CUDA-compatible wheel
+    - shap>=0.44          # TreeExplainer, GradientExplainer, DeepExplainer
+    - xgboost>=2.0        # XGBoost model
+    - cdsapi              # Copernicus CDS API client (ERA5 download)
+    - marimo              # interactive analysis notebooks
