@@ -16,6 +16,7 @@ mkdir -p ${REPO}/logs
 
 module load conda
 conda activate shap-enso
+export PYTHONPATH=${REPO}:${PYTHONPATH:-}
 
 cd ${REPO}
 

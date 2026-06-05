@@ -3,7 +3,10 @@
 Setup
 -----
 1. Register at https://cds.climate.copernicus.eu and accept the ERA5 licence.
-2. Install your API key:  echo "url: ...\nkey: ..." > ~/.cdsapirc
+2. Create ~/.cdsapirc with:
+       url: https://cds.climate.copernicus.eu/api
+       key: <your-personal-access-token>
+   (Token is under your CDS profile → API keys)
 3. conda activate shap-enso && python data/download_era5.py --config configs/default.yaml
 
 Each variable is downloaded as a single multi-year NetCDF file. Existing files
