@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Environments
+.env
+.venv
+env/
+venv/
+*.conda
+
+# Jupyter / marimo
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data (large files — use DVC or symlinks)
+data/raw/
+data/processed/
+*.nc
+*.zarr
+*.h5
+*.hdf5
+*.grib
+*.grib2
+
+# Figures (generated outputs)
+figures/
+
+# HPC job output
+*.o[0-9]*
+*.e[0-9]*
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo

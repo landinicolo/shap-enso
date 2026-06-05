@@ -1,0 +1,22 @@
+name: shap-enso
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - xarray
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - cartopy
+  - netcdf4
+  - zarr
+  - dask
+  - pip
+  - pip:
+    - shap
+    - torch
+    - torchvision
+    - marimo
