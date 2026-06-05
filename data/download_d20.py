@@ -197,49 +197,47 @@ def download_oras5(cfg: dict, out_dir: Path) -> Path:
     c = cdsapi.Client()
 
     # ORAS5 consolidated ends at 2021; operational covers 2019–present.
+    # CDS enforces a per-request cost limit — download one year at a time to stay
+    # within the limit (the full 43-year consolidated request returns 403).
     CONSOLIDATED_END = 2021
     OPERATIONAL_START = 2019
 
-    def _fetch_and_open(product_type: str, years: list[str], label: str) -> "xr.Dataset":
-        log.info("ORAS5 CDS request: product_type=%s  years=%s–%s",
-                 product_type, years[0], years[-1])
-        tmpdir_req = Path(tempfile.mkdtemp())
-        zip_path = str(tmpdir_req / f"oras5_{label}.zip")
+    def _fetch_one_year(product_type: str, year: int) -> "xr.Dataset":
+        log.info("ORAS5 CDS request: product_type=%s  year=%d", product_type, year)
+        tmpdir_yr = Path(tempfile.mkdtemp())
+        zip_path = str(tmpdir_yr / f"oras5_{product_type}_{year}.zip")
         c.retrieve(
             "reanalysis-oras5",
             {
                 "product_type": product_type,
                 "vertical_resolution": "single_level",
                 "variable": "ocean_heat_content_for_the_upper_300m",
-                "year": years,
+                "year": [str(year)],
                 "month": months,
             },
             zip_path,
         )
         # CDS returns a ZIP — extract it
-        nc_dir = tmpdir_req / "extracted"
+        nc_dir = tmpdir_yr / "extracted"
         nc_dir.mkdir()
         with zipfile.ZipFile(zip_path, "r") as zf:
             zf.extractall(str(nc_dir))
         nc_files = sorted(_glob.glob(str(nc_dir / "*.nc")))
         if not nc_files:
-            raise RuntimeError(f"No .nc files found in ORAS5 zip for {label}")
-        log.info("  Extracted %d NC file(s) for %s", len(nc_files), label)
+            raise RuntimeError(f"No .nc files found in ORAS5 zip for {product_type} {year}")
         return xr.open_mfdataset(nc_files, combine="by_coords")
 
     parts = []
 
-    # Consolidated portion (1979–2021)
-    con_years = [str(y) for y in range(start_yr, min(end_yr, CONSOLIDATED_END) + 1)]
-    if con_years:
-        parts.append(_fetch_and_open("consolidated", con_years, "consolidated"))
+    # Consolidated portion (start_yr–2021) — one year per request
+    for yr in range(start_yr, min(end_yr, CONSOLIDATED_END) + 1):
+        parts.append(_fetch_one_year("consolidated", yr))
 
-    # Operational portion (2022–end_yr)
+    # Operational portion (2022–end_yr) — one year per request
     if end_yr > CONSOLIDATED_END:
         op_start = max(start_yr, OPERATIONAL_START, CONSOLIDATED_END + 1)
-        op_years = [str(y) for y in range(op_start, end_yr + 1)]
-        if op_years:
-            parts.append(_fetch_and_open("operational", op_years, "operational"))
+        for yr in range(op_start, end_yr + 1):
+            parts.append(_fetch_one_year("operational", yr))
 
     if not parts:
         raise RuntimeError("No ORAS5 data retrieved.")
