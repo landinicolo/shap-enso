@@ -196,11 +196,15 @@ def download_oras5(cfg: dict, out_dir: Path) -> Path:
     months = [f"{m:02d}" for m in range(1, 13)]
     c = cdsapi.Client()
 
-    # ORAS5 consolidated ends at 2021; operational covers 2019–present.
-    # CDS enforces a per-request cost limit — download one year at a time to stay
-    # within the limit (the full 43-year consolidated request returns 403).
-    CONSOLIDATED_END = 2021
-    OPERATIONAL_START = 2019
+    # CDS enforces a per-request cost limit — download one year at a time.
+    # For each year try consolidated first, then operational as fallback.
+    # OHC300 in consolidated is available up to ~2014; later years need operational
+    # (which covers 2019+). Years with no data on either product type are skipped
+    # and filled by linear interpolation over time after assembly.
+
+    # Per-year cache so partially-completed runs can resume without re-downloading
+    cache_dir = out_dir / "cache"
+    cache_dir.mkdir(parents=True, exist_ok=True)
 
     def _fetch_one_year(product_type: str, year: int) -> "xr.Dataset":
         log.info("ORAS5 CDS request: product_type=%s  year=%d", product_type, year)
@@ -217,7 +221,6 @@ def download_oras5(cfg: dict, out_dir: Path) -> Path:
             },
             zip_path,
         )
-        # CDS returns a ZIP — extract it
         nc_dir = tmpdir_yr / "extracted"
         nc_dir.mkdir()
         with zipfile.ZipFile(zip_path, "r") as zf:
@@ -227,20 +230,42 @@ def download_oras5(cfg: dict, out_dir: Path) -> Path:
             raise RuntimeError(f"No .nc files found in ORAS5 zip for {product_type} {year}")
         return xr.open_mfdataset(nc_files, combine="by_coords")
 
+    def _fetch_year_with_fallback(year: int) -> "xr.Dataset | None":
+        """Try consolidated, then operational; cache success; return None if both fail."""
+        import requests as _req
+        cached = cache_dir / f"ohc300_{year}.nc"
+        if cached.exists():
+            log.info("  Cache hit: %s", cached)
+            return xr.open_dataset(str(cached))
+        for pt in ("consolidated", "operational"):
+            try:
+                ds_yr = _fetch_one_year(pt, year)
+                # Save to cache so job restarts skip re-downloading
+                ds_yr.to_netcdf(str(cached))
+                ds_yr.close()
+                return xr.open_dataset(str(cached))
+            except _req.HTTPError as exc:
+                if exc.response is not None and exc.response.status_code in (400, 403):
+                    log.warning("  %s %d → HTTP %s; trying next product_type",
+                                pt, year, exc.response.status_code)
+                else:
+                    raise
+        log.warning("  No product_type succeeded for year %d — will interpolate", year)
+        return None
+
     parts = []
-
-    # Consolidated portion (start_yr–2021) — one year per request
-    for yr in range(start_yr, min(end_yr, CONSOLIDATED_END) + 1):
-        parts.append(_fetch_one_year("consolidated", yr))
-
-    # Operational portion (2022–end_yr) — one year per request
-    if end_yr > CONSOLIDATED_END:
-        op_start = max(start_yr, OPERATIONAL_START, CONSOLIDATED_END + 1)
-        for yr in range(op_start, end_yr + 1):
-            parts.append(_fetch_one_year("operational", yr))
+    skipped = []
+    for yr in range(start_yr, end_yr + 1):
+        ds_yr = _fetch_year_with_fallback(yr)
+        if ds_yr is not None:
+            parts.append(ds_yr)
+        else:
+            skipped.append(yr)
 
     if not parts:
-        raise RuntimeError("No ORAS5 data retrieved.")
+        raise RuntimeError("No ORAS5 data retrieved for any year.")
+    if skipped:
+        log.warning("Years with no ORAS5 data (will interpolate): %s", skipped)
 
     ds = xr.concat(parts, dim="time").sortby("time") if len(parts) > 1 else parts[0]
 
@@ -255,10 +280,19 @@ def download_oras5(cfg: dict, out_dir: Path) -> Path:
         da = da.sel(lat=slice(lat_min, lat_max), lon=slice(lon_min, lon_max))
 
     da = da.rename("d20")
+
+    # If any years were skipped (no data on either product_type), fill by linear
+    # interpolation along the time axis. Gaps of a few years are acceptable given
+    # the slow variability of OHC300.
+    if skipped:
+        da = da.interpolate_na(dim="time", method="linear")
+        log.info("Interpolated %d missing year(s): %s", len(skipped), skipped)
+
     da.attrs.update({
         "long_name": "Ocean heat content upper 300 m (proxy for D20)",
         "units": ds[var_name].attrs.get("units", "J m-2"),
         "source": "ORAS5 via ECMWF CDS",
+        "missing_years_interpolated": str(skipped) if skipped else "none",
     })
 
     encoding = {"d20": {"zlib": True, "complevel": 4}}
