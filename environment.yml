@@ -15,6 +15,7 @@ dependencies:
   # --- data I/O ---
   - netcdf4               # xarray backend for ERA5 / GODAS .nc files
   - zarr                  # SHAP and preprocessed data stores
+  - pydap                 # OPeNDAP backend for xarray (GODAS D20 streaming)
   - requests              # NOAA Niño 3.4 index download
 
   # --- config ---
