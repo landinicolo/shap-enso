@@ -13,7 +13,7 @@ data:
     - slp     # mean sea level pressure
   # D20 (20°C isotherm depth) is sourced separately — ERA5 does not carry it natively.
   # Options: "godas" (NOAA ERDDAP) | "era5_ocean" (derived from ERA5 ocean temperature profiles)
-  d20_source: "godas"
+  d20_source: "oras5"
   lat_slice: [-30.0, 30.0]
   lon_slice: [120.0, 290.0]   # 120°E–70°W on a 0–360 grid
   time_slice: ["1979-01", "2023-12"]

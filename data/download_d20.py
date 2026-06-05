@@ -148,7 +148,19 @@ def download_godas(cfg: dict, out_dir: Path) -> Path:
 
 
 def download_oras5(cfg: dict, out_dir: Path) -> Path:
-    """Download D20 from ECMWF ORAS5 via the Copernicus CDS API.
+    """Download subsurface ocean heat content from ORAS5 via the Copernicus CDS API.
+
+    Uses `ocean_heat_content_for_the_upper_300m` (OHC300) as a proxy for D20
+    (depth of 20°C isotherm). OHC300 is physically related to thermocline depth
+    and is a well-established ENSO indicator. `depth_of_20c_isotherm` is no longer
+    available in the new CDS API for ORAS5.
+
+    ORAS5 has two product types on CDS:
+      - 'consolidated': 1958–2021 (quality-controlled, delayed)
+      - 'operational': 2019–present (near-real-time)
+    Years spanning both periods are split into two requests then merged.
+
+    CDS returns a ZIP archive for this variable; extraction is handled automatically.
 
     Requires:
       - cdsapi installed and ~/.cdsapirc configured
@@ -163,11 +175,17 @@ def download_oras5(cfg: dict, out_dir: Path) -> Path:
     """
     try:
         import cdsapi
+        import xarray as xr
+        import tempfile
+        import zipfile
+        import glob as _glob
     except ImportError:
-        raise ImportError("cdsapi not installed. Run: pip install cdsapi")
+        raise ImportError("cdsapi / xarray not installed.")
 
     start, end = cfg["data"]["time_slice"]
-    start_yr, end_yr = start[:4], end[:4]
+    start_yr, end_yr = int(start[:4]), int(end[:4])
+    lat_min, lat_max = cfg["data"]["lat_slice"]
+    lon_min, lon_max = cfg["data"]["lon_slice"]
 
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / f"d20_monthly_{start_yr}_{end_yr}.nc"
@@ -175,23 +193,82 @@ def download_oras5(cfg: dict, out_dir: Path) -> Path:
         log.info("Already exists — skipping: %s", out_path)
         return out_path
 
-    years  = [str(y) for y in range(int(start_yr), int(end_yr) + 1)]
     months = [f"{m:02d}" for m in range(1, 13)]
-
-    log.info("Downloading ORAS5 D20 (%s–%s) via CDS ...", start_yr, end_yr)
     c = cdsapi.Client()
-    c.retrieve(
-        "reanalysis-oras5",
-        {
-            "product_type": "consolidated",
-            "vertical_resolution": "single_level",
-            "variable": "depth_of_20c_isotherm",
-            "year": years,
-            "month": months,
-        },
-        str(out_path),
-    )
-    log.info("Saved ORAS5 D20: %s", out_path)
+
+    # ORAS5 consolidated ends at 2021; operational covers 2019–present.
+    CONSOLIDATED_END = 2021
+    OPERATIONAL_START = 2019
+
+    def _fetch_and_open(product_type: str, years: list[str], label: str) -> "xr.Dataset":
+        log.info("ORAS5 CDS request: product_type=%s  years=%s–%s",
+                 product_type, years[0], years[-1])
+        tmpdir_req = Path(tempfile.mkdtemp())
+        zip_path = str(tmpdir_req / f"oras5_{label}.zip")
+        c.retrieve(
+            "reanalysis-oras5",
+            {
+                "product_type": product_type,
+                "vertical_resolution": "single_level",
+                "variable": "ocean_heat_content_for_the_upper_300m",
+                "year": years,
+                "month": months,
+            },
+            zip_path,
+        )
+        # CDS returns a ZIP — extract it
+        nc_dir = tmpdir_req / "extracted"
+        nc_dir.mkdir()
+        with zipfile.ZipFile(zip_path, "r") as zf:
+            zf.extractall(str(nc_dir))
+        nc_files = sorted(_glob.glob(str(nc_dir / "*.nc")))
+        if not nc_files:
+            raise RuntimeError(f"No .nc files found in ORAS5 zip for {label}")
+        log.info("  Extracted %d NC file(s) for %s", len(nc_files), label)
+        return xr.open_mfdataset(nc_files, combine="by_coords")
+
+    parts = []
+
+    # Consolidated portion (1979–2021)
+    con_years = [str(y) for y in range(start_yr, min(end_yr, CONSOLIDATED_END) + 1)]
+    if con_years:
+        parts.append(_fetch_and_open("consolidated", con_years, "consolidated"))
+
+    # Operational portion (2022–end_yr)
+    if end_yr > CONSOLIDATED_END:
+        op_start = max(start_yr, OPERATIONAL_START, CONSOLIDATED_END + 1)
+        op_years = [str(y) for y in range(op_start, end_yr + 1)]
+        if op_years:
+            parts.append(_fetch_and_open("operational", op_years, "operational"))
+
+    if not parts:
+        raise RuntimeError("No ORAS5 data retrieved.")
+
+    ds = xr.concat(parts, dim="time").sortby("time") if len(parts) > 1 else parts[0]
+
+    # Rename whatever variable is present to "d20" (proxy), select tropical Pacific
+    var_name = list(ds.data_vars)[0]
+    da = ds[var_name]
+
+    # Spatial subset — handle both [-180,180] and [0,360] lon conventions
+    if float(da.lon.min()) < 0:
+        da = da.sel(lat=slice(lat_min, lat_max), lon=slice(lon_min - 360, lon_max - 360))
+    else:
+        da = da.sel(lat=slice(lat_min, lat_max), lon=slice(lon_min, lon_max))
+
+    da = da.rename("d20")
+    da.attrs.update({
+        "long_name": "Ocean heat content upper 300 m (proxy for D20)",
+        "units": ds[var_name].attrs.get("units", "J m-2"),
+        "source": "ORAS5 via ECMWF CDS",
+    })
+
+    encoding = {"d20": {"zlib": True, "complevel": 4}}
+    da.to_netcdf(str(out_path), encoding=encoding)
+    for p in parts:
+        p.close()
+
+    log.info("Saved ORAS5 OHC300 (D20 proxy): %s", out_path)
     return out_path
 
 
