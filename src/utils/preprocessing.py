@@ -520,3 +520,113 @@ def run_preprocessing(cfg: dict) -> dict[str, Path]:
         log.info("  %-30s %s", name, path)
 
     return outputs
+
+
+# ---------------------------------------------------------------------------
+# LSTM sequence builder
+# ---------------------------------------------------------------------------
+
+def build_lstm_sequences(
+    df_basin: pd.DataFrame,
+    target: xr.DataArray,
+    lead_months: int,
+    sequence_length: int = 12,
+) -> tuple[np.ndarray, np.ndarray, list[str], pd.DatetimeIndex]:
+    """Build overlapping sequences for LSTM input.
+
+    For each initialisation time t the sequence is df_basin[t-seq_len+1 : t+1],
+    shaped (sequence_length, n_vars).  The target is Niño 3.4 at t + lead_months.
+
+    Args:
+        df_basin:        DataFrame (time × n_vars) of basin-mean anomalies.
+        target:          DataArray of Niño 3.4 anomaly.
+        lead_months:     Forecast lead L.
+        sequence_length: Number of past months fed as input sequence.
+
+    Returns:
+        X:            (n_samples, sequence_length, n_vars) float32
+        y:            (n_samples,) float32
+        var_names:    list of variable names (length n_vars)
+        valid_times:  DatetimeIndex of initialisation times
+    """
+    tgt_series = target.to_series().reindex(df_basin.index)
+    n = len(df_basin)
+
+    rows_X, rows_y, row_times = [], [], []
+    for i in range(sequence_length - 1, n):
+        j = i + lead_months
+        if j >= n:
+            break
+        y_val = tgt_series.iloc[j]
+        if np.isnan(y_val):
+            continue
+        seq = df_basin.iloc[i - sequence_length + 1 : i + 1].values  # (seq_len, n_vars)
+        rows_X.append(seq)
+        rows_y.append(y_val)
+        row_times.append(df_basin.index[i])
+
+    X = np.array(rows_X, dtype=np.float32)
+    y = np.array(rows_y, dtype=np.float32)
+    return X, y, list(df_basin.columns), pd.DatetimeIndex(row_times)
+
+
+# ---------------------------------------------------------------------------
+# CNN tensor builder
+# ---------------------------------------------------------------------------
+
+def build_cnn_tensors(
+    ds_anom: xr.Dataset,
+    target: xr.DataArray,
+    lead_months: int,
+    n_lags: int = 4,
+    variables: list[str] | None = None,
+) -> tuple[np.ndarray, np.ndarray, list[str], pd.DatetimeIndex]:
+    """Build multi-channel 2-D tensors for CNN input.
+
+    For each initialisation time t, stacks n_lags consecutive fields for every
+    variable into a (n_vars × n_lags, lat, lon) channel tensor.
+
+    Args:
+        ds_anom:     Anomaly Dataset on the 2° grid (time, lat, lon per var).
+        target:      DataArray of Niño 3.4 anomaly.
+        lead_months: Forecast lead L.
+        n_lags:      Number of lag time steps (channels per variable).
+        variables:   Variables to include; defaults to all data_vars.
+
+    Returns:
+        X:             (n_samples, n_vars*n_lags, lat, lon) float32
+        y:             (n_samples,) float32
+        channel_names: list of "{var}_lag{l}" strings
+        valid_times:   DatetimeIndex of initialisation times
+    """
+    if variables is None:
+        variables = [v for v in ds_anom.data_vars]
+
+    times = pd.DatetimeIndex(ds_anom.time.values)
+    tgt_series = target.to_series()
+    n = len(times)
+
+    # Pre-load all fields into memory as numpy arrays for speed
+    arrays: dict[str, np.ndarray] = {v: ds_anom[v].values for v in variables}
+
+    rows_X, rows_y, row_times = [], [], []
+    for i in range(n_lags - 1, n):
+        j = i + lead_months
+        if j >= n:
+            break
+        t_verif = times[j]
+        if t_verif not in tgt_series.index:
+            continue
+        y_val = tgt_series.loc[t_verif]
+        if np.isnan(y_val):
+            continue
+
+        channels = [arrays[v][i - lag] for v in variables for lag in range(n_lags)]
+        rows_X.append(np.stack(channels, axis=0))   # (n_vars*n_lags, lat, lon)
+        rows_y.append(y_val)
+        row_times.append(times[i])
+
+    X = np.array(rows_X, dtype=np.float32)
+    y = np.array(rows_y, dtype=np.float32)
+    channel_names = [f"{v}_lag{lag}" for v in variables for lag in range(n_lags)]
+    return X, y, channel_names, pd.DatetimeIndex(row_times)
