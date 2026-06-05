@@ -14,9 +14,16 @@ dependencies:
   - netcdf4
   - zarr
   - dask
+  - dask-jobqueue       # PBS-aware dask clusters on Casper
+  - bottleneck          # speeds up xarray reductions
+  - pyyaml
+  - xesmf               # conservative/bilinear regridding
   - pip
   - pip:
-    - shap
-    - torch
+    - shap>=0.44
+    - torch>=2.2
     - torchvision
     - marimo
+    - xgboost>=2.0
+    - cdsapi             # Copernicus CDS API client for ERA5
+    - captum             # gradient-based attribution for PyTorch

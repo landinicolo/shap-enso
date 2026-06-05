@@ -1,0 +1,13 @@
+experiment:
+  name: "lstm_regression"
+  seed: 42
+  output_dir: "/glade/work/acsubram/GitRepos/shap-enso"
+
+model:
+  type: "lstm"
+  task: "regression"
+
+shap:
+  explainer_type: "gradient"
+  background_samples: 200
+  max_eval_samples: 500

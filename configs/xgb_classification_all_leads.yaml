@@ -1,0 +1,11 @@
+experiment:
+  name: "xgb_classification"
+  seed: 42
+  output_dir: "/glade/work/acsubram/GitRepos/shap-enso"
+
+model:
+  type: "xgboost"
+  task: "classification"
+
+shap:
+  explainer_type: "tree"

@@ -35,6 +35,7 @@ data/processed/
 figures/
 
 # HPC job output
+logs/
 *.o[0-9]*
 *.e[0-9]*
 *.log

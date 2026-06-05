@@ -1,0 +1,13 @@
+experiment:
+  name: "cnn_regression"
+  seed: 42
+  output_dir: "/glade/work/acsubram/GitRepos/shap-enso"
+
+model:
+  type: "cnn"
+  task: "regression"
+
+shap:
+  explainer_type: "deep"
+  background_samples: 100   # CNN SHAP is memory-intensive; keep background smaller
+  max_eval_samples: 300

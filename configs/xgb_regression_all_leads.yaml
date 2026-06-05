@@ -1,0 +1,8 @@
+experiment:
+  name: "xgb_regression"
+  seed: 42
+  output_dir: "/glade/work/acsubram/GitRepos/shap-enso"
+
+model:
+  type: "xgboost"
+  task: "regression"
