@@ -393,6 +393,11 @@ def load_raw_predictors(cfg: dict) -> xr.Dataset:
         ds_v = xr.open_dataset(fpath)
         # Drop CDS metadata coords that differ across variables and break xr.Dataset()
         ds_v = ds_v.drop_vars([v for v in ("expver", "number") if v in ds_v.coords or v in ds_v])
+        # Normalise spatial coord names to lat/lon before merging
+        _rename = {k: v for k, v in (("latitude", "lat"), ("longitude", "lon"))
+                   if k in ds_v.coords and v not in ds_v.coords}
+        if _rename:
+            ds_v = ds_v.rename(_rename)
         # Map CDS long name back to short name if needed
         cds_name = {v: k for k, v in ERA5_VAR_MAP.items()}.get(list(ds_v.data_vars)[0])
         da = ds_v[list(ds_v.data_vars)[0]].rename(cds_name or var)
