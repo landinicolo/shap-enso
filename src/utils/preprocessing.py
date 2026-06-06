@@ -83,11 +83,29 @@ def regrid_to_common(
     try:
         import xesmf as xe
 
-        ds_out = xr.Dataset({"lat": target_lat, "lon": target_lon})
+        # lat/lon must be dimension-indexed coordinates for xesmf to recognise
+        # the target as a rectilinear grid (plain variables → ncells flat output).
+        ds_out = xr.Dataset(
+            coords={
+                "lat": xr.DataArray(target_lat, dims=["lat"],
+                                    attrs={"units": "degrees_north"}),
+                "lon": xr.DataArray(target_lon, dims=["lon"],
+                                    attrs={"units": "degrees_east"}),
+            }
+        )
         regridder = xe.Regridder(ds, ds_out, method=method, periodic=False)
-        return regridder(ds)
+        ds_regrid = regridder(ds)
+        # Ensure output dims are named lat/lon regardless of xesmf version
+        rename = {}
+        for old, new in [("latitude", "lat"), ("longitude", "lon"),
+                         ("y", "lat"), ("x", "lon")]:
+            if old in ds_regrid.dims and new not in ds_regrid.dims:
+                rename[old] = new
+        if rename:
+            ds_regrid = ds_regrid.rename(rename)
+        return ds_regrid
     except ImportError:
-        log.warning("xesmf not available — falling back to xarray interp (nearest)")
+        log.warning("xesmf not available — falling back to xarray interp (linear)")
         return ds.interp(lat=target_lat, lon=target_lon, method="linear")
 
 
