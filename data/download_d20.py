@@ -193,18 +193,23 @@ def download_oras5(cfg: dict, out_dir: Path) -> Path:
         log.info("Already exists — skipping: %s", out_path)
         return out_path
 
+    try:
+        import xesmf as xe
+    except ImportError:
+        raise ImportError("xesmf not installed — needed to regrid ORAS5 ORCA1 grid.")
+
     months = [f"{m:02d}" for m in range(1, 13)]
     c = cdsapi.Client()
 
     # CDS enforces a per-request cost limit — download one year at a time.
-    # For each year try consolidated first, then operational as fallback.
-    # OHC300 in consolidated is available up to ~2014; later years need operational
-    # (which covers 2019+). Years with no data on either product type are skipped
-    # and filled by linear interpolation over time after assembly.
-
-    # Per-year cache so partially-completed runs can resume without re-downloading
+    # Consolidated OHC300 covers ~1979-2014; later years need operational.
+    # Per-year raw cache (full ORCA1 grid) allows resuming after failures.
     cache_dir = out_dir / "cache"
     cache_dir.mkdir(parents=True, exist_ok=True)
+
+    # 1° regular lat/lon target grid for the tropical Pacific
+    lat_out = np.arange(lat_min, lat_max + 0.5, 1.0)
+    lon_out = np.arange(lon_min, lon_max + 0.5, 1.0)  # 0-360 convention
 
     def _fetch_one_year(product_type: str, year: int) -> "xr.Dataset":
         log.info("ORAS5 CDS request: product_type=%s  year=%d", product_type, year)
@@ -230,20 +235,18 @@ def download_oras5(cfg: dict, out_dir: Path) -> Path:
             raise RuntimeError(f"No .nc files found in ORAS5 zip for {product_type} {year}")
         return xr.open_mfdataset(nc_files, combine="by_coords")
 
-    def _fetch_year_with_fallback(year: int) -> "xr.Dataset | None":
-        """Try consolidated, then operational; cache success; return None if both fail."""
+    def _ensure_cached(year: int) -> bool:
+        """Download year to raw cache if not present. Returns False if unavailable."""
         import requests as _req
-        cached = cache_dir / f"ohc300_{year}.nc"
-        if cached.exists():
-            log.info("  Cache hit: %s", cached)
-            return xr.open_dataset(str(cached))
+        raw = cache_dir / f"ohc300_{year}.nc"
+        if raw.exists():
+            return True
         for pt in ("consolidated", "operational"):
             try:
                 ds_yr = _fetch_one_year(pt, year)
-                # Save to cache so job restarts skip re-downloading
-                ds_yr.to_netcdf(str(cached))
+                ds_yr.to_netcdf(str(raw))
                 ds_yr.close()
-                return xr.open_dataset(str(cached))
+                return True
             except _req.HTTPError as exc:
                 if exc.response is not None and exc.response.status_code in (400, 403):
                     log.warning("  %s %d → HTTP %s; trying next product_type",
@@ -251,55 +254,75 @@ def download_oras5(cfg: dict, out_dir: Path) -> Path:
                 else:
                     raise
         log.warning("  No product_type succeeded for year %d — will interpolate", year)
-        return None
+        return False
 
-    parts = []
+    # Step 1: ensure all years are in the raw cache
     skipped = []
     for yr in range(start_yr, end_yr + 1):
-        ds_yr = _fetch_year_with_fallback(yr)
-        if ds_yr is not None:
-            parts.append(ds_yr)
-        else:
+        if not _ensure_cached(yr):
             skipped.append(yr)
 
-    if not parts:
+    available = [yr for yr in range(start_yr, end_yr + 1) if yr not in skipped]
+    if not available:
         raise RuntimeError("No ORAS5 data retrieved for any year.")
     if skipped:
         log.warning("Years with no ORAS5 data (will interpolate): %s", skipped)
 
-    ds = xr.concat(parts, dim="time").sortby("time") if len(parts) > 1 else parts[0]
+    # Step 2: regrid each year from ORCA1 curvilinear to regular 1° lat/lon,
+    # processing one year at a time to keep memory usage low.
+    # ORAS5 uses NEMO ORCA1 grid: dims (time_counter, y, x), coords nav_lat/nav_lon.
+    ds_out_grid = xr.Dataset({
+        "lat": xr.DataArray(lat_out, dims=["lat"]),
+        "lon": xr.DataArray(lon_out, dims=["lon"]),
+    })
+    regridder = None
+    da_years = []
 
-    # Rename whatever variable is present to "d20" (proxy), select tropical Pacific
-    var_name = list(ds.data_vars)[0]
-    da = ds[var_name]
+    for yr in range(start_yr, end_yr + 1):
+        raw = cache_dir / f"ohc300_{yr}.nc"
+        if not raw.exists():
+            continue  # skipped year — will be filled by interpolation
 
-    # Spatial subset — handle both [-180,180] and [0,360] lon conventions
-    if float(da.lon.min()) < 0:
-        da = da.sel(lat=slice(lat_min, lat_max), lon=slice(lon_min - 360, lon_max - 360))
-    else:
-        da = da.sel(lat=slice(lat_min, lat_max), lon=slice(lon_min, lon_max))
+        ds_yr = xr.open_dataset(str(raw)).compute()
 
-    da = da.rename("d20")
+        # Attach 2D lat/lon as xesmf-compatible coordinates.
+        # nav_lon is on -180..180; convert to 0-360 to match our target domain.
+        nav_lon_360 = xr.where(ds_yr["nav_lon"] < 0,
+                               ds_yr["nav_lon"] + 360, ds_yr["nav_lon"])
+        ds_src = ds_yr.assign_coords({"lat": ds_yr["nav_lat"], "lon": nav_lon_360})
 
-    # If any years were skipped (no data on either product_type), fill by linear
-    # interpolation along the time axis. Gaps of a few years are acceptable given
-    # the slow variability of OHC300.
+        # Build regridder once (same ORCA1 grid for every year)
+        if regridder is None:
+            log.info("Building xesmf regridder (ORCA1 → 1° lat/lon) ...")
+            regridder = xe.Regridder(ds_src, ds_out_grid, method="bilinear",
+                                     periodic=True)
+
+        da_yr = regridder(ds_src["sohtc300"])          # (time_counter, lat, lon)
+        da_yr = da_yr.rename({"time_counter": "time"}) # standardise time dim name
+        da_years.append(da_yr)
+        ds_yr.close()
+        log.info("  Regridded year %d", yr)
+
+    if not da_years:
+        raise RuntimeError("No years available after regridding.")
+
+    da = xr.concat(da_years, dim="time").sortby("time")
+
+    # Fill skipped years by linear interpolation along time
     if skipped:
         da = da.interpolate_na(dim="time", method="linear")
         log.info("Interpolated %d missing year(s): %s", len(skipped), skipped)
 
+    da = da.rename("d20")
     da.attrs.update({
         "long_name": "Ocean heat content upper 300 m (proxy for D20)",
-        "units": ds[var_name].attrs.get("units", "J m-2"),
-        "source": "ORAS5 via ECMWF CDS",
+        "units": "J m-2",
+        "source": "ORAS5 via ECMWF CDS, regridded from ORCA1 to 1° lat/lon",
         "missing_years_interpolated": str(skipped) if skipped else "none",
     })
 
     encoding = {"d20": {"zlib": True, "complevel": 4}}
     da.to_netcdf(str(out_path), encoding=encoding)
-    for p in parts:
-        p.close()
-
     log.info("Saved ORAS5 OHC300 (D20 proxy): %s", out_path)
     return out_path
 
