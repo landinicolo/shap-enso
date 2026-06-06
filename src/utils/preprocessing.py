@@ -391,6 +391,8 @@ def load_raw_predictors(cfg: dict) -> xr.Dataset:
                 f"Run: python data/download_era5.py --config configs/default.yaml"
             )
         ds_v = xr.open_dataset(fpath)
+        # Drop CDS metadata coords that differ across variables and break xr.Dataset()
+        ds_v = ds_v.drop_vars([v for v in ("expver", "number") if v in ds_v.coords or v in ds_v])
         # Map CDS long name back to short name if needed
         cds_name = {v: k for k, v in ERA5_VAR_MAP.items()}.get(list(ds_v.data_vars)[0])
         da = ds_v[list(ds_v.data_vars)[0]].rename(cds_name or var)
