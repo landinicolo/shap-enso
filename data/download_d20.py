@@ -193,10 +193,8 @@ def download_oras5(cfg: dict, out_dir: Path) -> Path:
         log.info("Already exists — skipping: %s", out_path)
         return out_path
 
-    try:
-        import xesmf as xe
-    except ImportError:
-        raise ImportError("xesmf not installed — needed to regrid ORAS5 ORCA1 grid.")
+    from scipy.interpolate import LinearNDInterpolator
+    from scipy.spatial import Delaunay
 
     months = [f"{m:02d}" for m in range(1, 13)]
     c = cdsapi.Client()
@@ -268,14 +266,16 @@ def download_oras5(cfg: dict, out_dir: Path) -> Path:
     if skipped:
         log.warning("Years with no ORAS5 data (will interpolate): %s", skipped)
 
-    # Step 2: regrid each year from ORCA1 curvilinear to regular 1° lat/lon,
-    # processing one year at a time to keep memory usage low.
-    # ORAS5 uses NEMO ORCA1 grid: dims (time_counter, y, x), coords nav_lat/nav_lon.
-    ds_out_grid = xr.Dataset({
-        "lat": xr.DataArray(lat_out, dims=["lat"]),
-        "lon": xr.DataArray(lon_out, dims=["lon"]),
-    })
-    regridder = None
+    # Step 2: regrid each year from ORCA1 curvilinear to regular 1° lat/lon.
+    # xesmf fails on the ORCA1 tripolar grid; use scipy LinearNDInterpolator instead.
+    # Build the Delaunay triangulation once from the static ORCA1 grid, reuse for all
+    # time steps and years.
+
+    # Target grid (meshgrid of target lat/lon points)
+    lon_g, lat_g = np.meshgrid(lon_out, lat_out)   # both shape (nlat, nlon)
+    tgt_pts = np.column_stack([lat_g.ravel(), lon_g.ravel()])
+
+    tri = None      # Delaunay triangulation built on first year
     da_years = []
 
     for yr in range(start_yr, end_yr + 1):
@@ -285,20 +285,44 @@ def download_oras5(cfg: dict, out_dir: Path) -> Path:
 
         ds_yr = xr.open_dataset(str(raw)).compute()
 
-        # Attach 2D lat/lon as xesmf-compatible coordinates.
-        # nav_lon is on -180..180; convert to 0-360 to match our target domain.
-        nav_lon_360 = xr.where(ds_yr["nav_lon"] < 0,
-                               ds_yr["nav_lon"] + 360, ds_yr["nav_lon"])
-        ds_src = ds_yr.assign_coords({"lat": ds_yr["nav_lat"], "lon": nav_lon_360})
+        # nav_lon is -180..180; convert to 0-360 to match target domain
+        nav_lat_np = ds_yr["nav_lat"].values.ravel()
+        nav_lon_np = ds_yr["nav_lon"].values.ravel()
+        nav_lon_360 = np.where(nav_lon_np < 0, nav_lon_np + 360, nav_lon_np)
 
-        # Build regridder once (same ORCA1 grid for every year)
-        if regridder is None:
-            log.info("Building xesmf regridder (ORCA1 → 1° lat/lon) ...")
-            regridder = xe.Regridder(ds_src, ds_out_grid, method="bilinear",
-                                     periodic=True)
+        # Build triangulation once — same ORCA1 grid every year
+        if tri is None:
+            log.info("Building scipy Delaunay triangulation for ORCA1 grid ...")
+            # Restrict to domain + 3° buffer to speed up triangulation
+            buf = 3.0
+            domain_mask = (
+                (nav_lat_np >= lat_min - buf) & (nav_lat_np <= lat_max + buf) &
+                (nav_lon_360 >= lon_min - buf) & (nav_lon_360 <= lon_max + buf)
+            )
+            src_pts = np.column_stack([nav_lat_np[domain_mask],
+                                       nav_lon_360[domain_mask]])
+            tri = Delaunay(src_pts)
+            log.info("  Triangulation done: %d source points", domain_mask.sum())
 
-        da_yr = regridder(ds_src["sohtc300"])          # (time_counter, lat, lon)
-        da_yr = da_yr.rename({"time_counter": "time"}) # standardise time dim name
+        data_np = ds_yr["sohtc300"].values  # (time_counter, y, x)
+        nt = data_np.shape[0]
+        nlat, nlon = len(lat_out), len(lon_out)
+        regridded = np.full((nt, nlat, nlon), np.nan, dtype=np.float32)
+
+        for t in range(nt):
+            vals_flat = data_np[t].ravel()[domain_mask]
+            valid = ~np.isnan(vals_flat)
+            if valid.sum() < 3:
+                continue
+            interp = LinearNDInterpolator(tri.points[valid], vals_flat[valid])
+            regridded[t] = interp(tgt_pts).reshape(nlat, nlon)
+
+        times = ds_yr["time_counter"].values
+        da_yr = xr.DataArray(
+            regridded,
+            coords={"time": times, "lat": lat_out, "lon": lon_out},
+            dims=["time", "lat", "lon"],
+        )
         da_years.append(da_yr)
         ds_yr.close()
         log.info("  Regridded year %d", yr)
