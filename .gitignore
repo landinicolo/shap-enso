@@ -26,6 +26,8 @@ data/raw/
 data/processed/
 *.nc
 *.zarr
+# SHAP outputs are small enough to track
+!data/shap/*.zarr
 *.h5
 *.hdf5
 *.grib

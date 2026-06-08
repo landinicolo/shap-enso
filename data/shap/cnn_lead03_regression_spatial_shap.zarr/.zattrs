@@ -1,0 +1,6 @@
+{
+  "model_type": "cnn",
+  "lead_months": 3,
+  "task": "regression",
+  "created": "2026-06-08"
+}

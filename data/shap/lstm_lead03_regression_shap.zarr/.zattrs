@@ -1,0 +1,9 @@
+{
+  "model_type": "lstm",
+  "lead_months": 3,
+  "task": "regression",
+  "base_value": 0.0,
+  "n_features": 9,
+  "n_samples": 105,
+  "created": "2026-06-08"
+}

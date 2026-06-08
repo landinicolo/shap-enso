@@ -1,0 +1,9 @@
+{
+  "model_type": "xgboost",
+  "lead_months": 3,
+  "task": "classification",
+  "base_value": -0.014235059730708599,
+  "n_features": 38,
+  "n_samples": 105,
+  "created": "2026-06-08"
+}
