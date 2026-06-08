@@ -473,9 +473,17 @@ def run_preprocessing(cfg: dict) -> dict[str, Path]:
     log.info("Loading raw predictors ...")
     ds_raw = load_raw_predictors(cfg)
 
-    # 2. Regrid
+    # 2. Regrid — ERA5 and D20 are on different source grids so regrid separately
+    # then merge; regridding a merged dataset propagates NaN from the sparser
+    # D20 1° grid into all bilinear weights on the denser ERA5 0.25° grid.
     log.info("Regridding to 2° grid ...")
-    ds_grid = regrid_to_common(ds_raw)
+    era5_vars = [v for v in ds_raw.data_vars if v != "d20"]
+    ds_era5 = regrid_to_common(ds_raw[era5_vars])
+    if "d20" in ds_raw:
+        ds_d20 = regrid_to_common(ds_raw[["d20"]])
+        ds_grid = xr.merge([ds_era5, ds_d20])
+    else:
+        ds_grid = ds_era5
 
     # 3. Domain + time slice
     lat_min, lat_max = cfg["data"]["lat_slice"]
