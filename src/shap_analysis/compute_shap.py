@@ -175,6 +175,11 @@ def compute_deep_shap(
         )
 
     shap_values = _concat_batches(batches)
+    # GradientExplainer/DeepExplainer may append a trailing output dim (shape[..., n_out])
+    # when the model returns (B, n_out) instead of (B,). For regression with _Unsqueeze
+    # n_out==1 — squeeze it so downstream aggregation sees the expected input shape.
+    if shap_values.ndim == X_np.ndim + 1 and shap_values.shape[-1] == 1:
+        shap_values = shap_values[..., 0]
     return shap_values, 0.0
 
 
@@ -190,6 +195,8 @@ def aggregate_lstm_shap(
     Sums the absolute SHAP values over the sequence axis so each feature's
     total contribution across all lag steps is captured.
     """
+    if shap_vals.ndim == 4 and shap_vals.shape[-1] == 1:
+        shap_vals = shap_vals[..., 0]           # drop trailing singleton output dim
     if shap_vals.ndim == 3:
         return np.abs(shap_vals).sum(axis=1)   # sum |SHAP| over seq axis
     return shap_vals                            # already 2-D
@@ -203,6 +210,8 @@ def aggregate_cnn_shap_spatial(
     Used to obtain a per-sample, per-channel feature importance score that
     can be compared with basin-index SHAP values.
     """
+    if shap_vals.ndim == 5 and shap_vals.shape[-1] == 1:
+        shap_vals = shap_vals[..., 0]           # drop trailing singleton output dim
     if shap_vals.ndim == 4:
         return np.abs(shap_vals).mean(axis=(-2, -1))   # mean over lat, lon
     return shap_vals
