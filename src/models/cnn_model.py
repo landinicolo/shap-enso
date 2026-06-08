@@ -97,6 +97,9 @@ class ENSOCNNModel:
         torch, _ = _import_torch()
         if device is None:
             device = "cuda" if torch.cuda.is_available() else "cpu"
+        elif device == "cuda" and not torch.cuda.is_available():
+            log.warning("CUDA requested but not available — falling back to cpu")
+            device = "cpu"
         self.device = device
 
     # ------------------------------------------------------------------

@@ -21,17 +21,8 @@ export PYTHONPATH=${REPO}:${PYTHONPATH:-}
 cd ${REPO}
 
 # -----------------------------------------------------------------------
-# XGBoost — TreeExplainer is CPU-only and fast (minutes per lead)
+# XGBoost SHAP already completed — skipping
 # -----------------------------------------------------------------------
-for LEAD in 3 6 12; do
-    echo "=== XGBoost SHAP  lead=${LEAD}  regression ==="
-    python scripts/compute_shap.py --config ${CONFIG} \
-        --model xgboost --lead ${LEAD} --task regression --device cpu
-
-    echo "=== XGBoost SHAP  lead=${LEAD}  classification ==="
-    python scripts/compute_shap.py --config ${CONFIG} \
-        --model xgboost --lead ${LEAD} --task classification --device cpu
-done
 
 # -----------------------------------------------------------------------
 # LSTM — GradientExplainer, GPU
