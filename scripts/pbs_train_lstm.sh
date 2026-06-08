@@ -3,7 +3,7 @@
 #PBS -A UCUB0143
 #PBS -l select=1:ncpus=4:ngpus=1:mem=32GB:gpu_type=a100
 #PBS -l walltime=06:00:00
-#PBS -q gpudev
+#PBS -q nvgpu
 #PBS -j oe
 #PBS -o /glade/work/acsubram/GitRepos/shap-enso/logs/train_lstm.log
 
@@ -22,10 +22,10 @@ cd ${REPO}
 
 for LEAD in 3 6 12; do
     echo "=== LSTM  lead=${LEAD}  regression ==="
-    python scripts/train_lstm.py --config ${CONFIG} --lead ${LEAD} --task regression --device cuda
+    python scripts/train_lstm.py --config ${CONFIG} --lead ${LEAD} --task regression
 
     echo "=== LSTM  lead=${LEAD}  classification ==="
-    python scripts/train_lstm.py --config ${CONFIG} --lead ${LEAD} --task classification --device cuda
+    python scripts/train_lstm.py --config ${CONFIG} --lead ${LEAD} --task classification
 done
 
 echo "LSTM training complete."

@@ -82,12 +82,17 @@ class ENSOXGBModel:
                 eval_metric="mlogloss",
             )
 
+        # Pass as DataFrame so XGBoost picks up column names without needing
+        # the deprecated feature_names kwarg in fit().
+        if feature_names is not None:
+            import pandas as pd
+            X_train = pd.DataFrame(X_train, columns=feature_names)
+            X_val   = pd.DataFrame(X_val,   columns=feature_names)
+
         fit_kw: dict[str, Any] = {
             "eval_set": [(X_val, y_val)],
             "verbose": False,
         }
-        if feature_names is not None:
-            fit_kw["feature_names"] = feature_names
 
         self.model.fit(X_train, y_train, **fit_kw)
 

@@ -220,7 +220,9 @@ def compute_basin_indices(
         series[col] = _region_mean(ds[var], regions[region_name]).values
 
     times = pd.DatetimeIndex(ds.time.values)
-    return pd.DataFrame(series, index=times)
+    df = pd.DataFrame(series, index=times)
+    df.index.name = "time"
+    return df
 
 
 # ---------------------------------------------------------------------------
@@ -401,6 +403,11 @@ def load_raw_predictors(cfg: dict) -> xr.Dataset:
 
     arrays: dict[str, xr.DataArray] = {}
 
+    def _snap_to_month_start(da: xr.DataArray) -> xr.DataArray:
+        """Snap time coordinate to the first day of each month (e.g. ORAS5 mid-month → start-of-month)."""
+        times = pd.DatetimeIndex(da.time.values).to_period("M").to_timestamp()
+        return da.assign_coords(time=times)
+
     for var in cfg["data"]["era5_variables"]:
         fpath = raw_dir / "era5" / f"{var}_monthly_{start_yr}_{end_yr}.nc"
         if not fpath.exists():
@@ -421,13 +428,14 @@ def load_raw_predictors(cfg: dict) -> xr.Dataset:
         # Map CDS long name back to short name if needed
         cds_name = {v: k for k, v in ERA5_VAR_MAP.items()}.get(list(ds_v.data_vars)[0])
         da = ds_v[list(ds_v.data_vars)[0]].rename(cds_name or var)
-        arrays[cds_name or var] = da
+        arrays[cds_name or var] = _snap_to_month_start(da)
 
     # D20
     d20_path = raw_dir / "d20" / f"d20_monthly_{start_yr}_{end_yr}.nc"
     if d20_path.exists():
         ds_d20 = xr.open_dataset(d20_path)
-        arrays["d20"] = ds_d20[list(ds_d20.data_vars)[0]].rename("d20")
+        da_d20 = ds_d20[list(ds_d20.data_vars)[0]].rename("d20")
+        arrays["d20"] = _snap_to_month_start(da_d20)
     else:
         log.warning(
             "D20 file not found: %s — skipping. Run data/download_d20.py first.", d20_path
