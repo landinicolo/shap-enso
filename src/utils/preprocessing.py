@@ -430,19 +430,39 @@ def load_raw_predictors(cfg: dict) -> xr.Dataset:
         da = ds_v[list(ds_v.data_vars)[0]].rename(cds_name or var)
         arrays[cds_name or var] = _snap_to_month_start(da)
 
-    # D20
-    d20_path = raw_dir / "d20" / f"d20_monthly_{start_yr}_{end_yr}.nc"
-    if d20_path.exists():
-        ds_d20 = xr.open_dataset(d20_path)
-        da_d20 = ds_d20[list(ds_d20.data_vars)[0]].rename("d20")
-        arrays["d20"] = _snap_to_month_start(da_d20)
-    else:
-        log.warning(
-            "D20 file not found: %s — skipping. Run data/download_d20.py first.", d20_path
-        )
-
+    # ERA5-only Dataset — D20 is excluded here so that xr.Dataset() does not
+    # align D20's 1° grid to ERA5's 0.25° grid (which NaN-fills D20 everywhere
+    # except integer-degree lat/lon and breaks downstream regridding).
+    # D20 is loaded and regridded separately via load_raw_d20().
     ds = xr.Dataset(arrays)
     return _convert_units(ds)
+
+
+def load_raw_d20(cfg: dict) -> xr.Dataset | None:
+    """Load the D20/OHC300 file on its native 1° grid.
+
+    Kept separate from load_raw_predictors so that D20 is never merged with
+    ERA5 before regridding — merging would align D20 to ERA5's 0.25° lat/lon,
+    NaN-filling all non-integer grid points and corrupting the regrid step.
+
+    Returns:
+        Dataset with a single 'd20' variable on the native 1° grid,
+        or None if the file does not exist.
+    """
+    raw_dir = Path(cfg["data"]["raw_dir"])
+    start_yr = cfg["data"]["time_slice"][0][:4]
+    end_yr   = cfg["data"]["time_slice"][1][:4]
+    d20_path = raw_dir / "d20" / f"d20_monthly_{start_yr}_{end_yr}.nc"
+
+    if not d20_path.exists():
+        log.warning("D20 file not found: %s — skipping.", d20_path)
+        return None
+
+    ds_d20 = xr.open_dataset(str(d20_path))
+    da     = ds_d20[list(ds_d20.data_vars)[0]].rename("d20")
+    times  = pd.DatetimeIndex(da.time.values).to_period("M").to_timestamp()
+    da     = da.assign_coords(time=times)
+    return xr.Dataset({"d20": da})
 
 
 def run_preprocessing(cfg: dict) -> dict[str, Path]:
@@ -471,16 +491,16 @@ def run_preprocessing(cfg: dict) -> dict[str, Path]:
 
     # 1. Load raw data
     log.info("Loading raw predictors ...")
-    ds_raw = load_raw_predictors(cfg)
+    ds_raw = load_raw_predictors(cfg)   # ERA5 only (no D20)
+    ds_raw_d20 = load_raw_d20(cfg)      # D20 on its native 1° grid
 
-    # 2. Regrid — ERA5 and D20 are on different source grids so regrid separately
-    # then merge; regridding a merged dataset propagates NaN from the sparser
-    # D20 1° grid into all bilinear weights on the denser ERA5 0.25° grid.
+    # 2. Regrid ERA5 and D20 independently to avoid coordinate-alignment NaN.
+    # xr.Dataset(era5+d20) would broadcast D20 onto the ERA5 0.25° grid, filling
+    # non-integer lat/lon with NaN before xesmf even sees the data.
     log.info("Regridding to 2° grid ...")
-    era5_vars = [v for v in ds_raw.data_vars if v != "d20"]
-    ds_era5 = regrid_to_common(ds_raw[era5_vars])
-    if "d20" in ds_raw:
-        ds_d20 = regrid_to_common(ds_raw[["d20"]])
+    ds_era5 = regrid_to_common(ds_raw)
+    if ds_raw_d20 is not None:
+        ds_d20  = regrid_to_common(ds_raw_d20)
         ds_grid = xr.merge([ds_era5, ds_d20])
     else:
         ds_grid = ds_era5
