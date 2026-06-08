@@ -410,10 +410,13 @@ def _concat_batches(batches: list[Any]) -> np.ndarray:
     first = batches[0]
 
     if isinstance(first, list):
-        # Multi-output: list[class] of arrays
+        # Multi-output: list[class] of arrays → (..., n_cls)
         n_out = len(first)
         stacked = [np.concatenate([b[c] for b in batches], axis=0) for c in range(n_out)]
-        # Convert list → 3-D array (n, n_feat, n_cls)
-        return np.stack(stacked, axis=-1)
+        result = np.stack(stacked, axis=-1)
+        if n_out == 1:
+            # Regression wrapped with _Unsqueeze: singleton class dim — drop it
+            return result[..., 0]
+        return result
 
     return np.concatenate(batches, axis=0)
