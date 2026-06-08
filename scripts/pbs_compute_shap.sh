@@ -3,7 +3,7 @@
 #PBS -A UCUB0143
 #PBS -l select=1:ncpus=4:ngpus=1:mem=64GB:gpu_type=a100
 #PBS -l walltime=12:00:00
-#PBS -q gpudev
+#PBS -q nvgpu
 #PBS -j oe
 #PBS -o /glade/work/acsubram/GitRepos/shap-enso/logs/compute_shap.log
 

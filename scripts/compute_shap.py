@@ -152,6 +152,14 @@ def run_lstm_shap(cfg: dict, lead: int, task: str, device: str = "cpu") -> None:
         test_years=tuple(cfg["data"]["test_years"]),
     )
 
+    # Per-feature standardization — must match train_lstm.py exactly
+    import numpy as np
+    X_mean = np.nanmean(X_tr, axis=(0, 1), keepdims=True)
+    X_std  = np.nanstd(X_tr,  axis=(0, 1), keepdims=True)
+    X_std  = np.where(X_std < 1e-8, 1.0, X_std)
+    X_tr   = (X_tr - X_mean) / X_std
+    X_te   = (X_te - X_mean) / X_std
+
     # Subsample
     n_eval = min(cfg["shap"]["max_eval_samples"], len(X_te))
     rng    = __import__("numpy").random.default_rng(cfg["experiment"]["seed"])
@@ -236,6 +244,13 @@ def run_cnn_shap(
         val_years=tuple(cfg["data"]["val_years"]),
         test_years=tuple(cfg["data"]["test_years"]),
     )
+
+    # Per-channel standardization + land fill — must match train_cnn.py exactly
+    X_mean = np.nanmean(X_tr, axis=(0, 2, 3), keepdims=True)
+    X_std  = np.nanstd(X_tr,  axis=(0, 2, 3), keepdims=True)
+    X_std  = np.where(X_std < 1e-8, 1.0, X_std)
+    X_tr   = np.nan_to_num((X_tr - X_mean) / X_std, nan=0.0)
+    X_te   = np.nan_to_num((X_te - X_mean) / X_std, nan=0.0)
 
     n_eval = min(cfg["shap"]["max_eval_samples"], len(X_te))
     rng    = np.random.default_rng(cfg["experiment"]["seed"])
