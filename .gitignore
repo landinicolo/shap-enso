@@ -26,8 +26,9 @@ data/raw/
 data/processed/
 *.nc
 *.zarr
-# SHAP outputs are small enough to track
+# Small outputs that are tracked
 !data/shap/*.zarr
+!data/metrics.csv
 *.h5
 *.hdf5
 *.grib
