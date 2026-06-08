@@ -15,6 +15,8 @@ import json
 import sys
 from pathlib import Path
 
+import numpy as np
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.models.lstm_model import ENSOLSTMModel
@@ -82,6 +84,16 @@ def main(cfg_path: str, lead: int, task: str, device: str | None = None) -> None
         y_tr_fit, y_val_fit, y_te_eval = y_tr, y_val, y_te
 
     # ------------------------------------------------------------------
+    # Per-feature standardization (fit on training set only)
+    # ------------------------------------------------------------------
+    X_mean = X_tr.mean(axis=(0, 1), keepdims=True)   # (1, 1, n_features)
+    X_std  = X_tr.std(axis=(0, 1), keepdims=True)
+    X_std  = np.where(X_std < 1e-8, 1.0, X_std)
+    X_tr   = (X_tr  - X_mean) / X_std
+    X_val  = (X_val - X_mean) / X_std
+    X_te   = (X_te  - X_mean) / X_std
+
+    # ------------------------------------------------------------------
     # Train
     # ------------------------------------------------------------------
     model = ENSOLSTMModel(cfg, lead, task, device=device)
@@ -109,6 +121,8 @@ def main(cfg_path: str, lead: int, task: str, device: str | None = None) -> None
             "model_type": "lstm",
             "lead_months": lead,
             "task": task,
+            "norm_mean": X_mean.squeeze().tolist(),
+            "norm_std":  X_std.squeeze().tolist(),
             **val_metrics,
             **{f"test_{k}": v for k, v in test_metrics.items()},
         }, f, indent=2)
