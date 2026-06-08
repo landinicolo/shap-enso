@@ -1,0 +1,14 @@
+{
+  "model_type": "lstm",
+  "lead_months": 6,
+  "task": "classification",
+  "best_val_loss": 0.9972825050354004,
+  "val_accuracy": 0.4722222222222222,
+  "val_f1_macro": 0.28391082460381417,
+  "val_auc_macro": 0.6221871274605966,
+  "val_bss": 0.027071492523733642,
+  "test_accuracy": 0.28431372549019607,
+  "test_f1_macro": 0.14758269720101783,
+  "test_auc_macro": 0.651185974650887,
+  "test_bss": -0.061107685310387794
+}

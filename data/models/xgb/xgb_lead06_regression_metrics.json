@@ -1,0 +1,14 @@
+{
+  "model_type": "xgboost",
+  "lead_months": 6,
+  "task": "regression",
+  "best_iteration": 18,
+  "val_rmse": 0.7255063652992249,
+  "val_mae": 0.5850560069084167,
+  "val_corr": 0.45142862723113136,
+  "val_r2": 0.1314622163772583,
+  "test_rmse": 0.80961012840271,
+  "test_mae": 0.6521949172019958,
+  "test_corr": 0.6816143936428868,
+  "test_r2": 0.34824609756469727
+}

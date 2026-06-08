@@ -1,0 +1,14 @@
+{
+  "model_type": "xgboost",
+  "lead_months": 3,
+  "task": "classification",
+  "best_iteration": 130,
+  "val_accuracy": 0.7222222222222222,
+  "val_f1_macro": 0.7307377767392955,
+  "val_auc_macro": 0.8714968150032752,
+  "val_bss": 0.35268574919470497,
+  "test_accuracy": 0.6857142857142857,
+  "test_f1_macro": 0.6965256277949777,
+  "test_auc_macro": 0.8512410929703664,
+  "test_bss": 0.29070884471983005
+}
