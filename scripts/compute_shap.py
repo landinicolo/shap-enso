@@ -26,8 +26,27 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+import torch
+import torch.nn as nn
+
 from src.utils.config import load_config
 from src.utils.logging_utils import get_logger
+
+
+class _Unsqueeze(nn.Module):
+    """Wrap a regression net so output is (B, 1) instead of (B,).
+
+    GradientExplainer and DeepExplainer index outputs as outputs[:, idx],
+    which fails for 1-D tensors produced by regression models that squeeze
+    their final dimension.
+    """
+    def __init__(self, net: nn.Module) -> None:
+        super().__init__()
+        self.net = net
+
+    def forward(self, x):
+        out = self.net(x)
+        return out.unsqueeze(-1) if out.dim() == 1 else out
 from src.shap_analysis.compute_shap import (
     select_background,
     get_tree_explainer,
@@ -121,7 +140,6 @@ def run_xgb_shap(cfg: dict, lead: int, task: str) -> None:
 
 def run_lstm_shap(cfg: dict, lead: int, task: str, device: str = "cpu") -> None:
     """Full SHAP pipeline for the LSTM model."""
-    import torch
     import pandas as pd
     from src.models.lstm_model import ENSOLSTMModel
     from src.utils.io_utils import load_zarr
@@ -178,8 +196,9 @@ def run_lstm_shap(cfg: dict, lead: int, task: str, device: str = "cpu") -> None:
                                 seed=cfg["experiment"]["seed"])
     X_bg_t  = torch.tensor(X_bg_np, dtype=torch.float32).to(device)
 
-    # Explainer
-    explainer = get_gradient_explainer(model.net, X_bg_t)
+    # Explainer — wrap regression net so output is (B,1) not (B,)
+    net_for_shap = _Unsqueeze(model.net) if task == "regression" else model.net
+    explainer = get_gradient_explainer(net_for_shap, X_bg_t)
 
     # SHAP values (seq_len × n_vars → aggregated to n_vars)
     log.info("Computing GradientSHAP ...")
@@ -213,7 +232,6 @@ def run_cnn_shap(
     save_spatial: bool = False,
 ) -> None:
     """Full SHAP pipeline for the CNN model."""
-    import torch
     import pandas as pd
     import numpy as np
     from src.models.cnn_model import ENSOCNNModel
@@ -270,7 +288,9 @@ def run_cnn_shap(
     X_bg_np = select_background(X_tr, n_bg, seed=cfg["experiment"]["seed"])
     X_bg_t  = torch.tensor(X_bg_np, dtype=torch.float32).to(device)
 
-    explainer = get_deep_explainer(model.net, X_bg_t)
+    # Explainer — wrap regression net so output is (B,1) not (B,)
+    net_for_shap = _Unsqueeze(model.net) if task == "regression" else model.net
+    explainer = get_deep_explainer(net_for_shap, X_bg_t)
 
     # SHAP — use small batches; CNN spatial SHAP is memory-heavy
     batch_size = cfg["shap"].get("cnn_batch_size", 10)
