@@ -156,6 +156,7 @@ class ENSOCNNModel:
                     yb = yb.long()
                 loss = criterion(pred, yb)
                 loss.backward()
+                torch.nn.utils.clip_grad_norm_(self.net.parameters(), max_norm=1.0)
                 optimizer.step()
 
             val_loss = self._eval_loss(val_dl, criterion)
