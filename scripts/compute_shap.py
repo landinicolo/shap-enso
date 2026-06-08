@@ -283,6 +283,12 @@ def run_cnn_shap(
     device = model.device   # use actual device after CUDA fallback
     log.info("Loaded CNN model  lead=%02d  task=%s  device=%s", lead, task, device)
 
+    # DeepExplainer uses backward hooks that are incompatible with inplace ReLU.
+    # Disable inplace on all ReLU layers (inplace flag is not in the state dict).
+    for m in model.net.modules():
+        if isinstance(m, nn.ReLU):
+            m.inplace = False
+
     # Background
     n_bg   = min(cfg["shap"]["background_samples"], len(X_tr))
     X_bg_np = select_background(X_tr, n_bg, seed=cfg["experiment"]["seed"])
