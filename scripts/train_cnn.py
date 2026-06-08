@@ -83,13 +83,15 @@ def main(cfg_path: str, lead: int, task: str, device: str | None = None) -> None
 
     # ------------------------------------------------------------------
     # Per-channel standardization (fit on training set only)
+    # Land grid cells are NaN in SST/D20; use nanmean/nanstd so stats
+    # are computed over ocean pixels only, then fill land with 0.
     # ------------------------------------------------------------------
-    X_mean = X_tr.mean(axis=(0, 2, 3), keepdims=True)   # (1, C, 1, 1)
-    X_std  = X_tr.std(axis=(0, 2, 3), keepdims=True)
+    X_mean = np.nanmean(X_tr, axis=(0, 2, 3), keepdims=True)   # (1, C, 1, 1)
+    X_std  = np.nanstd(X_tr,  axis=(0, 2, 3), keepdims=True)
     X_std  = np.where(X_std < 1e-8, 1.0, X_std)
-    X_tr   = (X_tr  - X_mean) / X_std
-    X_val  = (X_val - X_mean) / X_std
-    X_te   = (X_te  - X_mean) / X_std
+    X_tr   = np.nan_to_num((X_tr  - X_mean) / X_std, nan=0.0)
+    X_val  = np.nan_to_num((X_val - X_mean) / X_std, nan=0.0)
+    X_te   = np.nan_to_num((X_te  - X_mean) / X_std, nan=0.0)
 
     # ------------------------------------------------------------------
     # Train
