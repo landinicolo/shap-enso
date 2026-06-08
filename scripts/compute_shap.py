@@ -170,6 +170,7 @@ def run_lstm_shap(cfg: dict, lead: int, task: str, device: str = "cpu") -> None:
     model = ENSOLSTMModel(cfg, lead, task, device=device)
     model.load(model_dir)
     model.net.eval()
+    device = model.device   # use actual device after CUDA fallback
     log.info("Loaded LSTM model  lead=%02d  task=%s  device=%s", lead, task, device)
 
     # Background tensor
@@ -261,6 +262,7 @@ def run_cnn_shap(
     model = ENSOCNNModel(cfg, lead, task, device=device)
     model.load(model_dir)
     model.net.eval()
+    device = model.device   # use actual device after CUDA fallback
     log.info("Loaded CNN model  lead=%02d  task=%s  device=%s", lead, task, device)
 
     # Background
