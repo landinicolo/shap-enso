@@ -1,0 +1,10 @@
+{
+  "hidden_size": 128,
+  "num_layers": 1,
+  "dropout": 0.2,
+  "lr": 0.001,
+  "weight_decay": 0.0,
+  "batch_size": 32,
+  "sequence_length": 9,
+  "max_epochs": 60
+}

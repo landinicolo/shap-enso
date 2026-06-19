@@ -1,0 +1,58 @@
+{
+  "selection_metric": "bss",
+  "metric_column": "val_bss",
+  "maximize": true,
+  "best_params": {
+    "channels": [
+      32,
+      64,
+      128
+    ],
+    "kernel_size": 5,
+    "dropout": 0.4,
+    "head_hidden": 256,
+    "n_head_layers": 1,
+    "lr": 0.0005,
+    "weight_decay": 1e-05,
+    "batch_size": 32,
+    "patience": 12,
+    "grad_clip": 0.5,
+    "max_epochs": 60
+  },
+  "best_summary": {
+    "rank": 1,
+    "trial_id": 114,
+    "n_folds": 3,
+    "channels": [
+      32,
+      64,
+      128
+    ],
+    "kernel_size": 5,
+    "dropout": 0.4,
+    "head_hidden": 256,
+    "n_head_layers": 1,
+    "lr": 0.0005,
+    "weight_decay": 1e-05,
+    "batch_size": 32,
+    "patience": 12,
+    "grad_clip": 0.5,
+    "max_epochs": 60,
+    "mean_val_start": NaN,
+    "std_val_start": NaN,
+    "mean_val_end": NaN,
+    "std_val_end": NaN,
+    "mean_best_val_loss": 0.8588255445162455,
+    "std_best_val_loss": 0.0861856553582937,
+    "mean_val_accuracy": 0.6137071651090342,
+    "std_val_accuracy": 0.06489927307165003,
+    "mean_val_f1_macro": 0.5187912842674748,
+    "std_val_f1_macro": 0.11379777810147405,
+    "mean_val_auc_macro": 0.7375761862603855,
+    "std_val_auc_macro": 0.059017212766318126,
+    "mean_val_bss": 0.14610049519011736,
+    "std_val_bss": 0.11696845437926025,
+    "mean_selection_score": 0.14610049519011736,
+    "std_selection_score": 0.11696845437926025
+  }
+}

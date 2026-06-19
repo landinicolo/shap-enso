@@ -1,0 +1,48 @@
+{
+  "task": "regression",
+  "leads": [
+    3,
+    6,
+    12
+  ],
+  "tuned_root": "/work/ext/st12/shap-enso/data/tuned_wide/lstm",
+  "shap_root": "/work/ext/st12/shap-enso/data/shap_tuned_wide/lstm",
+  "output_dir": "/work/ext/st12/shap-enso/data/tuned_wide/lstm/compiled_analysis",
+  "figure_dir": "/work/ext/st12/shap-enso/figures/tuned_wide/lstm",
+  "figures": [
+    "fig01_lstm_tuned_regression_skill_curves.png",
+    "lstm_tuned_regression_best_params_heatmap.png",
+    "lstm_tuned_regression_crosslead_shap_importance_heatmap.png",
+    "lstm_tuned_regression_error_distributions.png",
+    "lstm_tuned_regression_lead03_monthly_shap_heatmap.png",
+    "lstm_tuned_regression_lead03_proxy_interaction_heatmap.png",
+    "lstm_tuned_regression_lead03_shap_beeswarm.png",
+    "lstm_tuned_regression_lead03_shap_top15.png",
+    "lstm_tuned_regression_lead03_shap_violins.png",
+    "lstm_tuned_regression_lead06_monthly_shap_heatmap.png",
+    "lstm_tuned_regression_lead06_proxy_interaction_heatmap.png",
+    "lstm_tuned_regression_lead06_shap_beeswarm.png",
+    "lstm_tuned_regression_lead06_shap_top15.png",
+    "lstm_tuned_regression_lead06_shap_violins.png",
+    "lstm_tuned_regression_lead12_monthly_shap_heatmap.png",
+    "lstm_tuned_regression_lead12_proxy_interaction_heatmap.png",
+    "lstm_tuned_regression_lead12_shap_beeswarm.png",
+    "lstm_tuned_regression_lead12_shap_top15.png",
+    "lstm_tuned_regression_lead12_shap_violins.png",
+    "lstm_tuned_regression_monthly_bias_heatmap.png",
+    "lstm_tuned_regression_monthly_corr_heatmap.png",
+    "lstm_tuned_regression_monthly_rmse_heatmap.png",
+    "lstm_tuned_regression_monthly_rmse_skill_vs_persistence_heatmap.png",
+    "lstm_tuned_regression_obs_pred_scatter.png",
+    "lstm_tuned_regression_prediction_timeseries.png",
+    "lstm_tuned_regression_seasonal_skill_bars.png"
+  ],
+  "tables": [
+    "lstm_tuned_regression_all_predictions.csv",
+    "lstm_tuned_regression_metrics.csv",
+    "lstm_tuned_regression_monthly_metrics.csv",
+    "lstm_tuned_regression_proxy_shap_interactions.csv",
+    "lstm_tuned_regression_seasonal_metrics.csv",
+    "lstm_tuned_regression_shap_feature_importance.csv"
+  ]
+}

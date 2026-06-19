@@ -1,10 +1,10 @@
 {
-  "long_name": "Mean absolute SHAP value",
-  "units": "index units",
-  "_ARRAY_DIMENSIONS": [
-    "var",
-    "lag",
-    "lat",
-    "lon"
-  ]
+    "_ARRAY_DIMENSIONS": [
+        "var",
+        "lag",
+        "lat",
+        "lon"
+    ],
+    "long_name": "Mean absolute SHAP value",
+    "units": "index units"
 }

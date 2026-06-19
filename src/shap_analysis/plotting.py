@@ -68,6 +68,47 @@ def plot_feature_importance_bar(
     fig.tight_layout()
     return fig, ax
 
+# -----------------------------
+# MODIFICA: SHAP VALUES -> violine plots
+# -----------------------------
+
+'''
+def plot_shap_distribution(
+    shap_values: np.ndarray,      # (n_samples, n_features)
+    feature_names: list[str],
+    top_n: int = 15,
+):
+    # order for mean(|SHAP|)
+    importance = np.mean(np.abs(shap_values), axis=0)
+    idx = np.argsort(importance)[:top_n]
+
+    data = [shap_values[:, i] for i in idx]
+    labels = clean_labels(np.array(feature_names)[idx])
+
+    fig, ax = plt.subplots(figsize=(8, max(3, 0.45*top_n)))
+
+    vp = ax.violinplot(
+        data,
+        vert=False,
+        showmeans=False,
+        showmedians=True,
+        showextrema=False,
+    )
+
+    ax.axvline(0, color="k", lw=1)
+
+    ax.set_yticks(np.arange(1, top_n+1))
+    ax.set_yticklabels(labels)
+
+    ax.set_xlabel("SHAP value (impact on model output)")
+    # ax.set_title("SHAP distribution")
+
+    ax.spines[["top","right"]].set_visible(False)
+
+    fig.tight_layout()
+    return fig, ax
+'''
+
 
 # ---------------------------------------------------------------------------
 # SHAP–prediction scatter
@@ -105,6 +146,59 @@ def plot_shap_scatter(
     fig.tight_layout()
     return fig, ax
 
+# MODIFICA
+def plot_shap_beeswarm(
+    shap_values: np.ndarray,
+    X: np.ndarray,
+    feature_names: list[str],
+    top_n: int = 15,
+):
+    # order by mean(|SHAP|)
+    importance = np.mean(np.abs(shap_values), axis=0)
+    idx = np.argsort(importance)[:top_n]
+
+    fig, ax = plt.subplots(figsize=(8, max(3, 0.45 * top_n)))
+
+    for row, i in enumerate(idx):
+
+        x = shap_values[:, i]
+        c = X[:, i]
+
+        # normalize colors feature-wise
+        cmin, cmax = np.nanpercentile(c, [5, 95])
+        c = np.clip(c, cmin, cmax)
+
+        # vertical jitter
+        y = row + np.random.normal(scale=0.12, size=len(x))
+
+        sc = ax.scatter(
+            x,
+            y,
+            c=c,
+            cmap="RdBu_r",
+            s=10,
+            alpha=0.7,
+            linewidths=0,
+        )
+
+    ax.axvline(0, color="k", lw=1)
+
+    labels = clean_labels(np.array(feature_names)[idx])
+
+    ax.set_yticks(range(top_n))
+    ax.set_yticklabels(labels)
+
+    ax.set_xlabel("SHAP value (impact on model output)")
+    # ax.set_title("SHAP beeswarm")
+
+    ax.spines[["top", "right"]].set_visible(False)
+
+    cbar = plt.colorbar(sc, ax=ax)
+    cbar.set_label("Feature value")
+
+    fig.tight_layout()
+
+    return fig, ax
 
 # ---------------------------------------------------------------------------
 # Seasonal heatmap
@@ -113,7 +207,7 @@ def plot_shap_scatter(
 def plot_seasonal_heatmap(
     seasonal_df: pd.DataFrame,
     title: str = "Seasonal SHAP importance",
-    top_n: int = 10,
+    top_n: int = 10, #modified from 10
 ) -> tuple:
     """Heatmap: top features (rows) × calendar month (cols).
 
@@ -130,8 +224,19 @@ def plot_seasonal_heatmap(
                    vmin=0, vmax=np.nanmax(mat))
     ax.set_xticks(range(12))
     ax.set_xticklabels(months)
-    ax.set_yticks(range(top_n))
-    ax.set_yticklabels(labels)
+
+    n = len(top_cols)
+    ax.set_yticks(range(n))
+    ax.set_yticklabels(labels[:n])
+
+    print("labels:",labels)
+    print("yticks:",ax.get_yticks())
+    
+    # ax.set_yticks(range(top_n))
+
+    # print(len(ax.get_yticks()), len(labels))
+    
+    # ax.set_yticklabels(labels)
     ax.set_xlabel("Calendar month (init month)")
     ax.set_title(title)
     plt.colorbar(im, ax=ax, label="Mean |SHAP|", fraction=0.025)
@@ -229,8 +334,18 @@ def plot_lead_importance_heatmap(
     im = ax.imshow(normed, aspect="auto", cmap="Blues", vmin=0, vmax=1)
     ax.set_xticks(range(len(lead_labs)))
     ax.set_xticklabels(lead_labs)
-    ax.set_yticks(range(top_n))
-    ax.set_yticklabels(labels)
+
+    print("labels:",labels)
+    print("yticks:",ax.get_yticks())
+    
+    n = 9
+    ax.set_yticks(range(n))
+    ax.set_yticklabels(labels[:n])
+    
+    # ax.set_yticks(range(top_n))
+    # ax.set_yticklabels(labels)
+
+    
     ax.set_title(title)
     plt.colorbar(im, ax=ax, label="Relative importance", fraction=0.06)
     fig.tight_layout()

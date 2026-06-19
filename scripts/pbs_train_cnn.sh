@@ -1,21 +1,12 @@
-#!/bin/bash
-#PBS -N shap_enso_cnn
-#PBS -A UCUB0143
-#PBS -l select=1:ncpus=4:ngpus=1:mem=64GB:gpu_type=a100
-#PBS -l walltime=08:00:00
-#PBS -q nvgpu
-#PBS -j oe
-#PBS -o /glade/work/acsubram/GitRepos/shap-enso/logs/train_cnn.log
 
 set -euo pipefail
 
-REPO=/glade/work/acsubram/GitRepos/shap-enso
+REPO=/work/ext/st12/shap-enso
 CONFIG=${REPO}/configs/default.yaml
 
 mkdir -p ${REPO}/logs
 
-module load conda
-conda activate shap-enso
+
 export PYTHONPATH=${REPO}:${PYTHONPATH:-}
 
 cd ${REPO}

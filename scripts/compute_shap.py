@@ -64,6 +64,13 @@ from src.shap_analysis.compute_shap import (
 log = get_logger(__name__)
 
 
+from pathlib import Path
+
+def get_model_dir(cfg: dict, model_type: str, lead: int, task: str) -> Path:
+    base = Path(cfg["data"]["tuned_wide_dir"])
+    return base / model_type / f"lead{lead:02d}_{task}" / "models"
+
+
 # ---------------------------------------------------------------------------
 # XGBoost
 # ---------------------------------------------------------------------------
@@ -76,7 +83,7 @@ def run_xgb_shap(cfg: dict, lead: int, task: str) -> None:
     from src.utils.preprocessing import build_class_labels, train_val_test_split_temporal
 
     feat_dir  = Path(cfg["data"]["processed_dir"]) / "features"
-    model_dir = Path(cfg["experiment"]["output_dir"]) / "data" / "models" / "xgb"
+    model_dir = get_model_dir(cfg, "xgboost", lead, task)
     shap_dir  = Path(cfg["shap"]["output_dir"])
 
     # Load feature matrix
@@ -148,7 +155,7 @@ def run_lstm_shap(cfg: dict, lead: int, task: str, device: str = "cpu") -> None:
     )
 
     processed = Path(cfg["data"]["processed_dir"])
-    model_dir = Path(cfg["experiment"]["output_dir"]) / "data" / "models" / "lstm"
+    model_dir = get_model_dir(cfg, "lstm", lead, task)
     shap_dir  = Path(cfg["shap"]["output_dir"])
 
     # Load data

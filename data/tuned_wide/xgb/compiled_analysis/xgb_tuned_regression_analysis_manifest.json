@@ -1,0 +1,11 @@
+{
+  "task": "regression",
+  "leads": [
+    3,
+    6,
+    12
+  ],
+  "tuned_root": "/work/ext/st12/shap-enso/data/tuned_wide/xgb",
+  "output_dir": "/work/ext/st12/shap-enso/data/tuned_wide/xgb/compiled_analysis",
+  "figure_dir": "/work/ext/st12/shap-enso/figures/tuned_wide/xgb"
+}

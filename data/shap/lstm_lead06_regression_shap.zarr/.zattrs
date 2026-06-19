@@ -1,9 +1,9 @@
 {
-  "model_type": "lstm",
-  "lead_months": 6,
-  "task": "regression",
-  "base_value": 0.0,
-  "n_features": 9,
-  "n_samples": 102,
-  "created": "2026-06-08"
+    "base_value": 0.0,
+    "created": "2026-06-16",
+    "lead_months": 6,
+    "model_type": "lstm",
+    "n_features": 9,
+    "n_samples": 102,
+    "task": "regression"
 }

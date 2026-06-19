@@ -1,1 +1,150 @@
-{"metadata": {".zgroup": {"zarr_format": 2}, ".zattrs": {"model_type": "cnn", "lead_months": 6, "task": "regression", "base_value": 0.0, "n_features": 20, "n_samples": 102, "created": "2026-06-08"}, "abs_shap/.zattrs": {"_ARRAY_DIMENSIONS": ["time", "feature"]}, "abs_shap/.zarray": {"shape": [102, 20], "chunks": [102, 20], "dtype": "<f4", "fill_value": "NaN", "order": "C", "filters": null, "dimension_separator": ".", "compressor": {"id": "blosc", "cname": "lz4", "clevel": 5, "shuffle": 1, "blocksize": 0}, "zarr_format": 2}, "feature/.zattrs": {"_ARRAY_DIMENSIONS": ["feature"]}, "feature/.zarray": {"shape": [20], "chunks": [20], "dtype": "<U9", "fill_value": null, "order": "C", "filters": null, "dimension_separator": ".", "compressor": {"id": "blosc", "cname": "lz4", "clevel": 5, "shuffle": 1, "blocksize": 0}, "zarr_format": 2}, "prediction/.zattrs": {"_ARRAY_DIMENSIONS": ["time"]}, "prediction/.zarray": {"shape": [102], "chunks": [102], "dtype": "<f4", "fill_value": "NaN", "order": "C", "filters": null, "dimension_separator": ".", "compressor": {"id": "blosc", "cname": "lz4", "clevel": 5, "shuffle": 1, "blocksize": 0}, "zarr_format": 2}, "shap_values/.zattrs": {"_ARRAY_DIMENSIONS": ["time", "feature"]}, "shap_values/.zarray": {"shape": [102, 20], "chunks": [102, 20], "dtype": "<f4", "fill_value": "NaN", "order": "C", "filters": null, "dimension_separator": ".", "compressor": {"id": "blosc", "cname": "lz4", "clevel": 5, "shuffle": 1, "blocksize": 0}, "zarr_format": 2}, "time/.zattrs": {"units": "days since 2022-04-01 00:00:00", "calendar": "proleptic_gregorian", "_ARRAY_DIMENSIONS": ["time"]}, "time/.zarray": {"shape": [102], "chunks": [102], "dtype": "<i8", "fill_value": null, "order": "C", "filters": null, "dimension_separator": ".", "compressor": {"id": "blosc", "cname": "lz4", "clevel": 5, "shuffle": 1, "blocksize": 0}, "zarr_format": 2}}, "zarr_consolidated_format": 1}
+{
+    "metadata": {
+        ".zattrs": {
+            "base_value": 0.0,
+            "created": "2026-06-16",
+            "lead_months": 6,
+            "model_type": "cnn",
+            "n_features": 20,
+            "n_samples": 102,
+            "task": "regression"
+        },
+        ".zgroup": {
+            "zarr_format": 2
+        },
+        "abs_shap/.zarray": {
+            "chunks": [
+                102,
+                20
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                102,
+                20
+            ],
+            "zarr_format": 2
+        },
+        "abs_shap/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "time",
+                "feature"
+            ]
+        },
+        "feature/.zarray": {
+            "chunks": [
+                20
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<U9",
+            "fill_value": null,
+            "filters": null,
+            "order": "C",
+            "shape": [
+                20
+            ],
+            "zarr_format": 2
+        },
+        "feature/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "feature"
+            ]
+        },
+        "prediction/.zarray": {
+            "chunks": [
+                102
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                102
+            ],
+            "zarr_format": 2
+        },
+        "prediction/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "time"
+            ]
+        },
+        "shap_values/.zarray": {
+            "chunks": [
+                102,
+                20
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                102,
+                20
+            ],
+            "zarr_format": 2
+        },
+        "shap_values/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "time",
+                "feature"
+            ]
+        },
+        "time/.zarray": {
+            "chunks": [
+                102
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<i8",
+            "fill_value": null,
+            "filters": null,
+            "order": "C",
+            "shape": [
+                102
+            ],
+            "zarr_format": 2
+        },
+        "time/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "time"
+            ],
+            "calendar": "proleptic_gregorian",
+            "units": "days since 2022-04-01 00:00:00"
+        }
+    },
+    "zarr_consolidated_format": 1
+}

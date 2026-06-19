@@ -1,22 +1,14 @@
 #!/bin/bash
-#PBS -N shap_enso_analysis
-#PBS -A UCUB0143
-#PBS -l select=1:ncpus=4:mem=32GB
-#PBS -l walltime=02:00:00
-#PBS -q casper
-#PBS -j oe
-#PBS -o /glade/work/acsubram/GitRepos/shap-enso/logs/analysis.log
 
 set -euo pipefail
 
-REPO=/glade/work/acsubram/GitRepos/shap-enso
+REPO=/work/ext/st12/shap-enso
 CONFIG=${REPO}/configs/default.yaml
 FIGURES=${REPO}/figures
 
 mkdir -p ${REPO}/logs ${FIGURES}
 
-module load conda
-conda activate shap-enso
+
 export PYTHONPATH=${REPO}:${PYTHONPATH:-}
 
 cd ${REPO}
@@ -33,7 +25,7 @@ python scripts/compile_metrics.py --config ${CONFIG} --task regression classific
 echo "=== Generating figures ==="
 python - <<'EOF'
 import sys
-sys.path.insert(0, "/glade/work/acsubram/GitRepos/shap-enso")
+sys.path.insert(0, "/work/ext/st12/shap-enso")
 
 import matplotlib
 matplotlib.use("Agg")
@@ -49,7 +41,7 @@ from src.shap_analysis.aggregate import (
 from src.shap_analysis.plotting import (
     plot_feature_importance_bar, plot_seasonal_heatmap,
     plot_spring_barrier, plot_enso_asymmetry,
-    plot_lead_importance_heatmap, plot_spatial_shap,
+    plot_lead_importance_heatmap, plot_spatial_shap, plot_shap_beeswarm
 )
 
 cfg      = load_config("configs/default.yaml")
@@ -82,6 +74,31 @@ for model in MODELS:
             imp, title=f"Feature importance — {model} lead {lead}mo", top_n=15
         )
         save(fig, f"importance_{model}_lead{lead:02d}.png")
+
+
+        # SHAP distribution violin plot
+        try:
+            shap_values = ds["shap_values"].values
+            feature_names = ds["feature"].values.tolist()
+
+            # MODIFICA
+            # load original feature matrix
+            X, y, _, times = load_feature_matrix(
+                feat_dir / f"features_lead{lead:02d}.npz"
+            )
+
+            fig, _ = plot_shap_beeswarm(
+                shap_values=shap_values,
+                X=X,
+                feature_names=feature_names,
+                top_n=15,
+            )
+            #
+        
+            save(fig, f"distribution_{model}_lead{lead:02d}.png")
+        
+        except Exception as e:
+            print(f" skip distribution: {e}")
 
         # Seasonal heatmap
         seas = seasonal_shap_mean(ds)

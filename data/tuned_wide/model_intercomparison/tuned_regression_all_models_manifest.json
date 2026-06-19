@@ -1,0 +1,35 @@
+{
+  "task": "regression",
+  "models": [
+    "cnn",
+    "lstm",
+    "xgb"
+  ],
+  "leads": [
+    3,
+    6,
+    12
+  ],
+  "tuned_base": "/work/ext/st12/shap-enso/data/tuned_wide",
+  "output_dir": "/work/ext/st12/shap-enso/data/tuned_wide/model_intercomparison",
+  "figure_dir": "/work/ext/st12/shap-enso/figures/tuned_wide/model_intercomparison",
+  "reference_model": "cnn",
+  "figures": [
+    "tuned_regression_all_models_best_model_by_lead.png",
+    "tuned_regression_all_models_model_lead_corr_heatmap.png",
+    "tuned_regression_all_models_model_lead_r2_heatmap.png",
+    "tuned_regression_all_models_model_lead_rmse_heatmap.png",
+    "tuned_regression_all_models_model_lead_rmse_skill_vs_persistence_heatmap.png",
+    "tuned_regression_all_models_shap_difference_vs_cnn.png",
+    "tuned_regression_all_models_shap_predictor_share_heatmap.png",
+    "tuned_regression_all_models_shap_rank_correlation_lead03.png",
+    "tuned_regression_all_models_shap_rank_correlation_lead06.png",
+    "tuned_regression_all_models_shap_rank_correlation_lead12.png",
+    "tuned_regression_all_models_skill_curves_all_models.png"
+  ],
+  "tables": [
+    "tuned_regression_all_models_all_predictions.csv",
+    "tuned_regression_all_models_metrics.csv",
+    "tuned_regression_all_models_shap_group_importance.csv"
+  ]
+}

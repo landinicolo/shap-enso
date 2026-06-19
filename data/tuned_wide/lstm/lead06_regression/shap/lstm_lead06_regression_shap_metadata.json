@@ -1,0 +1,22 @@
+{
+  "lead": 6,
+  "task": "regression",
+  "model_dir": "/work/ext/st12/shap-enso/data/tuned_wide/lstm/lead06_regression/models",
+  "output_dir": "/work/ext/st12/shap-enso/data/tuned_wide/lstm/lead06_regression/shap",
+  "store_path": "/work/ext/st12/shap-enso/data/tuned_wide/lstm/lead06_regression/shap/lstm_lead06_regression_shap.zarr",
+  "sequence_length": 9,
+  "var_names": [
+    "d20_nino34",
+    "d20_nino4",
+    "olr_eq",
+    "slp_eq",
+    "sst_nino12",
+    "sst_nino3",
+    "sst_nino34",
+    "sst_nino4",
+    "tauu_eq"
+  ],
+  "n_background_samples": 100,
+  "n_eval_samples": 102,
+  "base_value": 0.0
+}

@@ -1,11 +1,14 @@
 experiment:
   name: "xgb_basin_3mo"
   seed: 42
-  output_dir: "/glade/work/acsubram/GitRepos/shap-enso"
+  output_dir: "/work/ext/st12/shap-enso"
+
+
 
 data:
-  raw_dir: "/glade/work/acsubram/GitRepos/shap-enso/data/raw"
-  processed_dir: "/glade/work/acsubram/GitRepos/shap-enso/data/processed"
+  tuned_wide_dir: "/work/ext/st12/shap-enso/data/tuned_wide"
+  raw_dir: "/work/ext/st12/shap-enso/data/raw"
+  processed_dir: "/work/ext/st12/shap-enso/data/processed"
   era5_variables:
     - sst
     - tauu    # zonal wind stress (eastward turbulent surface stress)
@@ -57,7 +60,7 @@ shap:
   # xgboost -> tree, lstm -> gradient, cnn -> deep
   explainer_type: "tree"
   save_values: true
-  output_dir: "/glade/work/acsubram/GitRepos/shap-enso/data/shap"
+  output_dir: "/work/ext/st12/shap-enso/data/shap"
 
 hpc:
   account: "UCUB0143"
