@@ -1,0 +1,4 @@
+lead_months,hidden_size,num_layers,dropout,lr,weight_decay,batch_size,sequence_length,max_epochs
+3,256,1,0.3,0.001,1e-05,16,9,60
+6,256,1,0.3,0.001,1e-05,16,9,60
+12,256,2,0.0,0.001,1e-05,16,6,60

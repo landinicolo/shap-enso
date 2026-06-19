@@ -1,0 +1,1633 @@
+2026-06-15 19:22:41  INFO      __main__  Loading gridded predictors ...
+2026-06-15 19:22:41  INFO      __main__  Building CNN tensors lead=12 n_lags=4 vars=['sst', 'tauu', 'olr', 'slp', 'd20']
+2026-06-15 19:22:41  INFO      __main__  Tensors X=(525, 20, 31, 86) n_channels=20
+2026-06-15 19:22:41  INFO      __main__  Split train=321 val=108 test=96
+2026-06-15 19:22:41  INFO      __main__  CNN tuning: 128 candidates, 3 CV folds, selection=val_r2
+2026-06-15 19:22:41  INFO      __main__  Trial 1/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:22:47  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0835  val_loss=0.6381  lr=3.00e-04
+2026-06-15 19:22:47  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0549  val_loss=0.8756  lr=1.50e-04
+2026-06-15 19:22:47  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:22:47  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7596 corr=0.4192 r2=0.0988
+2026-06-15 19:22:48  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1151  val_loss=2.6696  lr=3.00e-04
+2026-06-15 19:22:48  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0453  val_loss=0.7012  lr=1.50e-04
+2026-06-15 19:22:49  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:22:49  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5983 corr=0.7134 r2=0.4242
+2026-06-15 19:22:49  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1731  val_loss=1.4289  lr=3.00e-04
+2026-06-15 19:22:50  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0818  val_loss=0.9332  lr=1.50e-04
+2026-06-15 19:22:50  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:22:50  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9035 corr=0.3928 r2=0.0903
+2026-06-15 19:22:50  INFO      __main__  Trial 2/128 params={'channels': [64, 128, 256], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 8, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:22:51  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1896  val_loss=1.2482  lr=5.00e-04
+2026-06-15 19:22:51  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0736  val_loss=1.3795  lr=2.50e-04
+2026-06-15 19:22:52  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:22:52  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7430 corr=0.3747 r2=0.1376
+2026-06-15 19:22:53  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2124  val_loss=1.3518  lr=5.00e-04
+2026-06-15 19:22:54  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1227  val_loss=1.3914  lr=2.50e-04
+2026-06-15 19:22:54  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:22:54  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6941 corr=0.7470 r2=0.2248
+2026-06-15 19:22:56  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2380  val_loss=0.9116  lr=5.00e-04
+2026-06-15 19:22:57  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1193  val_loss=1.1672  lr=2.50e-04
+2026-06-15 19:22:58  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:22:58  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8780 corr=0.3998 r2=0.1410
+2026-06-15 19:22:58  INFO      __main__  Trial 3/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:22:58  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2106  val_loss=0.8120  lr=3.00e-04
+2026-06-15 19:22:59  INFO      src.models.cnn_model_tuned  Early stopping at epoch 19
+2026-06-15 19:22:59  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7719 corr=0.3911 r2=0.0694
+2026-06-15 19:22:59  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2308  val_loss=0.6618  lr=3.00e-04
+2026-06-15 19:23:00  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:23:00  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5500 corr=0.7321 r2=0.5132
+2026-06-15 19:23:01  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2620  val_loss=0.8579  lr=3.00e-04
+2026-06-15 19:23:01  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:23:01  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9126 corr=0.3008 r2=0.0720
+2026-06-15 19:23:01  INFO      __main__  Trial 4/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 8, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:23:01  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1733  val_loss=0.6123  lr=1.00e-03
+2026-06-15 19:23:02  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:23:02  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7817 corr=0.3356 r2=0.0455
+2026-06-15 19:23:03  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2166  val_loss=0.7684  lr=1.00e-03
+2026-06-15 19:23:03  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:23:03  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6015 corr=0.6733 r2=0.4180
+2026-06-15 19:23:04  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2157  val_loss=0.9609  lr=1.00e-03
+2026-06-15 19:23:05  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:23:05  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8801 corr=0.3957 r2=0.1369
+2026-06-15 19:23:05  INFO      __main__  Trial 5/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:23:05  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0703  val_loss=1.0364  lr=5.00e-04
+2026-06-15 19:23:06  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:23:06  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6881 corr=0.5160 r2=0.2604
+2026-06-15 19:23:06  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0743  val_loss=1.5565  lr=5.00e-04
+2026-06-15 19:23:06  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:23:06  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6357 corr=0.6773 r2=0.3498
+2026-06-15 19:23:07  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1080  val_loss=0.8969  lr=5.00e-04
+2026-06-15 19:23:08  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:23:08  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8440 corr=0.4692 r2=0.2063
+2026-06-15 19:23:08  INFO      __main__  Trial 6/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0001, 'batch_size': 32, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:23:08  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0923  val_loss=1.3201  lr=1.00e-03
+2026-06-15 19:23:08  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0234  val_loss=1.2408  lr=1.00e-03
+2026-06-15 19:23:09  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0354  val_loss=0.8794  lr=5.00e-04
+2026-06-15 19:23:09  INFO      src.models.cnn_model_tuned  Early stopping at epoch 39
+2026-06-15 19:23:09  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7497 corr=0.5165 r2=0.1221
+2026-06-15 19:23:10  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1005  val_loss=1.4629  lr=1.00e-03
+2026-06-15 19:23:10  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0541  val_loss=0.9187  lr=5.00e-04
+2026-06-15 19:23:10  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:23:10  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7167 corr=0.4702 r2=0.1735
+2026-06-15 19:23:11  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3156  val_loss=0.7507  lr=1.00e-03
+2026-06-15 19:23:12  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1193  val_loss=0.6783  lr=1.00e-03
+2026-06-15 19:23:13  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0484  val_loss=1.0879  lr=5.00e-04
+2026-06-15 19:23:13  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0350  val_loss=1.1319  lr=2.50e-04
+2026-06-15 19:23:13  INFO      src.models.cnn_model_tuned  Early stopping at epoch 43
+2026-06-15 19:23:13  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7895 corr=0.5782 r2=0.3054
+2026-06-15 19:23:13  INFO      __main__  Trial 7/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:23:14  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1991  val_loss=0.6445  lr=5.00e-04
+2026-06-15 19:23:14  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0549  val_loss=0.9023  lr=2.50e-04
+2026-06-15 19:23:14  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:23:14  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7904 corr=0.3540 r2=0.0241
+2026-06-15 19:23:15  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1499  val_loss=2.5918  lr=5.00e-04
+2026-06-15 19:23:15  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0699  val_loss=1.7541  lr=2.50e-04
+2026-06-15 19:23:16  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:23:16  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5726 corr=0.7471 r2=0.4726
+2026-06-15 19:23:17  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2134  val_loss=1.1637  lr=5.00e-04
+2026-06-15 19:23:17  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0562  val_loss=0.9123  lr=2.50e-04
+2026-06-15 19:23:18  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:23:18  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9046 corr=0.3389 r2=0.0882
+2026-06-15 19:23:18  INFO      __main__  Trial 8/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:23:18  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0742  val_loss=0.7635  lr=3.00e-04
+2026-06-15 19:23:19  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0430  val_loss=0.7338  lr=1.50e-04
+2026-06-15 19:23:19  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:23:19  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7419 corr=0.3757 r2=0.1403
+2026-06-15 19:23:20  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1682  val_loss=1.3104  lr=3.00e-04
+2026-06-15 19:23:20  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0619  val_loss=1.4536  lr=1.50e-04
+2026-06-15 19:23:20  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:23:20  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5784 corr=0.7426 r2=0.4617
+2026-06-15 19:23:21  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2013  val_loss=2.6857  lr=3.00e-04
+2026-06-15 19:23:22  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0702  val_loss=0.9447  lr=1.50e-04
+2026-06-15 19:23:23  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:23:23  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9261 corr=0.3834 r2=0.0443
+2026-06-15 19:23:23  INFO      __main__  Trial 9/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 8, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:23:24  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1896  val_loss=0.9163  lr=5.00e-04
+2026-06-15 19:23:24  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:23:24  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7542 corr=0.3507 r2=0.1115
+2026-06-15 19:23:25  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1509  val_loss=0.7606  lr=5.00e-04
+2026-06-15 19:23:25  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:23:25  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5865 corr=0.7535 r2=0.4467
+2026-06-15 19:23:27  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1351  val_loss=1.1688  lr=5.00e-04
+2026-06-15 19:23:28  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0793  val_loss=0.9730  lr=2.50e-04
+2026-06-15 19:23:28  INFO      src.models.cnn_model_tuned  Early stopping at epoch 20
+2026-06-15 19:23:28  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8523 corr=0.4748 r2=0.1905
+2026-06-15 19:23:28  INFO      __main__  Trial 10/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 8, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:23:29  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2517  val_loss=0.8075  lr=5.00e-04
+2026-06-15 19:23:29  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1104  val_loss=0.7009  lr=5.00e-04
+2026-06-15 19:23:30  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:23:30  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7361 corr=0.4529 r2=0.1537
+2026-06-15 19:23:31  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2147  val_loss=2.0216  lr=5.00e-04
+2026-06-15 19:23:31  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:23:31  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5562 corr=0.7384 r2=0.5022
+2026-06-15 19:23:33  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2946  val_loss=1.1253  lr=5.00e-04
+2026-06-15 19:23:34  INFO      src.models.cnn_model_tuned  Early stopping at epoch 18
+2026-06-15 19:23:34  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8896 corr=0.3666 r2=0.1181
+2026-06-15 19:23:34  INFO      __main__  Trial 11/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 8, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:23:34  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1848  val_loss=1.3774  lr=5.00e-04
+2026-06-15 19:23:35  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:23:35  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7540 corr=0.4013 r2=0.1119
+2026-06-15 19:23:36  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2037  val_loss=0.5424  lr=5.00e-04
+2026-06-15 19:23:36  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1531  val_loss=1.5423  lr=2.50e-04
+2026-06-15 19:23:36  INFO      src.models.cnn_model_tuned  Early stopping at epoch 21
+2026-06-15 19:23:36  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6783 corr=0.6846 r2=0.2599
+2026-06-15 19:23:38  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2302  val_loss=0.8993  lr=5.00e-04
+2026-06-15 19:23:39  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:23:39  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8947 corr=0.3295 r2=0.1080
+2026-06-15 19:23:39  INFO      __main__  Trial 12/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:23:39  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0476  val_loss=0.8266  lr=5.00e-04
+2026-06-15 19:23:39  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0204  val_loss=0.7956  lr=2.50e-04
+2026-06-15 19:23:40  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:23:40  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7072 corr=0.4749 r2=0.2188
+2026-06-15 19:23:40  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0777  val_loss=0.8323  lr=5.00e-04
+2026-06-15 19:23:41  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0456  val_loss=1.2852  lr=2.50e-04
+2026-06-15 19:23:41  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:23:41  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6878 corr=0.6043 r2=0.2388
+2026-06-15 19:23:42  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1054  val_loss=1.0473  lr=5.00e-04
+2026-06-15 19:23:43  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0311  val_loss=0.9663  lr=2.50e-04
+2026-06-15 19:23:43  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:23:43  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7819 corr=0.5801 r2=0.3187
+2026-06-15 19:23:43  INFO      __main__  Trial 13/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:23:44  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0741  val_loss=1.3460  lr=5.00e-04
+2026-06-15 19:23:44  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0502  val_loss=1.1230  lr=2.50e-04
+2026-06-15 19:23:44  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:23:44  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7485 corr=0.3850 r2=0.1249
+2026-06-15 19:23:45  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2215  val_loss=1.6243  lr=5.00e-04
+2026-06-15 19:23:46  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0387  val_loss=1.4216  lr=2.50e-04
+2026-06-15 19:23:46  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:23:46  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6217 corr=0.6974 r2=0.3781
+2026-06-15 19:23:47  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1410  val_loss=1.0831  lr=5.00e-04
+2026-06-15 19:23:48  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0503  val_loss=0.9203  lr=2.50e-04
+2026-06-15 19:23:49  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:23:49  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8139 corr=0.5616 r2=0.2619
+2026-06-15 19:23:49  INFO      __main__  Trial 14/128 params={'channels': [32, 64, 128], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 0.0001, 'batch_size': 32, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:23:49  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.5283  val_loss=0.7086  lr=3.00e-04
+2026-06-15 19:23:49  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.2540  val_loss=0.5534  lr=3.00e-04
+2026-06-15 19:23:50  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1384  val_loss=0.6844  lr=1.50e-04
+2026-06-15 19:23:50  INFO      src.models.cnn_model_tuned  Early stopping at epoch 31
+2026-06-15 19:23:50  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7245 corr=0.4398 r2=0.1800
+2026-06-15 19:23:50  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.4804  val_loss=0.5130  lr=3.00e-04
+2026-06-15 19:23:51  INFO      src.models.cnn_model_tuned  Early stopping at epoch 18
+2026-06-15 19:23:51  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5425 corr=0.7404 r2=0.5265
+2026-06-15 19:23:51  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3750  val_loss=0.9589  lr=3.00e-04
+2026-06-15 19:23:52  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1986  val_loss=0.9498  lr=3.00e-04
+2026-06-15 19:23:52  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1416  val_loss=1.1357  lr=1.50e-04
+2026-06-15 19:23:52  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:23:52  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9077 corr=0.3140 r2=0.0820
+2026-06-15 19:23:52  INFO      __main__  Trial 15/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:23:53  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1036  val_loss=0.8170  lr=1.00e-03
+2026-06-15 19:23:53  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:23:53  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8750 corr=0.2227 r2=-0.1958
+2026-06-15 19:23:53  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1696  val_loss=0.8969  lr=1.00e-03
+2026-06-15 19:23:54  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:23:54  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6072 corr=0.6901 r2=0.4067
+2026-06-15 19:23:55  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2263  val_loss=0.8130  lr=1.00e-03
+2026-06-15 19:23:55  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1333  val_loss=0.8426  lr=1.00e-03
+2026-06-15 19:23:55  INFO      src.models.cnn_model_tuned  Early stopping at epoch 22
+2026-06-15 19:23:55  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9017 corr=0.3304 r2=0.0941
+2026-06-15 19:23:55  INFO      __main__  Trial 16/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:23:56  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0618  val_loss=1.4828  lr=5.00e-04
+2026-06-15 19:23:56  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0507  val_loss=0.6753  lr=2.50e-04
+2026-06-15 19:23:56  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:23:56  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6624 corr=0.5619 r2=0.3147
+2026-06-15 19:23:57  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0984  val_loss=1.4794  lr=5.00e-04
+2026-06-15 19:23:58  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0315  val_loss=1.0640  lr=2.50e-04
+2026-06-15 19:23:58  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:23:58  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6926 corr=0.7386 r2=0.2283
+2026-06-15 19:23:59  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1388  val_loss=0.8002  lr=5.00e-04
+2026-06-15 19:24:00  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0525  val_loss=1.0172  lr=2.50e-04
+2026-06-15 19:24:01  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:24:01  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8003 corr=0.6073 r2=0.2863
+2026-06-15 19:24:01  INFO      __main__  Trial 17/128 params={'channels': [64, 128, 256], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:24:01  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0781  val_loss=0.5044  lr=3.00e-04
+2026-06-15 19:24:02  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0391  val_loss=0.9594  lr=3.00e-04
+2026-06-15 19:24:02  INFO      src.models.cnn_model_tuned  Early stopping at epoch 22
+2026-06-15 19:24:02  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7102 corr=0.5144 r2=0.2122
+2026-06-15 19:24:02  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1493  val_loss=1.4791  lr=3.00e-04
+2026-06-15 19:24:02  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:24:02  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5810 corr=0.7406 r2=0.4570
+2026-06-15 19:24:03  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1904  val_loss=0.9830  lr=3.00e-04
+2026-06-15 19:24:03  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:24:03  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9295 corr=0.3464 r2=0.0373
+2026-06-15 19:24:03  INFO      __main__  Trial 18/128 params={'channels': [128, 256, 512], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:24:04  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1140  val_loss=1.2889  lr=1.00e-03
+2026-06-15 19:24:04  INFO      src.models.cnn_model_tuned  Early stopping at epoch 19
+2026-06-15 19:24:04  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8149 corr=0.4162 r2=-0.0373
+2026-06-15 19:24:05  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2427  val_loss=1.3224  lr=1.00e-03
+2026-06-15 19:24:06  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:24:06  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5672 corr=0.7161 r2=0.4823
+2026-06-15 19:24:07  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2158  val_loss=0.9375  lr=1.00e-03
+2026-06-15 19:24:08  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1325  val_loss=1.1519  lr=1.00e-03
+2026-06-15 19:24:08  INFO      src.models.cnn_model_tuned  Early stopping at epoch 23
+2026-06-15 19:24:08  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8159 corr=0.5931 r2=0.2583
+2026-06-15 19:24:08  INFO      __main__  Trial 19/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 8, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:24:09  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1793  val_loss=0.6111  lr=3.00e-04
+2026-06-15 19:24:10  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:24:10  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7293 corr=0.4213 r2=0.1692
+2026-06-15 19:24:11  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2068  val_loss=1.3152  lr=3.00e-04
+2026-06-15 19:24:11  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:24:11  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5785 corr=0.7546 r2=0.4616
+2026-06-15 19:24:12  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1902  val_loss=0.9094  lr=3.00e-04
+2026-06-15 19:24:13  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:24:13  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8727 corr=0.5018 r2=0.1514
+2026-06-15 19:24:13  INFO      __main__  Trial 20/128 params={'channels': [32, 64, 128], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:24:14  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1258  val_loss=0.6866  lr=5.00e-04
+2026-06-15 19:24:14  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:24:14  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7538 corr=0.3507 r2=0.1123
+2026-06-15 19:24:14  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1665  val_loss=0.7857  lr=5.00e-04
+2026-06-15 19:24:15  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:24:15  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6010 corr=0.7379 r2=0.4189
+2026-06-15 19:24:16  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2191  val_loss=1.4159  lr=5.00e-04
+2026-06-15 19:24:16  INFO      src.models.cnn_model_tuned  Early stopping at epoch 19
+2026-06-15 19:24:16  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8796 corr=0.3810 r2=0.1379
+2026-06-15 19:24:16  INFO      __main__  Trial 21/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:24:17  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1269  val_loss=1.5533  lr=3.00e-04
+2026-06-15 19:24:17  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1040  val_loss=0.7470  lr=1.50e-04
+2026-06-15 19:24:17  INFO      src.models.cnn_model_tuned  Early stopping at epoch 21
+2026-06-15 19:24:17  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7290 corr=0.5059 r2=0.1699
+2026-06-15 19:24:18  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2374  val_loss=0.5666  lr=3.00e-04
+2026-06-15 19:24:18  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:24:18  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5974 corr=0.7194 r2=0.4259
+2026-06-15 19:24:19  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2110  val_loss=0.8816  lr=3.00e-04
+2026-06-15 19:24:20  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:24:20  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8794 corr=0.3737 r2=0.1383
+2026-06-15 19:24:20  INFO      __main__  Trial 22/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 0.0001, 'batch_size': 8, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:24:20  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3673  val_loss=0.6967  lr=1.00e-03
+2026-06-15 19:24:21  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1068  val_loss=0.5643  lr=5.00e-04
+2026-06-15 19:24:21  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0316  val_loss=0.8144  lr=2.50e-04
+2026-06-15 19:24:21  INFO      src.models.cnn_model_tuned  Early stopping at epoch 32
+2026-06-15 19:24:21  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7350 corr=0.5023 r2=0.1563
+2026-06-15 19:24:22  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2924  val_loss=1.6568  lr=1.00e-03
+2026-06-15 19:24:23  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0788  val_loss=0.6323  lr=5.00e-04
+2026-06-15 19:24:24  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1014  val_loss=1.1418  lr=5.00e-04
+2026-06-15 19:24:25  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0417  val_loss=1.1148  lr=2.50e-04
+2026-06-15 19:24:26  INFO      src.models.cnn_model_tuned  Early stopping at epoch 49
+2026-06-15 19:24:26  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6803 corr=0.6698 r2=0.2554
+2026-06-15 19:24:28  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1835  val_loss=0.8559  lr=1.00e-03
+2026-06-15 19:24:29  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0858  val_loss=0.9868  lr=5.00e-04
+2026-06-15 19:24:30  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:24:30  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8072 corr=0.5966 r2=0.2739
+2026-06-15 19:24:30  INFO      __main__  Trial 23/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0001, 'batch_size': 32, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:24:31  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0749  val_loss=0.7032  lr=1.00e-03
+2026-06-15 19:24:31  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0209  val_loss=1.1981  lr=5.00e-04
+2026-06-15 19:24:31  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:24:31  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7796 corr=0.3436 r2=0.0507
+2026-06-15 19:24:32  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1125  val_loss=1.5668  lr=1.00e-03
+2026-06-15 19:24:32  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0577  val_loss=1.4133  lr=5.00e-04
+2026-06-15 19:24:32  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:24:32  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5947 corr=0.6678 r2=0.4310
+2026-06-15 19:24:33  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1330  val_loss=0.7951  lr=1.00e-03
+2026-06-15 19:24:34  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0389  val_loss=0.9840  lr=5.00e-04
+2026-06-15 19:24:34  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:24:34  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8434 corr=0.5326 r2=0.2074
+2026-06-15 19:24:34  INFO      __main__  Trial 24/128 params={'channels': [32, 64, 128], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:24:34  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3227  val_loss=0.6143  lr=3.00e-04
+2026-06-15 19:24:35  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1055  val_loss=0.6133  lr=3.00e-04
+2026-06-15 19:24:35  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:24:35  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7392 corr=0.4563 r2=0.1464
+2026-06-15 19:24:35  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3120  val_loss=0.4573  lr=3.00e-04
+2026-06-15 19:24:35  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:24:35  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5471 corr=0.7400 r2=0.5184
+2026-06-15 19:24:36  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2592  val_loss=1.4587  lr=3.00e-04
+2026-06-15 19:24:36  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:24:36  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9476 corr=0.0522 r2=-0.0007
+2026-06-15 19:24:36  INFO      __main__  Trial 25/128 params={'channels': [64, 128, 256], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 8, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:24:37  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1987  val_loss=0.6492  lr=1.00e-03
+2026-06-15 19:24:37  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1832  val_loss=1.0447  lr=5.00e-04
+2026-06-15 19:24:38  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.2170  val_loss=0.8449  lr=2.50e-04
+2026-06-15 19:24:38  INFO      src.models.cnn_model_tuned  Early stopping at epoch 32
+2026-06-15 19:24:38  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7301 corr=0.4667 r2=0.1674
+2026-06-15 19:24:39  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2877  val_loss=0.9215  lr=1.00e-03
+2026-06-15 19:24:40  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1509  val_loss=1.6811  lr=5.00e-04
+2026-06-15 19:24:41  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1207  val_loss=1.6848  lr=2.50e-04
+2026-06-15 19:24:41  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:24:41  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6299 corr=0.6759 r2=0.3616
+2026-06-15 19:24:42  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3756  val_loss=1.5763  lr=1.00e-03
+2026-06-15 19:24:44  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1462  val_loss=1.2178  lr=5.00e-04
+2026-06-15 19:24:45  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1113  val_loss=1.0251  lr=2.50e-04
+2026-06-15 19:24:45  INFO      src.models.cnn_model_tuned  Early stopping at epoch 32
+2026-06-15 19:24:45  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8545 corr=0.4718 r2=0.1863
+2026-06-15 19:24:45  INFO      __main__  Trial 26/128 params={'channels': [64, 128, 256], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:24:45  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1663  val_loss=1.0618  lr=3.00e-04
+2026-06-15 19:24:46  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0967  val_loss=0.8036  lr=1.50e-04
+2026-06-15 19:24:46  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1251  val_loss=0.8750  lr=7.50e-05
+2026-06-15 19:24:46  INFO      src.models.cnn_model_tuned  Early stopping at epoch 33
+2026-06-15 19:24:46  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7124 corr=0.5287 r2=0.2072
+2026-06-15 19:24:47  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1116  val_loss=0.7754  lr=3.00e-04
+2026-06-15 19:24:47  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0650  val_loss=0.5028  lr=1.50e-04
+2026-06-15 19:24:48  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:24:48  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5270 corr=0.7569 r2=0.5532
+2026-06-15 19:24:49  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2139  val_loss=1.0785  lr=3.00e-04
+2026-06-15 19:24:49  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0713  val_loss=0.8651  lr=1.50e-04
+2026-06-15 19:24:50  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0467  val_loss=1.0018  lr=7.50e-05
+2026-06-15 19:24:50  INFO      src.models.cnn_model_tuned  Early stopping at epoch 31
+2026-06-15 19:24:50  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8995 corr=0.3570 r2=0.0984
+2026-06-15 19:24:50  INFO      __main__  Trial 27/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:24:51  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1762  val_loss=1.3295  lr=1.00e-03
+2026-06-15 19:24:51  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:24:51  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7101 corr=0.5328 r2=0.2123
+2026-06-15 19:24:51  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1605  val_loss=1.2826  lr=1.00e-03
+2026-06-15 19:24:52  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:24:52  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5906 corr=0.7350 r2=0.4388
+2026-06-15 19:24:53  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2020  val_loss=0.8871  lr=1.00e-03
+2026-06-15 19:24:53  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:24:53  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8435 corr=0.4747 r2=0.2072
+2026-06-15 19:24:53  INFO      __main__  Trial 28/128 params={'channels': [64, 128, 256], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:24:53  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1448  val_loss=0.5275  lr=3.00e-04
+2026-06-15 19:24:54  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0658  val_loss=1.3609  lr=3.00e-04
+2026-06-15 19:24:54  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0814  val_loss=0.8433  lr=1.50e-04
+2026-06-15 19:24:54  INFO      src.models.cnn_model_tuned  Early stopping at epoch 35
+2026-06-15 19:24:54  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7263 corr=0.4942 r2=0.1760
+2026-06-15 19:24:55  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1646  val_loss=0.8801  lr=3.00e-04
+2026-06-15 19:24:55  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0609  val_loss=1.4214  lr=1.50e-04
+2026-06-15 19:24:55  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:24:55  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6479 corr=0.7394 r2=0.3247
+2026-06-15 19:24:56  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2502  val_loss=1.0981  lr=3.00e-04
+2026-06-15 19:24:57  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0722  val_loss=1.3539  lr=1.50e-04
+2026-06-15 19:24:57  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:24:57  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9421 corr=0.1110 r2=0.0110
+2026-06-15 19:24:57  INFO      __main__  Trial 29/128 params={'channels': [64, 128, 256], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:24:57  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1667  val_loss=1.2058  lr=1.00e-03
+2026-06-15 19:24:58  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:24:58  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7764 corr=0.4756 r2=0.0585
+2026-06-15 19:24:58  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2087  val_loss=2.7247  lr=1.00e-03
+2026-06-15 19:24:58  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:24:58  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5761 corr=0.7339 r2=0.4660
+2026-06-15 19:24:59  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2310  val_loss=1.4129  lr=1.00e-03
+2026-06-15 19:25:00  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:25:00  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8873 corr=0.3577 r2=0.1227
+2026-06-15 19:25:00  INFO      __main__  Trial 30/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:25:00  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0996  val_loss=1.3304  lr=3.00e-04
+2026-06-15 19:25:00  INFO      src.models.cnn_model_tuned  Early stopping at epoch 18
+2026-06-15 19:25:00  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6837 corr=0.5330 r2=0.2700
+2026-06-15 19:25:01  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0331  val_loss=1.0088  lr=3.00e-04
+2026-06-15 19:25:01  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0389  val_loss=0.9918  lr=3.00e-04
+2026-06-15 19:25:02  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:25:02  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6275 corr=0.6446 r2=0.3665
+2026-06-15 19:25:03  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1018  val_loss=1.0058  lr=3.00e-04
+2026-06-15 19:25:03  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0548  val_loss=1.2711  lr=1.50e-04
+2026-06-15 19:25:03  INFO      src.models.cnn_model_tuned  Early stopping at epoch 21
+2026-06-15 19:25:03  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8319 corr=0.4951 r2=0.2289
+2026-06-15 19:25:03  INFO      __main__  Trial 31/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 8, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:25:04  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2242  val_loss=1.0516  lr=5.00e-04
+2026-06-15 19:25:04  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:25:04  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8085 corr=0.3608 r2=-0.0210
+2026-06-15 19:25:05  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2553  val_loss=1.2507  lr=5.00e-04
+2026-06-15 19:25:06  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:25:06  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6450 corr=0.6581 r2=0.3307
+2026-06-15 19:25:07  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2364  val_loss=1.1285  lr=5.00e-04
+2026-06-15 19:25:08  INFO      src.models.cnn_model_tuned  Early stopping at epoch 18
+2026-06-15 19:25:08  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8166 corr=0.6814 r2=0.2569
+2026-06-15 19:25:08  INFO      __main__  Trial 32/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:25:09  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1600  val_loss=1.0872  lr=3.00e-04
+2026-06-15 19:25:09  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0687  val_loss=0.9906  lr=3.00e-04
+2026-06-15 19:25:09  INFO      src.models.cnn_model_tuned  Early stopping at epoch 24
+2026-06-15 19:25:09  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7020 corr=0.5178 r2=0.2303
+2026-06-15 19:25:10  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0936  val_loss=0.5850  lr=3.00e-04
+2026-06-15 19:25:11  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1163  val_loss=0.5675  lr=1.50e-04
+2026-06-15 19:25:11  INFO      src.models.cnn_model_tuned  Early stopping at epoch 21
+2026-06-15 19:25:11  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6418 corr=0.6649 r2=0.3372
+2026-06-15 19:25:12  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1440  val_loss=0.7757  lr=3.00e-04
+2026-06-15 19:25:13  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0857  val_loss=1.1631  lr=3.00e-04
+2026-06-15 19:25:13  INFO      src.models.cnn_model_tuned  Early stopping at epoch 22
+2026-06-15 19:25:13  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8808 corr=0.4037 r2=0.1356
+2026-06-15 19:25:13  INFO      __main__  Trial 33/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 8, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:25:14  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1804  val_loss=1.0451  lr=5.00e-04
+2026-06-15 19:25:14  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:25:14  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7518 corr=0.4690 r2=0.1171
+2026-06-15 19:25:15  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1601  val_loss=0.7362  lr=5.00e-04
+2026-06-15 19:25:16  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:25:16  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5885 corr=0.6752 r2=0.4427
+2026-06-15 19:25:17  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2277  val_loss=0.6274  lr=5.00e-04
+2026-06-15 19:25:19  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1679  val_loss=0.9071  lr=5.00e-04
+2026-06-15 19:25:19  INFO      src.models.cnn_model_tuned  Early stopping at epoch 22
+2026-06-15 19:25:19  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7921 corr=0.5783 r2=0.3009
+2026-06-15 19:25:19  INFO      __main__  Trial 34/128 params={'channels': [32, 64, 128], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 8, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:25:19  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3391  val_loss=1.3159  lr=5.00e-04
+2026-06-15 19:25:20  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1041  val_loss=0.6809  lr=2.50e-04
+2026-06-15 19:25:20  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:25:20  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7760 corr=0.3220 r2=0.0593
+2026-06-15 19:25:21  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2498  val_loss=0.9677  lr=5.00e-04
+2026-06-15 19:25:22  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0842  val_loss=1.1729  lr=2.50e-04
+2026-06-15 19:25:23  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:25:23  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5807 corr=0.7276 r2=0.4575
+2026-06-15 19:25:24  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2449  val_loss=1.1342  lr=5.00e-04
+2026-06-15 19:25:25  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0959  val_loss=1.0353  lr=2.50e-04
+2026-06-15 19:25:26  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:25:26  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8713 corr=0.4158 r2=0.1540
+2026-06-15 19:25:26  INFO      __main__  Trial 35/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:25:27  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2017  val_loss=0.7337  lr=5.00e-04
+2026-06-15 19:25:27  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:25:27  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7073 corr=0.4822 r2=0.2186
+2026-06-15 19:25:28  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1899  val_loss=1.3583  lr=5.00e-04
+2026-06-15 19:25:28  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:25:28  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5715 corr=0.6931 r2=0.4745
+2026-06-15 19:25:29  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2098  val_loss=0.8320  lr=5.00e-04
+2026-06-15 19:25:30  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1149  val_loss=0.8538  lr=5.00e-04
+2026-06-15 19:25:30  INFO      src.models.cnn_model_tuned  Early stopping at epoch 22
+2026-06-15 19:25:30  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9121 corr=0.2996 r2=0.0729
+2026-06-15 19:25:30  INFO      __main__  Trial 36/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:25:30  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1323  val_loss=0.9097  lr=3.00e-04
+2026-06-15 19:25:31  INFO      src.models.cnn_model_tuned  Early stopping at epoch 19
+2026-06-15 19:25:31  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7417 corr=0.4047 r2=0.1406
+2026-06-15 19:25:31  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1183  val_loss=0.6444  lr=3.00e-04
+2026-06-15 19:25:31  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:25:31  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5688 corr=0.7174 r2=0.4796
+2026-06-15 19:25:32  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1767  val_loss=1.3022  lr=3.00e-04
+2026-06-15 19:25:33  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:25:33  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8884 corr=0.3666 r2=0.1206
+2026-06-15 19:25:33  INFO      __main__  Trial 37/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:25:33  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1227  val_loss=0.8680  lr=5.00e-04
+2026-06-15 19:25:33  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:25:33  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7537 corr=0.4067 r2=0.1127
+2026-06-15 19:25:34  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1682  val_loss=0.8650  lr=5.00e-04
+2026-06-15 19:25:34  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:25:34  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7242 corr=0.7359 r2=0.1563
+2026-06-15 19:25:35  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1375  val_loss=1.3268  lr=5.00e-04
+2026-06-15 19:25:36  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0954  val_loss=1.6207  lr=5.00e-04
+2026-06-15 19:25:37  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:25:37  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9151 corr=0.3201 r2=0.0668
+2026-06-15 19:25:37  INFO      __main__  Trial 38/128 params={'channels': [64, 128, 256], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 8, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:25:37  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3279  val_loss=1.0853  lr=1.00e-03
+2026-06-15 19:25:38  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1240  val_loss=0.6279  lr=5.00e-04
+2026-06-15 19:25:38  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1109  val_loss=0.7397  lr=2.50e-04
+2026-06-15 19:25:38  INFO      src.models.cnn_model_tuned  Early stopping at epoch 31
+2026-06-15 19:25:38  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7409 corr=0.4427 r2=0.1425
+2026-06-15 19:25:39  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2646  val_loss=1.6180  lr=1.00e-03
+2026-06-15 19:25:40  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1376  val_loss=1.6992  lr=5.00e-04
+2026-06-15 19:25:41  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:25:41  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6120 corr=0.6927 r2=0.3974
+2026-06-15 19:25:42  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3118  val_loss=1.3232  lr=1.00e-03
+2026-06-15 19:25:44  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1744  val_loss=1.0328  lr=5.00e-04
+2026-06-15 19:25:45  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1754  val_loss=1.1699  lr=2.50e-04
+2026-06-15 19:25:45  INFO      src.models.cnn_model_tuned  Early stopping at epoch 33
+2026-06-15 19:25:45  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8605 corr=0.4480 r2=0.1749
+2026-06-15 19:25:45  INFO      __main__  Trial 39/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 8, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:25:46  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1311  val_loss=1.8371  lr=5.00e-04
+2026-06-15 19:25:46  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:25:46  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7592 corr=0.5197 r2=0.0997
+2026-06-15 19:25:47  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1588  val_loss=0.9214  lr=5.00e-04
+2026-06-15 19:25:47  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:25:47  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6259 corr=0.6480 r2=0.3697
+2026-06-15 19:25:49  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1696  val_loss=0.9470  lr=5.00e-04
+2026-06-15 19:25:50  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:25:50  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7771 corr=0.5844 r2=0.3270
+2026-06-15 19:25:50  INFO      __main__  Trial 40/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:25:51  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0933  val_loss=0.8948  lr=5.00e-04
+2026-06-15 19:25:51  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0447  val_loss=1.1421  lr=2.50e-04
+2026-06-15 19:25:51  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:25:51  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7129 corr=0.5091 r2=0.2061
+2026-06-15 19:25:52  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0801  val_loss=1.2975  lr=5.00e-04
+2026-06-15 19:25:52  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0465  val_loss=1.3971  lr=2.50e-04
+2026-06-15 19:25:53  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:25:53  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6172 corr=0.7390 r2=0.3872
+2026-06-15 19:25:54  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1330  val_loss=1.5421  lr=5.00e-04
+2026-06-15 19:25:54  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0391  val_loss=0.8854  lr=2.50e-04
+2026-06-15 19:25:55  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:25:55  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8514 corr=0.5018 r2=0.1922
+2026-06-15 19:25:55  INFO      __main__  Trial 41/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:25:55  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1615  val_loss=0.8280  lr=1.00e-03
+2026-06-15 19:25:55  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1766  val_loss=1.0651  lr=5.00e-04
+2026-06-15 19:25:55  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0748  val_loss=1.0019  lr=5.00e-04
+2026-06-15 19:25:56  INFO      src.models.cnn_model_tuned  Early stopping at epoch 34
+2026-06-15 19:25:56  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7479 corr=0.4449 r2=0.1262
+2026-06-15 19:25:56  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1823  val_loss=2.1194  lr=1.00e-03
+2026-06-15 19:25:57  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0909  val_loss=0.9825  lr=5.00e-04
+2026-06-15 19:25:57  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:25:57  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5366 corr=0.7445 r2=0.5367
+2026-06-15 19:25:58  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2809  val_loss=1.1708  lr=1.00e-03
+2026-06-15 19:25:59  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1261  val_loss=0.9373  lr=5.00e-04
+2026-06-15 19:25:59  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:25:59  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8747 corr=0.4184 r2=0.1475
+2026-06-15 19:25:59  INFO      __main__  Trial 42/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:25:59  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1896  val_loss=0.6947  lr=3.00e-04
+2026-06-15 19:26:00  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:26:00  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7653 corr=0.4080 r2=0.0852
+2026-06-15 19:26:00  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2119  val_loss=2.0674  lr=3.00e-04
+2026-06-15 19:26:01  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:26:01  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6045 corr=0.7351 r2=0.4121
+2026-06-15 19:26:02  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2285  val_loss=0.9639  lr=3.00e-04
+2026-06-15 19:26:02  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:26:02  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9352 corr=0.1839 r2=0.0254
+2026-06-15 19:26:02  INFO      __main__  Trial 43/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:26:03  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1485  val_loss=1.0871  lr=1.00e-03
+2026-06-15 19:26:03  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:26:03  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8106 corr=0.3468 r2=-0.0264
+2026-06-15 19:26:03  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1542  val_loss=2.1363  lr=1.00e-03
+2026-06-15 19:26:04  INFO      src.models.cnn_model_tuned  Early stopping at epoch 19
+2026-06-15 19:26:04  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7946 corr=0.6253 r2=-0.0159
+2026-06-15 19:26:05  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1998  val_loss=0.7954  lr=1.00e-03
+2026-06-15 19:26:06  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:26:06  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8371 corr=0.5250 r2=0.2191
+2026-06-15 19:26:06  INFO      __main__  Trial 44/128 params={'channels': [128, 256, 512], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:26:06  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1202  val_loss=1.2169  lr=1.00e-03
+2026-06-15 19:26:07  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0681  val_loss=0.8866  lr=1.00e-03
+2026-06-15 19:26:07  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0116  val_loss=0.7752  lr=1.00e-03
+2026-06-15 19:26:07  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0358  val_loss=0.7336  lr=5.00e-04
+2026-06-15 19:26:07  INFO      src.models.cnn_model_tuned  Early stopping at epoch 41
+2026-06-15 19:26:07  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8038 corr=0.4483 r2=-0.0092
+2026-06-15 19:26:08  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1193  val_loss=2.2386  lr=1.00e-03
+2026-06-15 19:26:08  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:26:08  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6177 corr=0.6901 r2=0.3862
+2026-06-15 19:26:09  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1759  val_loss=0.8987  lr=1.00e-03
+2026-06-15 19:26:10  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:26:10  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8446 corr=0.5159 r2=0.2052
+2026-06-15 19:26:10  INFO      __main__  Trial 45/128 params={'channels': [32, 64, 128], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:26:10  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2407  val_loss=0.6511  lr=1.00e-03
+2026-06-15 19:26:10  INFO      src.models.cnn_model_tuned  Early stopping at epoch 19
+2026-06-15 19:26:10  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7300 corr=0.4457 r2=0.1675
+2026-06-15 19:26:11  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2425  val_loss=1.2329  lr=1.00e-03
+2026-06-15 19:26:11  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:26:11  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5439 corr=0.7302 r2=0.5241
+2026-06-15 19:26:12  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3032  val_loss=0.8631  lr=1.00e-03
+2026-06-15 19:26:12  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1975  val_loss=0.8473  lr=5.00e-04
+2026-06-15 19:26:12  INFO      src.models.cnn_model_tuned  Early stopping at epoch 20
+2026-06-15 19:26:12  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9106 corr=0.3323 r2=0.0761
+2026-06-15 19:26:12  INFO      __main__  Trial 46/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 8, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:26:13  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2033  val_loss=1.1705  lr=1.00e-03
+2026-06-15 19:26:14  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1168  val_loss=1.3562  lr=5.00e-04
+2026-06-15 19:26:14  INFO      src.models.cnn_model_tuned  Early stopping at epoch 20
+2026-06-15 19:26:14  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6997 corr=0.5764 r2=0.2352
+2026-06-15 19:26:15  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2330  val_loss=0.7245  lr=1.00e-03
+2026-06-15 19:26:15  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:26:15  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6595 corr=0.7522 r2=0.3003
+2026-06-15 19:26:17  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2967  val_loss=0.9315  lr=1.00e-03
+2026-06-15 19:26:18  INFO      src.models.cnn_model_tuned  Early stopping at epoch 18
+2026-06-15 19:26:18  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8033 corr=0.6192 r2=0.2810
+2026-06-15 19:26:18  INFO      __main__  Trial 47/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:26:19  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0942  val_loss=0.7141  lr=1.00e-03
+2026-06-15 19:26:19  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0880  val_loss=0.9853  lr=1.00e-03
+2026-06-15 19:26:19  INFO      src.models.cnn_model_tuned  Early stopping at epoch 25
+2026-06-15 19:26:19  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8190 corr=0.4399 r2=-0.0477
+2026-06-15 19:26:20  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0905  val_loss=0.7951  lr=1.00e-03
+2026-06-15 19:26:20  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:26:20  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5703 corr=0.7151 r2=0.4767
+2026-06-15 19:26:21  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1975  val_loss=0.8816  lr=1.00e-03
+2026-06-15 19:26:22  INFO      src.models.cnn_model_tuned  Early stopping at epoch 18
+2026-06-15 19:26:22  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9030 corr=0.3064 r2=0.0914
+2026-06-15 19:26:22  INFO      __main__  Trial 48/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 8, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:26:23  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1871  val_loss=1.0363  lr=1.00e-03
+2026-06-15 19:26:23  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0971  val_loss=0.6626  lr=5.00e-04
+2026-06-15 19:26:24  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0696  val_loss=0.6738  lr=2.50e-04
+2026-06-15 19:26:24  INFO      src.models.cnn_model_tuned  Early stopping at epoch 31
+2026-06-15 19:26:24  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6888 corr=0.5326 r2=0.2589
+2026-06-15 19:26:25  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1876  val_loss=1.1016  lr=1.00e-03
+2026-06-15 19:26:26  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1403  val_loss=0.6427  lr=5.00e-04
+2026-06-15 19:26:27  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:26:27  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6746 corr=0.7061 r2=0.2678
+2026-06-15 19:26:28  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2282  val_loss=0.9565  lr=1.00e-03
+2026-06-15 19:26:30  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1115  val_loss=1.1006  lr=5.00e-04
+2026-06-15 19:26:31  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0902  val_loss=0.8937  lr=2.50e-04
+2026-06-15 19:26:32  INFO      src.models.cnn_model_tuned  Early stopping at epoch 32
+2026-06-15 19:26:32  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8760 corr=0.4254 r2=0.1449
+2026-06-15 19:26:32  INFO      __main__  Trial 49/128 params={'channels': [128, 256, 512], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:26:32  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1500  val_loss=1.2817  lr=3.00e-04
+2026-06-15 19:26:32  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0572  val_loss=0.6631  lr=3.00e-04
+2026-06-15 19:26:33  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0497  val_loss=0.8180  lr=1.50e-04
+2026-06-15 19:26:33  INFO      src.models.cnn_model_tuned  Early stopping at epoch 37
+2026-06-15 19:26:33  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7403 corr=0.5173 r2=0.1439
+2026-06-15 19:26:34  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1327  val_loss=0.6862  lr=3.00e-04
+2026-06-15 19:26:35  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0615  val_loss=0.9567  lr=1.50e-04
+2026-06-15 19:26:35  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:26:35  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5513 corr=0.7406 r2=0.5110
+2026-06-15 19:26:36  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1701  val_loss=0.9945  lr=3.00e-04
+2026-06-15 19:26:37  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0500  val_loss=1.2645  lr=1.50e-04
+2026-06-15 19:26:38  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0426  val_loss=1.1551  lr=7.50e-05
+2026-06-15 19:26:39  INFO      src.models.cnn_model_tuned  Early stopping at epoch 32
+2026-06-15 19:26:39  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8698 corr=0.4283 r2=0.1569
+2026-06-15 19:26:39  INFO      __main__  Trial 50/128 params={'channels': [64, 128, 256], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:26:39  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1344  val_loss=0.6074  lr=3.00e-04
+2026-06-15 19:26:39  INFO      src.models.cnn_model_tuned  Early stopping at epoch 18
+2026-06-15 19:26:39  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7488 corr=0.3580 r2=0.1242
+2026-06-15 19:26:40  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1508  val_loss=1.8005  lr=3.00e-04
+2026-06-15 19:26:40  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:26:40  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5795 corr=0.7415 r2=0.4597
+2026-06-15 19:26:41  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2171  val_loss=1.2515  lr=3.00e-04
+2026-06-15 19:26:41  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0681  val_loss=1.2377  lr=1.50e-04
+2026-06-15 19:26:41  INFO      src.models.cnn_model_tuned  Early stopping at epoch 21
+2026-06-15 19:26:41  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9108 corr=0.3395 r2=0.0756
+2026-06-15 19:26:41  INFO      __main__  Trial 51/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 8, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:26:42  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1298  val_loss=0.7740  lr=3.00e-04
+2026-06-15 19:26:42  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0765  val_loss=1.1182  lr=1.50e-04
+2026-06-15 19:26:43  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0409  val_loss=0.9669  lr=7.50e-05
+2026-06-15 19:26:43  INFO      src.models.cnn_model_tuned  Early stopping at epoch 38
+2026-06-15 19:26:43  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7501 corr=0.4848 r2=0.1211
+2026-06-15 19:26:44  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2163  val_loss=0.7161  lr=3.00e-04
+2026-06-15 19:26:45  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1498  val_loss=4.2476  lr=3.00e-04
+2026-06-15 19:26:46  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0754  val_loss=1.2092  lr=1.50e-04
+2026-06-15 19:26:46  INFO      src.models.cnn_model_tuned  Early stopping at epoch 36
+2026-06-15 19:26:46  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7205 corr=0.6256 r2=0.1647
+2026-06-15 19:26:48  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1977  val_loss=1.4444  lr=3.00e-04
+2026-06-15 19:26:49  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1199  val_loss=1.0372  lr=1.50e-04
+2026-06-15 19:26:50  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0743  val_loss=0.9055  lr=7.50e-05
+2026-06-15 19:26:51  INFO      src.models.cnn_model_tuned  Early stopping at epoch 33
+2026-06-15 19:26:51  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9061 corr=0.3524 r2=0.0852
+2026-06-15 19:26:51  INFO      __main__  Trial 52/128 params={'channels': [128, 256, 512], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 8, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:26:51  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1780  val_loss=1.0889  lr=5.00e-04
+2026-06-15 19:26:52  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1585  val_loss=0.8440  lr=5.00e-04
+2026-06-15 19:26:52  INFO      src.models.cnn_model_tuned  Early stopping at epoch 23
+2026-06-15 19:26:52  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7189 corr=0.4934 r2=0.1927
+2026-06-15 19:26:53  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2254  val_loss=1.3767  lr=5.00e-04
+2026-06-15 19:26:54  INFO      src.models.cnn_model_tuned  Early stopping at epoch 18
+2026-06-15 19:26:54  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6642 corr=0.6425 r2=0.2903
+2026-06-15 19:26:56  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2399  val_loss=0.9812  lr=5.00e-04
+2026-06-15 19:26:56  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:26:56  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8118 corr=0.5655 r2=0.2657
+2026-06-15 19:26:56  INFO      __main__  Trial 53/128 params={'channels': [32, 64, 128], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:26:57  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2136  val_loss=0.6361  lr=5.00e-04
+2026-06-15 19:26:57  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1221  val_loss=0.7185  lr=2.50e-04
+2026-06-15 19:26:57  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0472  val_loss=1.2277  lr=1.25e-04
+2026-06-15 19:26:57  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:26:57  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7513 corr=0.4052 r2=0.1184
+2026-06-15 19:26:58  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2532  val_loss=0.8001  lr=5.00e-04
+2026-06-15 19:26:59  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1408  val_loss=1.4301  lr=2.50e-04
+2026-06-15 19:26:59  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:26:59  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6411 corr=0.7224 r2=0.3388
+2026-06-15 19:27:00  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2918  val_loss=1.2687  lr=5.00e-04
+2026-06-15 19:27:01  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0805  val_loss=1.1239  lr=2.50e-04
+2026-06-15 19:27:02  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0539  val_loss=0.9557  lr=1.25e-04
+2026-06-15 19:27:02  INFO      src.models.cnn_model_tuned  Early stopping at epoch 31
+2026-06-15 19:27:02  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8793 corr=0.4101 r2=0.1385
+2026-06-15 19:27:02  INFO      __main__  Trial 54/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:27:02  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0438  val_loss=0.6400  lr=1.00e-03
+2026-06-15 19:27:02  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0564  val_loss=0.8227  lr=5.00e-04
+2026-06-15 19:27:03  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:27:03  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7835 corr=0.3874 r2=0.0411
+2026-06-15 19:27:03  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1091  val_loss=0.9901  lr=1.00e-03
+2026-06-15 19:27:04  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0539  val_loss=1.4445  lr=5.00e-04
+2026-06-15 19:27:04  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:27:04  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7558 corr=0.3815 r2=0.0809
+2026-06-15 19:27:05  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1563  val_loss=0.9943  lr=1.00e-03
+2026-06-15 19:27:06  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0524  val_loss=1.0889  lr=1.00e-03
+2026-06-15 19:27:06  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0212  val_loss=1.0926  lr=5.00e-04
+2026-06-15 19:27:07  INFO      src.models.cnn_model_tuned  Early stopping at epoch 38
+2026-06-15 19:27:07  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8898 corr=0.4408 r2=0.1177
+2026-06-15 19:27:07  INFO      __main__  Trial 55/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:27:08  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1305  val_loss=1.5182  lr=1.00e-03
+2026-06-15 19:27:08  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:27:08  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9418 corr=0.4508 r2=-0.3854
+2026-06-15 19:27:09  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1114  val_loss=1.0854  lr=1.00e-03
+2026-06-15 19:27:09  INFO      src.models.cnn_model_tuned  Early stopping at epoch 19
+2026-06-15 19:27:09  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6608 corr=0.5828 r2=0.2975
+2026-06-15 19:27:10  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1805  val_loss=0.7240  lr=1.00e-03
+2026-06-15 19:27:11  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0669  val_loss=0.9984  lr=1.00e-03
+2026-06-15 19:27:11  INFO      src.models.cnn_model_tuned  Early stopping at epoch 22
+2026-06-15 19:27:11  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8509 corr=0.4550 r2=0.1933
+2026-06-15 19:27:11  INFO      __main__  Trial 56/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 8, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:27:12  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1342  val_loss=0.9000  lr=3.00e-04
+2026-06-15 19:27:12  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0944  val_loss=1.1104  lr=3.00e-04
+2026-06-15 19:27:13  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:27:13  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8549 corr=0.4189 r2=-0.1416
+2026-06-15 19:27:14  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1479  val_loss=2.2873  lr=3.00e-04
+2026-06-15 19:27:14  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:27:14  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6623 corr=0.5816 r2=0.2943
+2026-06-15 19:27:16  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1712  val_loss=1.6208  lr=3.00e-04
+2026-06-15 19:27:17  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:27:17  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8108 corr=0.5187 r2=0.2674
+2026-06-15 19:27:17  INFO      __main__  Trial 57/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 8, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:27:18  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2514  val_loss=0.9682  lr=5.00e-04
+2026-06-15 19:27:18  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1562  val_loss=1.3166  lr=5.00e-04
+2026-06-15 19:27:18  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:27:18  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7086 corr=0.5042 r2=0.2158
+2026-06-15 19:27:20  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2393  val_loss=1.5367  lr=5.00e-04
+2026-06-15 19:27:20  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:27:20  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5764 corr=0.6875 r2=0.4655
+2026-06-15 19:27:21  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3098  val_loss=0.9250  lr=5.00e-04
+2026-06-15 19:27:23  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.2001  val_loss=0.8781  lr=5.00e-04
+2026-06-15 19:27:24  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1309  val_loss=0.8595  lr=2.50e-04
+2026-06-15 19:27:24  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:27:24  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8536 corr=0.5100 r2=0.1880
+2026-06-15 19:27:24  INFO      __main__  Trial 58/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:27:24  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1616  val_loss=0.9767  lr=5.00e-04
+2026-06-15 19:27:25  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0424  val_loss=0.8550  lr=2.50e-04
+2026-06-15 19:27:25  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0443  val_loss=0.8544  lr=1.25e-04
+2026-06-15 19:27:25  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0299  val_loss=0.9540  lr=6.25e-05
+2026-06-15 19:27:25  INFO      src.models.cnn_model_tuned  Early stopping at epoch 43
+2026-06-15 19:27:25  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7962 corr=0.4773 r2=0.0097
+2026-06-15 19:27:26  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2686  val_loss=0.5643  lr=5.00e-04
+2026-06-15 19:27:26  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0658  val_loss=1.8596  lr=5.00e-04
+2026-06-15 19:27:27  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0474  val_loss=1.5456  lr=2.50e-04
+2026-06-15 19:27:27  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0335  val_loss=1.3998  lr=2.50e-04
+2026-06-15 19:27:28  INFO      src.models.cnn_model_tuned  Early stopping at epoch 44
+2026-06-15 19:27:28  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6221 corr=0.7164 r2=0.3773
+2026-06-15 19:27:29  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2311  val_loss=0.9243  lr=5.00e-04
+2026-06-15 19:27:29  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0999  val_loss=0.9406  lr=2.50e-04
+2026-06-15 19:27:30  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:27:30  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8683 corr=0.4173 r2=0.1598
+2026-06-15 19:27:30  INFO      __main__  Trial 59/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:27:30  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0705  val_loss=1.6095  lr=1.00e-03
+2026-06-15 19:27:31  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1004  val_loss=0.9370  lr=1.00e-03
+2026-06-15 19:27:31  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0193  val_loss=1.0804  lr=5.00e-04
+2026-06-15 19:27:31  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0114  val_loss=1.0806  lr=2.50e-04
+2026-06-15 19:27:31  INFO      src.models.cnn_model_tuned  Early stopping at epoch 40
+2026-06-15 19:27:31  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7954 corr=0.4979 r2=0.0118
+2026-06-15 19:27:32  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1027  val_loss=0.8971  lr=1.00e-03
+2026-06-15 19:27:32  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0838  val_loss=1.5300  lr=5.00e-04
+2026-06-15 19:27:33  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:27:33  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6542 corr=0.6922 r2=0.3114
+2026-06-15 19:27:34  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2737  val_loss=0.8273  lr=1.00e-03
+2026-06-15 19:27:34  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1576  val_loss=0.8559  lr=1.00e-03
+2026-06-15 19:27:35  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0465  val_loss=1.2085  lr=5.00e-04
+2026-06-15 19:27:35  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0490  val_loss=1.0046  lr=5.00e-04
+2026-06-15 19:27:36  INFO      src.models.cnn_model_tuned    epoch  50  train_loss=0.0324  val_loss=1.2149  lr=2.50e-04
+2026-06-15 19:27:36  INFO      src.models.cnn_model_tuned    epoch  60  train_loss=0.0189  val_loss=1.1884  lr=1.25e-04
+2026-06-15 19:27:36  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9014 corr=0.3091 r2=0.0946
+2026-06-15 19:27:36  INFO      __main__  Trial 60/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:27:37  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1058  val_loss=0.6689  lr=3.00e-04
+2026-06-15 19:27:37  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:27:37  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7488 corr=0.4294 r2=0.1242
+2026-06-15 19:27:38  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1188  val_loss=0.8859  lr=3.00e-04
+2026-06-15 19:27:38  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:27:38  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5817 corr=0.6885 r2=0.4556
+2026-06-15 19:27:39  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1906  val_loss=1.0281  lr=3.00e-04
+2026-06-15 19:27:40  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:27:40  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8607 corr=0.4199 r2=0.1745
+2026-06-15 19:27:40  INFO      __main__  Trial 61/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 8, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:27:40  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1780  val_loss=0.7658  lr=3.00e-04
+2026-06-15 19:27:41  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1629  val_loss=1.2883  lr=3.00e-04
+2026-06-15 19:27:41  INFO      src.models.cnn_model_tuned  Early stopping at epoch 25
+2026-06-15 19:27:41  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7514 corr=0.4739 r2=0.1181
+2026-06-15 19:27:42  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2062  val_loss=2.6945  lr=3.00e-04
+2026-06-15 19:27:42  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:27:42  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6207 corr=0.7620 r2=0.3803
+2026-06-15 19:27:44  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2353  val_loss=0.9150  lr=3.00e-04
+2026-06-15 19:27:45  INFO      src.models.cnn_model_tuned  Early stopping at epoch 19
+2026-06-15 19:27:45  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8645 corr=0.4174 r2=0.1672
+2026-06-15 19:27:45  INFO      __main__  Trial 62/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:27:45  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1263  val_loss=1.1637  lr=1.00e-03
+2026-06-15 19:27:45  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0505  val_loss=0.8110  lr=5.00e-04
+2026-06-15 19:27:46  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:27:46  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7940 corr=0.3147 r2=0.0153
+2026-06-15 19:27:46  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1934  val_loss=1.0520  lr=1.00e-03
+2026-06-15 19:27:47  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0880  val_loss=1.1574  lr=5.00e-04
+2026-06-15 19:27:47  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:27:47  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6723 corr=0.6990 r2=0.2729
+2026-06-15 19:27:48  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1767  val_loss=0.8459  lr=1.00e-03
+2026-06-15 19:27:49  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1300  val_loss=1.2500  lr=1.00e-03
+2026-06-15 19:27:50  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0429  val_loss=0.9469  lr=5.00e-04
+2026-06-15 19:27:51  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0440  val_loss=1.0043  lr=2.50e-04
+2026-06-15 19:27:51  INFO      src.models.cnn_model_tuned  Early stopping at epoch 40
+2026-06-15 19:27:51  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8853 corr=0.3760 r2=0.1267
+2026-06-15 19:27:51  INFO      __main__  Trial 63/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:27:51  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0833  val_loss=1.4131  lr=1.00e-03
+2026-06-15 19:27:51  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0327  val_loss=0.8985  lr=5.00e-04
+2026-06-15 19:27:51  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:27:51  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7563 corr=0.3619 r2=0.1065
+2026-06-15 19:27:52  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0921  val_loss=1.0296  lr=1.00e-03
+2026-06-15 19:27:52  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0480  val_loss=1.7885  lr=5.00e-04
+2026-06-15 19:27:53  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:27:53  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5871 corr=0.7496 r2=0.4455
+2026-06-15 19:27:53  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1534  val_loss=1.0313  lr=1.00e-03
+2026-06-15 19:27:54  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0607  val_loss=0.8036  lr=5.00e-04
+2026-06-15 19:27:54  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:27:54  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8237 corr=0.5110 r2=0.2440
+2026-06-15 19:27:54  INFO      __main__  Trial 64/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:27:55  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0904  val_loss=1.0143  lr=1.00e-03
+2026-06-15 19:27:55  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0692  val_loss=0.9366  lr=5.00e-04
+2026-06-15 19:27:55  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1000  val_loss=1.1072  lr=5.00e-04
+2026-06-15 19:27:56  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0400  val_loss=0.9180  lr=2.50e-04
+2026-06-15 19:27:56  INFO      src.models.cnn_model_tuned  Early stopping at epoch 47
+2026-06-15 19:27:56  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8640 corr=0.5102 r2=-0.1661
+2026-06-15 19:27:56  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1458  val_loss=0.9333  lr=1.00e-03
+2026-06-15 19:27:57  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0902  val_loss=1.0345  lr=5.00e-04
+2026-06-15 19:27:57  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:27:57  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7075 corr=0.4456 r2=0.1947
+2026-06-15 19:27:58  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1633  val_loss=0.8827  lr=1.00e-03
+2026-06-15 19:27:59  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0449  val_loss=0.8316  lr=5.00e-04
+2026-06-15 19:27:59  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:27:59  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8386 corr=0.4767 r2=0.2164
+2026-06-15 19:27:59  INFO      __main__  Trial 65/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:28:00  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1168  val_loss=0.7629  lr=5.00e-04
+2026-06-15 19:28:00  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0228  val_loss=1.1601  lr=2.50e-04
+2026-06-15 19:28:00  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0122  val_loss=0.8921  lr=1.25e-04
+2026-06-15 19:28:00  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:28:00  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7380 corr=0.4265 r2=0.1493
+2026-06-15 19:28:01  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1494  val_loss=0.5422  lr=5.00e-04
+2026-06-15 19:28:01  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0639  val_loss=2.2858  lr=2.50e-04
+2026-06-15 19:28:01  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:28:01  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5747 corr=0.7438 r2=0.4685
+2026-06-15 19:28:02  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1473  val_loss=0.9516  lr=5.00e-04
+2026-06-15 19:28:03  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0512  val_loss=0.9452  lr=2.50e-04
+2026-06-15 19:28:03  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:28:03  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8717 corr=0.4058 r2=0.1532
+2026-06-15 19:28:03  INFO      __main__  Trial 66/128 params={'channels': [128, 256, 512], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:28:04  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2579  val_loss=0.6357  lr=1.00e-03
+2026-06-15 19:28:04  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.2174  val_loss=0.6749  lr=1.00e-03
+2026-06-15 19:28:04  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:28:05  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7525 corr=0.5201 r2=0.1155
+2026-06-15 19:28:05  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2756  val_loss=1.3740  lr=1.00e-03
+2026-06-15 19:28:06  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:28:06  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5801 corr=0.7224 r2=0.4586
+2026-06-15 19:28:07  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2968  val_loss=0.8755  lr=1.00e-03
+2026-06-15 19:28:07  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:28:07  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8486 corr=0.4594 r2=0.1976
+2026-06-15 19:28:07  INFO      __main__  Trial 67/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:28:08  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1933  val_loss=0.5772  lr=5.00e-04
+2026-06-15 19:28:08  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0608  val_loss=1.4630  lr=5.00e-04
+2026-06-15 19:28:08  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0467  val_loss=1.0550  lr=2.50e-04
+2026-06-15 19:28:08  INFO      src.models.cnn_model_tuned  Early stopping at epoch 35
+2026-06-15 19:28:08  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7597 corr=0.4804 r2=0.0985
+2026-06-15 19:28:09  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1680  val_loss=0.8548  lr=5.00e-04
+2026-06-15 19:28:09  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0968  val_loss=1.1136  lr=2.50e-04
+2026-06-15 19:28:10  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:28:10  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5512 corr=0.7222 r2=0.5113
+2026-06-15 19:28:11  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1873  val_loss=1.6108  lr=5.00e-04
+2026-06-15 19:28:11  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0751  val_loss=1.0522  lr=2.50e-04
+2026-06-15 19:28:12  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0566  val_loss=1.1588  lr=1.25e-04
+2026-06-15 19:28:12  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:28:12  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8704 corr=0.3950 r2=0.1559
+2026-06-15 19:28:12  INFO      __main__  Trial 68/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:28:12  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0772  val_loss=0.5512  lr=5.00e-04
+2026-06-15 19:28:12  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:28:12  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6827 corr=0.5332 r2=0.2719
+2026-06-15 19:28:13  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1103  val_loss=0.6305  lr=5.00e-04
+2026-06-15 19:28:13  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:28:13  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5447 corr=0.7524 r2=0.5227
+2026-06-15 19:28:14  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1201  val_loss=1.0461  lr=5.00e-04
+2026-06-15 19:28:15  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:28:15  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9140 corr=0.4961 r2=0.0691
+2026-06-15 19:28:15  INFO      __main__  Trial 69/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 8, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:28:15  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1571  val_loss=0.8837  lr=5.00e-04
+2026-06-15 19:28:16  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0946  val_loss=0.5740  lr=5.00e-04
+2026-06-15 19:28:16  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0715  val_loss=0.8460  lr=5.00e-04
+2026-06-15 19:28:16  INFO      src.models.cnn_model_tuned  Early stopping at epoch 32
+2026-06-15 19:28:16  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7576 corr=0.4918 r2=0.1035
+2026-06-15 19:28:17  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2534  val_loss=0.6427  lr=5.00e-04
+2026-06-15 19:28:18  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:28:18  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6047 corr=0.7203 r2=0.4117
+2026-06-15 19:28:19  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2557  val_loss=0.9001  lr=5.00e-04
+2026-06-15 19:28:20  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:28:20  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8285 corr=0.5037 r2=0.2351
+2026-06-15 19:28:20  INFO      __main__  Trial 70/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:28:20  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1308  val_loss=1.5451  lr=1.00e-03
+2026-06-15 19:28:20  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1441  val_loss=1.6513  lr=5.00e-04
+2026-06-15 19:28:20  INFO      src.models.cnn_model_tuned  Early stopping at epoch 21
+2026-06-15 19:28:20  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7567 corr=0.4442 r2=0.1056
+2026-06-15 19:28:21  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2109  val_loss=2.4281  lr=1.00e-03
+2026-06-15 19:28:21  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:28:21  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6241 corr=0.7053 r2=0.3735
+2026-06-15 19:28:22  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2351  val_loss=0.9732  lr=1.00e-03
+2026-06-15 19:28:23  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:28:23  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8562 corr=0.4838 r2=0.1831
+2026-06-15 19:28:23  INFO      __main__  Trial 71/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:28:24  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1397  val_loss=0.4517  lr=3.00e-04
+2026-06-15 19:28:24  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1063  val_loss=0.7808  lr=3.00e-04
+2026-06-15 19:28:24  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0801  val_loss=0.6868  lr=1.50e-04
+2026-06-15 19:28:24  INFO      src.models.cnn_model_tuned  Early stopping at epoch 35
+2026-06-15 19:28:24  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6721 corr=0.5950 r2=0.2945
+2026-06-15 19:28:25  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1067  val_loss=0.6017  lr=3.00e-04
+2026-06-15 19:28:26  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0834  val_loss=0.7285  lr=1.50e-04
+2026-06-15 19:28:26  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0392  val_loss=0.7091  lr=7.50e-05
+2026-06-15 19:28:27  INFO      src.models.cnn_model_tuned  Early stopping at epoch 38
+2026-06-15 19:28:27  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6698 corr=0.6597 r2=0.2781
+2026-06-15 19:28:28  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1184  val_loss=1.1295  lr=3.00e-04
+2026-06-15 19:28:29  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0885  val_loss=1.0134  lr=3.00e-04
+2026-06-15 19:28:29  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0560  val_loss=1.1032  lr=1.50e-04
+2026-06-15 19:28:30  INFO      src.models.cnn_model_tuned  Early stopping at epoch 37
+2026-06-15 19:28:30  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9243 corr=0.3455 r2=0.0479
+2026-06-15 19:28:30  INFO      __main__  Trial 72/128 params={'channels': [32, 64, 128], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 8, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:28:31  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1762  val_loss=0.9611  lr=1.00e-03
+2026-06-15 19:28:31  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.2634  val_loss=0.6929  lr=1.00e-03
+2026-06-15 19:28:32  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1427  val_loss=0.6112  lr=5.00e-04
+2026-06-15 19:28:32  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0716  val_loss=0.8636  lr=2.50e-04
+2026-06-15 19:28:32  INFO      src.models.cnn_model_tuned  Early stopping at epoch 41
+2026-06-15 19:28:32  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7011 corr=0.5276 r2=0.2322
+2026-06-15 19:28:33  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2028  val_loss=1.4587  lr=1.00e-03
+2026-06-15 19:28:34  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0839  val_loss=1.5822  lr=5.00e-04
+2026-06-15 19:28:34  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:28:34  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5486 corr=0.7313 r2=0.5158
+2026-06-15 19:28:36  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2854  val_loss=0.9241  lr=1.00e-03
+2026-06-15 19:28:37  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1234  val_loss=1.0623  lr=5.00e-04
+2026-06-15 19:28:38  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:28:38  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8612 corr=0.4863 r2=0.1736
+2026-06-15 19:28:38  INFO      __main__  Trial 73/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:28:39  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0883  val_loss=0.5875  lr=3.00e-04
+2026-06-15 19:28:39  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0232  val_loss=0.8011  lr=1.50e-04
+2026-06-15 19:28:39  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0255  val_loss=0.9096  lr=7.50e-05
+2026-06-15 19:28:39  INFO      src.models.cnn_model_tuned  Early stopping at epoch 33
+2026-06-15 19:28:39  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6933 corr=0.5347 r2=0.2492
+2026-06-15 19:28:40  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1014  val_loss=1.8350  lr=3.00e-04
+2026-06-15 19:28:40  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0470  val_loss=1.7640  lr=1.50e-04
+2026-06-15 19:28:41  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:28:41  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6172 corr=0.6873 r2=0.3872
+2026-06-15 19:28:41  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1441  val_loss=1.7585  lr=3.00e-04
+2026-06-15 19:28:42  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0368  val_loss=1.7111  lr=1.50e-04
+2026-06-15 19:28:43  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:28:43  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9046 corr=0.3102 r2=0.0882
+2026-06-15 19:28:43  INFO      __main__  Trial 74/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:28:43  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1734  val_loss=0.9298  lr=1.00e-03
+2026-06-15 19:28:43  INFO      src.models.cnn_model_tuned  Early stopping at epoch 18
+2026-06-15 19:28:43  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7610 corr=0.4545 r2=0.0955
+2026-06-15 19:28:44  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1795  val_loss=0.6878  lr=1.00e-03
+2026-06-15 19:28:44  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:28:44  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6545 corr=0.6214 r2=0.3108
+2026-06-15 19:28:45  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1983  val_loss=0.7554  lr=1.00e-03
+2026-06-15 19:28:46  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:28:46  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8636 corr=0.4815 r2=0.1690
+2026-06-15 19:28:46  INFO      __main__  Trial 75/128 params={'channels': [128, 256, 512], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:28:46  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1448  val_loss=0.8082  lr=3.00e-04
+2026-06-15 19:28:47  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0831  val_loss=0.9280  lr=1.50e-04
+2026-06-15 19:28:47  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:28:47  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7598 corr=0.3688 r2=0.0983
+2026-06-15 19:28:48  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2089  val_loss=2.6617  lr=3.00e-04
+2026-06-15 19:28:49  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1212  val_loss=2.5298  lr=1.50e-04
+2026-06-15 19:28:49  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0679  val_loss=0.6160  lr=7.50e-05
+2026-06-15 19:28:49  INFO      src.models.cnn_model_tuned  Early stopping at epoch 33
+2026-06-15 19:28:49  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6917 corr=0.7159 r2=0.2302
+2026-06-15 19:28:51  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2331  val_loss=1.2000  lr=3.00e-04
+2026-06-15 19:28:52  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1192  val_loss=1.0482  lr=1.50e-04
+2026-06-15 19:28:53  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0823  val_loss=1.1095  lr=1.50e-04
+2026-06-15 19:28:54  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0475  val_loss=0.8431  lr=7.50e-05
+2026-06-15 19:28:55  INFO      src.models.cnn_model_tuned    epoch  50  train_loss=0.0348  val_loss=0.9541  lr=3.75e-05
+2026-06-15 19:28:55  INFO      src.models.cnn_model_tuned  Early stopping at epoch 51
+2026-06-15 19:28:55  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9034 corr=0.3173 r2=0.0905
+2026-06-15 19:28:55  INFO      __main__  Trial 76/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:28:55  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1134  val_loss=1.1148  lr=5.00e-04
+2026-06-15 19:28:55  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0805  val_loss=0.8941  lr=5.00e-04
+2026-06-15 19:28:56  INFO      src.models.cnn_model_tuned  Early stopping at epoch 24
+2026-06-15 19:28:56  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7185 corr=0.5289 r2=0.1935
+2026-06-15 19:28:56  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1397  val_loss=0.4114  lr=5.00e-04
+2026-06-15 19:28:57  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:28:57  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5378 corr=0.7715 r2=0.5347
+2026-06-15 19:28:58  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1574  val_loss=0.8381  lr=5.00e-04
+2026-06-15 19:28:58  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0682  val_loss=1.1354  lr=2.50e-04
+2026-06-15 19:28:59  INFO      src.models.cnn_model_tuned  Early stopping at epoch 21
+2026-06-15 19:28:59  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8906 corr=0.3478 r2=0.1162
+2026-06-15 19:28:59  INFO      __main__  Trial 77/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:28:59  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1795  val_loss=0.7969  lr=5.00e-04
+2026-06-15 19:28:59  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0999  val_loss=0.6894  lr=2.50e-04
+2026-06-15 19:29:00  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:29:00  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7241 corr=0.4294 r2=0.1810
+2026-06-15 19:29:00  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2361  val_loss=0.6560  lr=5.00e-04
+2026-06-15 19:29:01  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0812  val_loss=1.4746  lr=2.50e-04
+2026-06-15 19:29:01  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:29:01  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5881 corr=0.6839 r2=0.4435
+2026-06-15 19:29:02  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2770  val_loss=0.9961  lr=5.00e-04
+2026-06-15 19:29:03  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1070  val_loss=1.0051  lr=2.50e-04
+2026-06-15 19:29:04  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0764  val_loss=1.3261  lr=1.25e-04
+2026-06-15 19:29:05  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0659  val_loss=1.1210  lr=6.25e-05
+2026-06-15 19:29:05  INFO      src.models.cnn_model_tuned  Early stopping at epoch 40
+2026-06-15 19:29:05  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9190 corr=0.3163 r2=0.0588
+2026-06-15 19:29:05  INFO      __main__  Trial 78/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:29:05  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1146  val_loss=1.1220  lr=1.00e-03
+2026-06-15 19:29:05  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:29:05  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7509 corr=0.5137 r2=0.1192
+2026-06-15 19:29:06  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1974  val_loss=0.9899  lr=1.00e-03
+2026-06-15 19:29:07  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:29:07  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7060 corr=0.7333 r2=0.1981
+2026-06-15 19:29:08  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2775  val_loss=1.2649  lr=1.00e-03
+2026-06-15 19:29:08  INFO      src.models.cnn_model_tuned  Early stopping at epoch 18
+2026-06-15 19:29:08  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9153 corr=0.2716 r2=0.0665
+2026-06-15 19:29:08  INFO      __main__  Trial 79/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:29:09  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0650  val_loss=0.9219  lr=1.00e-03
+2026-06-15 19:29:09  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0615  val_loss=0.9513  lr=5.00e-04
+2026-06-15 19:29:09  INFO      src.models.cnn_model_tuned  Early stopping at epoch 20
+2026-06-15 19:29:09  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8403 corr=0.4371 r2=-0.1028
+2026-06-15 19:29:09  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0834  val_loss=0.9911  lr=1.00e-03
+2026-06-15 19:29:09  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:29:09  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6402 corr=0.6794 r2=0.3407
+2026-06-15 19:29:10  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1482  val_loss=1.2183  lr=1.00e-03
+2026-06-15 19:29:11  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:29:11  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9238 corr=0.2590 r2=0.0490
+2026-06-15 19:29:11  INFO      __main__  Trial 80/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:29:11  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0939  val_loss=0.8948  lr=3.00e-04
+2026-06-15 19:29:11  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0559  val_loss=0.9458  lr=1.50e-04
+2026-06-15 19:29:11  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:29:11  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7390 corr=0.4018 r2=0.1470
+2026-06-15 19:29:12  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0852  val_loss=2.2146  lr=3.00e-04
+2026-06-15 19:29:12  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0455  val_loss=1.8893  lr=1.50e-04
+2026-06-15 19:29:13  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:29:13  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6454 corr=0.7486 r2=0.3298
+2026-06-15 19:29:13  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1706  val_loss=0.9032  lr=3.00e-04
+2026-06-15 19:29:14  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0619  val_loss=1.4239  lr=1.50e-04
+2026-06-15 19:29:14  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:29:14  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8939 corr=0.3482 r2=0.1095
+2026-06-15 19:29:14  INFO      __main__  Trial 81/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:29:15  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1879  val_loss=1.3251  lr=3.00e-04
+2026-06-15 19:29:15  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:29:15  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7336 corr=0.4390 r2=0.1593
+2026-06-15 19:29:16  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1433  val_loss=1.7636  lr=3.00e-04
+2026-06-15 19:29:16  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:29:16  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5951 corr=0.7304 r2=0.4301
+2026-06-15 19:29:17  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2369  val_loss=1.1681  lr=3.00e-04
+2026-06-15 19:29:17  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:29:17  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8791 corr=0.3737 r2=0.1389
+2026-06-15 19:29:17  INFO      __main__  Trial 82/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 8, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:29:18  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1976  val_loss=1.1182  lr=1.00e-03
+2026-06-15 19:29:18  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:29:18  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7776 corr=0.3441 r2=0.0554
+2026-06-15 19:29:19  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1822  val_loss=1.3911  lr=1.00e-03
+2026-06-15 19:29:20  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:29:20  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6103 corr=0.7457 r2=0.4008
+2026-06-15 19:29:21  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2501  val_loss=0.7493  lr=1.00e-03
+2026-06-15 19:29:22  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1341  val_loss=0.8487  lr=1.00e-03
+2026-06-15 19:29:22  INFO      src.models.cnn_model_tuned  Early stopping at epoch 22
+2026-06-15 19:29:22  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8656 corr=0.5013 r2=0.1651
+2026-06-15 19:29:22  INFO      __main__  Trial 83/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:29:23  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1367  val_loss=0.8145  lr=3.00e-04
+2026-06-15 19:29:23  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:29:23  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7227 corr=0.5192 r2=0.1842
+2026-06-15 19:29:24  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1970  val_loss=0.7886  lr=3.00e-04
+2026-06-15 19:29:24  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:29:24  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6844 corr=0.7113 r2=0.2464
+2026-06-15 19:29:25  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1287  val_loss=1.1401  lr=3.00e-04
+2026-06-15 19:29:26  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:29:26  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8425 corr=0.4883 r2=0.2090
+2026-06-15 19:29:26  INFO      __main__  Trial 84/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 0.0001, 'batch_size': 8, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:29:26  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1462  val_loss=1.3819  lr=3.00e-04
+2026-06-15 19:29:27  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0740  val_loss=0.7446  lr=1.50e-04
+2026-06-15 19:29:27  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:29:27  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7509 corr=0.3510 r2=0.1193
+2026-06-15 19:29:28  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1954  val_loss=1.1367  lr=3.00e-04
+2026-06-15 19:29:29  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0677  val_loss=1.0558  lr=1.50e-04
+2026-06-15 19:29:30  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0462  val_loss=1.0590  lr=7.50e-05
+2026-06-15 19:29:30  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:29:30  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6119 corr=0.6894 r2=0.3977
+2026-06-15 19:29:31  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2495  val_loss=1.2834  lr=3.00e-04
+2026-06-15 19:29:32  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1438  val_loss=0.8837  lr=1.50e-04
+2026-06-15 19:29:33  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0636  val_loss=0.8529  lr=1.50e-04
+2026-06-15 19:29:35  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0523  val_loss=0.9942  lr=7.50e-05
+2026-06-15 19:29:36  INFO      src.models.cnn_model_tuned    epoch  50  train_loss=0.0376  val_loss=0.8615  lr=3.75e-05
+2026-06-15 19:29:36  INFO      src.models.cnn_model_tuned  Early stopping at epoch 52
+2026-06-15 19:29:36  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8676 corr=0.4196 r2=0.1612
+2026-06-15 19:29:36  INFO      __main__  Trial 85/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 32, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:29:36  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0995  val_loss=1.0649  lr=5.00e-04
+2026-06-15 19:29:37  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:29:37  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7470 corr=0.4720 r2=0.1283
+2026-06-15 19:29:37  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1397  val_loss=0.9095  lr=5.00e-04
+2026-06-15 19:29:37  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:29:37  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6024 corr=0.7264 r2=0.4162
+2026-06-15 19:29:38  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1133  val_loss=0.8463  lr=5.00e-04
+2026-06-15 19:29:39  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:29:39  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8243 corr=0.5225 r2=0.2428
+2026-06-15 19:29:39  INFO      __main__  Trial 86/128 params={'channels': [32, 64, 128], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 8, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:29:39  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3973  val_loss=0.6388  lr=5.00e-04
+2026-06-15 19:29:40  INFO      src.models.cnn_model_tuned  Early stopping at epoch 18
+2026-06-15 19:29:40  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7635 corr=0.3750 r2=0.0896
+2026-06-15 19:29:41  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3535  val_loss=0.6368  lr=5.00e-04
+2026-06-15 19:29:41  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:29:41  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5687 corr=0.7121 r2=0.4797
+2026-06-15 19:29:43  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2639  val_loss=1.4427  lr=5.00e-04
+2026-06-15 19:29:44  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.2050  val_loss=1.6966  lr=5.00e-04
+2026-06-15 19:29:44  INFO      src.models.cnn_model_tuned  Early stopping at epoch 24
+2026-06-15 19:29:44  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8941 corr=0.3439 r2=0.1092
+2026-06-15 19:29:44  INFO      __main__  Trial 87/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:29:45  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0544  val_loss=0.6705  lr=5.00e-04
+2026-06-15 19:29:45  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0375  val_loss=0.9100  lr=2.50e-04
+2026-06-15 19:29:45  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0120  val_loss=0.7718  lr=1.25e-04
+2026-06-15 19:29:45  INFO      src.models.cnn_model_tuned  Early stopping at epoch 32
+2026-06-15 19:29:45  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7437 corr=0.5010 r2=0.1361
+2026-06-15 19:29:46  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0831  val_loss=2.5647  lr=5.00e-04
+2026-06-15 19:29:46  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0375  val_loss=1.8492  lr=2.50e-04
+2026-06-15 19:29:47  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:29:47  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5726 corr=0.7717 r2=0.4724
+2026-06-15 19:29:48  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1234  val_loss=1.1962  lr=5.00e-04
+2026-06-15 19:29:48  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0436  val_loss=0.9158  lr=2.50e-04
+2026-06-15 19:29:49  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0335  val_loss=1.2813  lr=1.25e-04
+2026-06-15 19:29:49  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0179  val_loss=1.0879  lr=6.25e-05
+2026-06-15 19:29:49  INFO      src.models.cnn_model_tuned  Early stopping at epoch 40
+2026-06-15 19:29:49  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9120 corr=0.2985 r2=0.0732
+2026-06-15 19:29:49  INFO      __main__  Trial 88/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 8, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:29:50  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2174  val_loss=0.5280  lr=5.00e-04
+2026-06-15 19:29:50  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0960  val_loss=1.2405  lr=5.00e-04
+2026-06-15 19:29:51  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0636  val_loss=0.6021  lr=2.50e-04
+2026-06-15 19:29:51  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0537  val_loss=0.7215  lr=1.25e-04
+2026-06-15 19:29:51  INFO      src.models.cnn_model_tuned  Early stopping at epoch 40
+2026-06-15 19:29:51  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7130 corr=0.5143 r2=0.2059
+2026-06-15 19:29:52  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2089  val_loss=0.4263  lr=5.00e-04
+2026-06-15 19:29:53  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1173  val_loss=1.7587  lr=5.00e-04
+2026-06-15 19:29:54  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1011  val_loss=1.2284  lr=2.50e-04
+2026-06-15 19:29:54  INFO      src.models.cnn_model_tuned  Early stopping at epoch 35
+2026-06-15 19:29:54  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6529 corr=0.7170 r2=0.3142
+2026-06-15 19:29:56  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2836  val_loss=0.9499  lr=5.00e-04
+2026-06-15 19:29:57  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1229  val_loss=1.4150  lr=2.50e-04
+2026-06-15 19:29:58  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:29:58  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8525 corr=0.4388 r2=0.1902
+2026-06-15 19:29:58  INFO      __main__  Trial 89/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 8, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:29:59  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1744  val_loss=1.0141  lr=5.00e-04
+2026-06-15 19:29:59  INFO      src.models.cnn_model_tuned  Early stopping at epoch 18
+2026-06-15 19:29:59  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7622 corr=0.5491 r2=0.0926
+2026-06-15 19:30:00  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1901  val_loss=1.6045  lr=5.00e-04
+2026-06-15 19:30:01  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:30:01  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6808 corr=0.5815 r2=0.2544
+2026-06-15 19:30:02  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2085  val_loss=1.1613  lr=5.00e-04
+2026-06-15 19:30:03  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:30:03  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7936 corr=0.5620 r2=0.2982
+2026-06-15 19:30:03  INFO      __main__  Trial 90/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:30:04  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1908  val_loss=1.7121  lr=1.00e-03
+2026-06-15 19:30:04  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0632  val_loss=0.6756  lr=1.00e-03
+2026-06-15 19:30:04  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0853  val_loss=0.7878  lr=5.00e-04
+2026-06-15 19:30:04  INFO      src.models.cnn_model_tuned  Early stopping at epoch 31
+2026-06-15 19:30:04  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7742 corr=0.5314 r2=0.0638
+2026-06-15 19:30:05  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1877  val_loss=0.6750  lr=1.00e-03
+2026-06-15 19:30:05  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:30:05  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5853 corr=0.7069 r2=0.4488
+2026-06-15 19:30:06  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1600  val_loss=1.1325  lr=1.00e-03
+2026-06-15 19:30:07  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:30:07  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8505 corr=0.4757 r2=0.1940
+2026-06-15 19:30:07  INFO      __main__  Trial 91/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:30:07  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1068  val_loss=1.2773  lr=5.00e-04
+2026-06-15 19:30:08  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0360  val_loss=0.9336  lr=2.50e-04
+2026-06-15 19:30:08  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0243  val_loss=0.9352  lr=1.25e-04
+2026-06-15 19:30:08  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:30:08  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7661 corr=0.5458 r2=0.0832
+2026-06-15 19:30:09  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1368  val_loss=1.4148  lr=5.00e-04
+2026-06-15 19:30:10  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0440  val_loss=1.6519  lr=2.50e-04
+2026-06-15 19:30:10  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:30:10  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7225 corr=0.4786 r2=0.1603
+2026-06-15 19:30:12  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1347  val_loss=1.0963  lr=5.00e-04
+2026-06-15 19:30:12  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0511  val_loss=1.1409  lr=2.50e-04
+2026-06-15 19:30:13  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:30:13  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8533 corr=0.5175 r2=0.1886
+2026-06-15 19:30:13  INFO      __main__  Trial 92/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 8, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:30:14  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1643  val_loss=0.9127  lr=3.00e-04
+2026-06-15 19:30:14  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:30:14  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7544 corr=0.4118 r2=0.1110
+2026-06-15 19:30:15  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2139  val_loss=0.9099  lr=3.00e-04
+2026-06-15 19:30:15  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:30:15  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6077 corr=0.6588 r2=0.4058
+2026-06-15 19:30:17  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1708  val_loss=1.2153  lr=3.00e-04
+2026-06-15 19:30:17  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:30:17  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8680 corr=0.4854 r2=0.1604
+2026-06-15 19:30:17  INFO      __main__  Trial 93/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:30:18  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1025  val_loss=0.7569  lr=5.00e-04
+2026-06-15 19:30:18  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:30:18  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7367 corr=0.3967 r2=0.1522
+2026-06-15 19:30:19  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1550  val_loss=1.8380  lr=5.00e-04
+2026-06-15 19:30:19  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:30:19  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6394 corr=0.7060 r2=0.3423
+2026-06-15 19:30:20  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2257  val_loss=0.8395  lr=5.00e-04
+2026-06-15 19:30:21  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:30:21  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8730 corr=0.4133 r2=0.1507
+2026-06-15 19:30:21  INFO      __main__  Trial 94/128 params={'channels': [64, 128, 256], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:30:21  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1919  val_loss=1.1250  lr=5.00e-04
+2026-06-15 19:30:21  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0531  val_loss=0.9057  lr=2.50e-04
+2026-06-15 19:30:21  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:30:22  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7556 corr=0.3862 r2=0.1082
+2026-06-15 19:30:22  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1382  val_loss=0.8414  lr=5.00e-04
+2026-06-15 19:30:23  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1391  val_loss=1.7947  lr=2.50e-04
+2026-06-15 19:30:23  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:30:23  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6023 corr=0.7221 r2=0.4163
+2026-06-15 19:30:24  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1721  val_loss=1.3014  lr=5.00e-04
+2026-06-15 19:30:25  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0733  val_loss=0.8855  lr=2.50e-04
+2026-06-15 19:30:26  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0412  val_loss=1.2243  lr=1.25e-04
+2026-06-15 19:30:26  INFO      src.models.cnn_model_tuned  Early stopping at epoch 32
+2026-06-15 19:30:26  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8763 corr=0.3842 r2=0.1442
+2026-06-15 19:30:26  INFO      __main__  Trial 95/128 params={'channels': [128, 256, 512], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:30:26  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1301  val_loss=1.1343  lr=3.00e-04
+2026-06-15 19:30:27  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0701  val_loss=0.9155  lr=1.50e-04
+2026-06-15 19:30:27  INFO      src.models.cnn_model_tuned  Early stopping at epoch 20
+2026-06-15 19:30:27  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7107 corr=0.4903 r2=0.2110
+2026-06-15 19:30:27  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1360  val_loss=2.8240  lr=3.00e-04
+2026-06-15 19:30:28  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:30:28  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6400 corr=0.7396 r2=0.3410
+2026-06-15 19:30:29  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1448  val_loss=1.2987  lr=3.00e-04
+2026-06-15 19:30:29  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0742  val_loss=1.0181  lr=1.50e-04
+2026-06-15 19:30:30  INFO      src.models.cnn_model_tuned  Early stopping at epoch 21
+2026-06-15 19:30:30  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9086 corr=0.3693 r2=0.0800
+2026-06-15 19:30:30  INFO      __main__  Trial 96/128 params={'channels': [32, 64, 128], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:30:30  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1255  val_loss=0.9506  lr=1.00e-03
+2026-06-15 19:30:30  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0683  val_loss=0.6999  lr=5.00e-04
+2026-06-15 19:30:31  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1058  val_loss=1.0557  lr=2.50e-04
+2026-06-15 19:30:31  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:30:31  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7613 corr=0.3580 r2=0.0946
+2026-06-15 19:30:31  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1241  val_loss=1.6245  lr=1.00e-03
+2026-06-15 19:30:32  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1136  val_loss=0.9860  lr=5.00e-04
+2026-06-15 19:30:32  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:30:32  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5717 corr=0.6967 r2=0.4742
+2026-06-15 19:30:33  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2702  val_loss=1.7585  lr=1.00e-03
+2026-06-15 19:30:34  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0866  val_loss=1.1762  lr=5.00e-04
+2026-06-15 19:30:34  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:30:34  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9550 corr=0.1865 r2=-0.0163
+2026-06-15 19:30:34  INFO      __main__  Trial 97/128 params={'channels': [64, 128, 256], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:30:35  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1464  val_loss=0.8208  lr=5.00e-04
+2026-06-15 19:30:35  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0777  val_loss=0.6507  lr=2.50e-04
+2026-06-15 19:30:35  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:30:35  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7410 corr=0.3928 r2=0.1424
+2026-06-15 19:30:36  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1888  val_loss=1.0780  lr=5.00e-04
+2026-06-15 19:30:37  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0646  val_loss=1.6819  lr=2.50e-04
+2026-06-15 19:30:37  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:30:37  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5772 corr=0.7363 r2=0.4641
+2026-06-15 19:30:38  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2091  val_loss=1.4469  lr=5.00e-04
+2026-06-15 19:30:39  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0816  val_loss=1.0718  lr=2.50e-04
+2026-06-15 19:30:40  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0612  val_loss=0.9644  lr=1.25e-04
+2026-06-15 19:30:40  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:30:40  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8568 corr=0.4833 r2=0.1820
+2026-06-15 19:30:40  INFO      __main__  Trial 98/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:30:40  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0643  val_loss=0.8409  lr=5.00e-04
+2026-06-15 19:30:40  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:30:40  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7466 corr=0.3900 r2=0.1293
+2026-06-15 19:30:41  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1083  val_loss=2.4797  lr=5.00e-04
+2026-06-15 19:30:41  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:30:41  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5906 corr=0.7238 r2=0.4387
+2026-06-15 19:30:42  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2236  val_loss=1.6116  lr=5.00e-04
+2026-06-15 19:30:42  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:30:42  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9170 corr=0.3084 r2=0.0630
+2026-06-15 19:30:42  INFO      __main__  Trial 99/128 params={'channels': [32, 64, 128], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:30:43  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1323  val_loss=0.6234  lr=1.00e-03
+2026-06-15 19:30:43  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0723  val_loss=0.7941  lr=5.00e-04
+2026-06-15 19:30:43  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0307  val_loss=0.8197  lr=2.50e-04
+2026-06-15 19:30:43  INFO      src.models.cnn_model_tuned  Early stopping at epoch 31
+2026-06-15 19:30:43  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7499 corr=0.4674 r2=0.1216
+2026-06-15 19:30:44  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1907  val_loss=0.4794  lr=1.00e-03
+2026-06-15 19:30:44  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0826  val_loss=1.7646  lr=5.00e-04
+2026-06-15 19:30:45  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:30:45  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5759 corr=0.7324 r2=0.4663
+2026-06-15 19:30:46  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1775  val_loss=0.8453  lr=1.00e-03
+2026-06-15 19:30:46  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0888  val_loss=0.8759  lr=5.00e-04
+2026-06-15 19:30:47  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0494  val_loss=0.8902  lr=2.50e-04
+2026-06-15 19:30:47  INFO      src.models.cnn_model_tuned  Early stopping at epoch 33
+2026-06-15 19:30:47  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9059 corr=0.4153 r2=0.0855
+2026-06-15 19:30:47  INFO      __main__  Trial 100/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:30:48  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2959  val_loss=1.0299  lr=1.00e-03
+2026-06-15 19:30:48  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1777  val_loss=0.8613  lr=1.00e-03
+2026-06-15 19:30:48  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:30:49  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7262 corr=0.5333 r2=0.1763
+2026-06-15 19:30:49  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2289  val_loss=0.7702  lr=1.00e-03
+2026-06-15 19:30:50  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:30:50  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5843 corr=0.7340 r2=0.4507
+2026-06-15 19:30:51  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2401  val_loss=0.9379  lr=1.00e-03
+2026-06-15 19:30:51  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:30:51  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7655 corr=0.5967 r2=0.3470
+2026-06-15 19:30:51  INFO      __main__  Trial 101/128 params={'channels': [128, 256, 512], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:30:52  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0995  val_loss=0.7641  lr=3.00e-04
+2026-06-15 19:30:52  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0136  val_loss=1.0478  lr=1.50e-04
+2026-06-15 19:30:52  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:30:52  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7307 corr=0.4395 r2=0.1659
+2026-06-15 19:30:53  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0907  val_loss=1.1549  lr=3.00e-04
+2026-06-15 19:30:54  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0713  val_loss=1.3025  lr=1.50e-04
+2026-06-15 19:30:54  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:30:54  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6464 corr=0.7499 r2=0.3277
+2026-06-15 19:30:55  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1274  val_loss=1.0867  lr=3.00e-04
+2026-06-15 19:30:56  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0488  val_loss=1.2341  lr=1.50e-04
+2026-06-15 19:30:57  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0281  val_loss=1.0263  lr=1.50e-04
+2026-06-15 19:30:57  INFO      src.models.cnn_model_tuned  Early stopping at epoch 34
+2026-06-15 19:30:57  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9345 corr=0.2567 r2=0.0269
+2026-06-15 19:30:57  INFO      __main__  Trial 102/128 params={'channels': [32, 64, 128], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:30:58  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2663  val_loss=0.6326  lr=3.00e-04
+2026-06-15 19:30:58  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0845  val_loss=1.1193  lr=1.50e-04
+2026-06-15 19:30:58  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1122  val_loss=0.9916  lr=7.50e-05
+2026-06-15 19:30:58  INFO      src.models.cnn_model_tuned  Early stopping at epoch 31
+2026-06-15 19:30:58  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7437 corr=0.3909 r2=0.1362
+2026-06-15 19:30:59  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2153  val_loss=1.2882  lr=3.00e-04
+2026-06-15 19:30:59  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0701  val_loss=1.0364  lr=1.50e-04
+2026-06-15 19:31:00  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:31:00  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5438 corr=0.7353 r2=0.5243
+2026-06-15 19:31:01  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2976  val_loss=1.0069  lr=3.00e-04
+2026-06-15 19:31:02  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1301  val_loss=0.9575  lr=1.50e-04
+2026-06-15 19:31:02  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0710  val_loss=0.9477  lr=7.50e-05
+2026-06-15 19:31:02  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:31:02  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8831 corr=0.4133 r2=0.1309
+2026-06-15 19:31:02  INFO      __main__  Trial 103/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 8, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:31:03  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1706  val_loss=2.0153  lr=5.00e-04
+2026-06-15 19:31:03  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:31:03  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7403 corr=0.4726 r2=0.1439
+2026-06-15 19:31:04  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2157  val_loss=0.8180  lr=5.00e-04
+2026-06-15 19:31:04  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:31:04  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6463 corr=0.6865 r2=0.3279
+2026-06-15 19:31:06  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2455  val_loss=0.9714  lr=5.00e-04
+2026-06-15 19:31:07  INFO      src.models.cnn_model_tuned  Early stopping at epoch 19
+2026-06-15 19:31:07  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8687 corr=0.4384 r2=0.1591
+2026-06-15 19:31:07  INFO      __main__  Trial 104/128 params={'channels': [64, 128, 256], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:31:07  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0714  val_loss=0.5375  lr=5.00e-04
+2026-06-15 19:31:08  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0394  val_loss=1.1328  lr=2.50e-04
+2026-06-15 19:31:08  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:31:08  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7096 corr=0.4685 r2=0.2134
+2026-06-15 19:31:08  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1337  val_loss=2.5989  lr=5.00e-04
+2026-06-15 19:31:09  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0575  val_loss=1.3111  lr=2.50e-04
+2026-06-15 19:31:09  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:31:09  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5867 corr=0.7582 r2=0.4463
+2026-06-15 19:31:10  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1864  val_loss=2.2421  lr=5.00e-04
+2026-06-15 19:31:10  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0841  val_loss=0.9132  lr=5.00e-04
+2026-06-15 19:31:11  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0303  val_loss=1.3426  lr=2.50e-04
+2026-06-15 19:31:11  INFO      src.models.cnn_model_tuned  Early stopping at epoch 36
+2026-06-15 19:31:11  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8758 corr=0.4020 r2=0.1452
+2026-06-15 19:31:11  INFO      __main__  Trial 105/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 8, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:31:12  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2006  val_loss=0.7776  lr=5.00e-04
+2026-06-15 19:31:12  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:31:12  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7890 corr=0.3228 r2=0.0277
+2026-06-15 19:31:13  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2492  val_loss=1.0476  lr=5.00e-04
+2026-06-15 19:31:13  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:31:13  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5772 corr=0.7300 r2=0.4640
+2026-06-15 19:31:15  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2296  val_loss=0.7390  lr=5.00e-04
+2026-06-15 19:31:16  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:31:16  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8550 corr=0.4362 r2=0.1854
+2026-06-15 19:31:16  INFO      __main__  Trial 106/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:31:16  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0772  val_loss=1.9523  lr=5.00e-04
+2026-06-15 19:31:16  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:31:16  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8294 corr=0.5215 r2=-0.0746
+2026-06-15 19:31:17  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0723  val_loss=0.9284  lr=5.00e-04
+2026-06-15 19:31:17  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:31:17  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6626 corr=0.6627 r2=0.2936
+2026-06-15 19:31:18  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1525  val_loss=1.2634  lr=5.00e-04
+2026-06-15 19:31:18  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:31:18  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8317 corr=0.4904 r2=0.2293
+2026-06-15 19:31:18  INFO      __main__  Trial 107/128 params={'channels': [32, 64, 128], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:31:19  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1497  val_loss=0.5659  lr=1.00e-03
+2026-06-15 19:31:19  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1529  val_loss=1.0732  lr=1.00e-03
+2026-06-15 19:31:19  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0868  val_loss=0.8166  lr=5.00e-04
+2026-06-15 19:31:19  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.1063  val_loss=0.8967  lr=5.00e-04
+2026-06-15 19:31:19  INFO      src.models.cnn_model_tuned  Early stopping at epoch 44
+2026-06-15 19:31:19  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7208 corr=0.4999 r2=0.1885
+2026-06-15 19:31:20  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1675  val_loss=3.9978  lr=1.00e-03
+2026-06-15 19:31:21  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0909  val_loss=0.6255  lr=5.00e-04
+2026-06-15 19:31:21  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:31:21  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5813 corr=0.7574 r2=0.4564
+2026-06-15 19:31:22  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2737  val_loss=0.9923  lr=1.00e-03
+2026-06-15 19:31:23  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0781  val_loss=1.0328  lr=5.00e-04
+2026-06-15 19:31:23  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0708  val_loss=0.9278  lr=2.50e-04
+2026-06-15 19:31:23  INFO      src.models.cnn_model_tuned  Early stopping at epoch 31
+2026-06-15 19:31:23  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8932 corr=0.3662 r2=0.1110
+2026-06-15 19:31:23  INFO      __main__  Trial 108/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:31:24  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1190  val_loss=1.3006  lr=1.00e-03
+2026-06-15 19:31:24  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0498  val_loss=1.0792  lr=5.00e-04
+2026-06-15 19:31:25  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0244  val_loss=0.8767  lr=5.00e-04
+2026-06-15 19:31:25  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0372  val_loss=0.8410  lr=2.50e-04
+2026-06-15 19:31:25  INFO      src.models.cnn_model_tuned  Early stopping at epoch 46
+2026-06-15 19:31:25  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7786 corr=0.5027 r2=0.0531
+2026-06-15 19:31:26  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1910  val_loss=0.6967  lr=1.00e-03
+2026-06-15 19:31:26  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0665  val_loss=1.1449  lr=5.00e-04
+2026-06-15 19:31:27  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:31:27  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7781 corr=0.7143 r2=0.0260
+2026-06-15 19:31:28  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2006  val_loss=1.0505  lr=1.00e-03
+2026-06-15 19:31:29  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0658  val_loss=0.9633  lr=5.00e-04
+2026-06-15 19:31:29  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:31:29  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8386 corr=0.5023 r2=0.2164
+2026-06-15 19:31:29  INFO      __main__  Trial 109/128 params={'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:31:30  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0940  val_loss=1.5214  lr=1.00e-03
+2026-06-15 19:31:30  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0374  val_loss=1.2897  lr=1.00e-03
+2026-06-15 19:31:30  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0331  val_loss=0.9373  lr=5.00e-04
+2026-06-15 19:31:30  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0113  val_loss=0.9695  lr=2.50e-04
+2026-06-15 19:31:30  INFO      src.models.cnn_model_tuned  Early stopping at epoch 42
+2026-06-15 19:31:31  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8439 corr=0.4792 r2=-0.1124
+2026-06-15 19:31:31  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1158  val_loss=1.9970  lr=1.00e-03
+2026-06-15 19:31:32  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0588  val_loss=1.3982  lr=5.00e-04
+2026-06-15 19:31:32  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:31:32  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5613 corr=0.7774 r2=0.4932
+2026-06-15 19:31:33  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1240  val_loss=0.8227  lr=1.00e-03
+2026-06-15 19:31:33  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0319  val_loss=1.4318  lr=5.00e-04
+2026-06-15 19:31:34  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:31:34  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8590 corr=0.4823 r2=0.1778
+2026-06-15 19:31:34  INFO      __main__  Trial 110/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 512, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 0.0001, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:31:34  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1533  val_loss=0.6289  lr=1.00e-03
+2026-06-15 19:31:34  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0582  val_loss=1.5612  lr=5.00e-04
+2026-06-15 19:31:35  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0584  val_loss=0.9132  lr=2.50e-04
+2026-06-15 19:31:35  INFO      src.models.cnn_model_tuned  Early stopping at epoch 32
+2026-06-15 19:31:35  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7044 corr=0.4796 r2=0.2250
+2026-06-15 19:31:35  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1370  val_loss=3.9667  lr=1.00e-03
+2026-06-15 19:31:36  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0680  val_loss=1.0370  lr=5.00e-04
+2026-06-15 19:31:36  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:31:36  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5423 corr=0.7326 r2=0.5268
+2026-06-15 19:31:37  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2053  val_loss=1.1475  lr=1.00e-03
+2026-06-15 19:31:37  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0799  val_loss=1.3093  lr=5.00e-04
+2026-06-15 19:31:38  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:31:38  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8563 corr=0.4558 r2=0.1830
+2026-06-15 19:31:38  INFO      __main__  Trial 111/128 params={'channels': [128, 256, 512], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 16, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:31:38  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1234  val_loss=0.9352  lr=1.00e-03
+2026-06-15 19:31:39  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0607  val_loss=0.7636  lr=1.00e-03
+2026-06-15 19:31:39  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1004  val_loss=0.8268  lr=1.00e-03
+2026-06-15 19:31:40  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0187  val_loss=0.7389  lr=5.00e-04
+2026-06-15 19:31:40  INFO      src.models.cnn_model_tuned  Early stopping at epoch 40
+2026-06-15 19:31:40  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7526 corr=0.5198 r2=0.1153
+2026-06-15 19:31:41  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2407  val_loss=1.2727  lr=1.00e-03
+2026-06-15 19:31:41  INFO      src.models.cnn_model_tuned  Early stopping at epoch 18
+2026-06-15 19:31:41  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6955 corr=0.6678 r2=0.2217
+2026-06-15 19:31:42  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2053  val_loss=0.9379  lr=1.00e-03
+2026-06-15 19:31:43  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1009  val_loss=0.9997  lr=1.00e-03
+2026-06-15 19:31:44  INFO      src.models.cnn_model_tuned  Early stopping at epoch 24
+2026-06-15 19:31:44  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8651 corr=0.4150 r2=0.1661
+2026-06-15 19:31:44  INFO      __main__  Trial 112/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0001, 'batch_size': 32, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:31:44  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0951  val_loss=1.0029  lr=1.00e-03
+2026-06-15 19:31:44  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0859  val_loss=1.2794  lr=5.00e-04
+2026-06-15 19:31:44  INFO      src.models.cnn_model_tuned  Early stopping at epoch 21
+2026-06-15 19:31:44  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8156 corr=0.4869 r2=-0.0390
+2026-06-15 19:31:45  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1135  val_loss=3.4352  lr=1.00e-03
+2026-06-15 19:31:45  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:31:45  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5713 corr=0.7529 r2=0.4749
+2026-06-15 19:31:46  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2040  val_loss=1.1821  lr=1.00e-03
+2026-06-15 19:31:46  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:31:46  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9553 corr=0.2276 r2=-0.0170
+2026-06-15 19:31:46  INFO      __main__  Trial 113/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:31:47  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0946  val_loss=1.5700  lr=3.00e-04
+2026-06-15 19:31:47  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0434  val_loss=1.4209  lr=1.50e-04
+2026-06-15 19:31:47  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:31:47  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7698 corr=0.2971 r2=0.0743
+2026-06-15 19:31:48  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1130  val_loss=0.5277  lr=3.00e-04
+2026-06-15 19:31:49  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0808  val_loss=1.2797  lr=1.50e-04
+2026-06-15 19:31:49  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:31:49  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6267 corr=0.7193 r2=0.3681
+2026-06-15 19:31:50  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1633  val_loss=1.3568  lr=3.00e-04
+2026-06-15 19:31:51  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0825  val_loss=0.9715  lr=1.50e-04
+2026-06-15 19:31:52  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0428  val_loss=1.0480  lr=7.50e-05
+2026-06-15 19:31:52  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:31:52  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9027 corr=0.3246 r2=0.0920
+2026-06-15 19:31:52  INFO      __main__  Trial 114/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:31:52  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1388  val_loss=0.8204  lr=5.00e-04
+2026-06-15 19:31:52  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:31:52  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7585 corr=0.3513 r2=0.1013
+2026-06-15 19:31:53  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0933  val_loss=0.6256  lr=5.00e-04
+2026-06-15 19:31:53  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:31:53  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5859 corr=0.6699 r2=0.4476
+2026-06-15 19:31:54  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1338  val_loss=1.5981  lr=5.00e-04
+2026-06-15 19:31:54  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0791  val_loss=1.3008  lr=5.00e-04
+2026-06-15 19:31:55  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:31:55  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8597 corr=0.4248 r2=0.1765
+2026-06-15 19:31:55  INFO      __main__  Trial 115/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 8, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:31:55  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1145  val_loss=1.6462  lr=3.00e-04
+2026-06-15 19:31:56  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1000  val_loss=0.9418  lr=1.50e-04
+2026-06-15 19:31:56  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0443  val_loss=0.8576  lr=7.50e-05
+2026-06-15 19:31:56  INFO      src.models.cnn_model_tuned  Early stopping at epoch 32
+2026-06-15 19:31:56  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7681 corr=0.4770 r2=0.0785
+2026-06-15 19:31:57  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1944  val_loss=2.2449  lr=3.00e-04
+2026-06-15 19:31:58  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0921  val_loss=0.8060  lr=1.50e-04
+2026-06-15 19:31:59  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:31:59  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5783 corr=0.7323 r2=0.4620
+2026-06-15 19:32:00  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2527  val_loss=0.8805  lr=3.00e-04
+2026-06-15 19:32:02  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1072  val_loss=0.8600  lr=1.50e-04
+2026-06-15 19:32:03  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0586  val_loss=1.2754  lr=7.50e-05
+2026-06-15 19:32:03  INFO      src.models.cnn_model_tuned  Early stopping at epoch 33
+2026-06-15 19:32:03  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8517 corr=0.4500 r2=0.1917
+2026-06-15 19:32:03  INFO      __main__  Trial 116/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 8, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:32:04  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2297  val_loss=1.2335  lr=1.00e-03
+2026-06-15 19:32:04  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.2130  val_loss=0.7194  lr=5.00e-04
+2026-06-15 19:32:05  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1026  val_loss=1.2266  lr=2.50e-04
+2026-06-15 19:32:05  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:32:05  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7427 corr=0.4197 r2=0.1385
+2026-06-15 19:32:06  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2235  val_loss=0.6212  lr=1.00e-03
+2026-06-15 19:32:06  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1503  val_loss=1.2067  lr=5.00e-04
+2026-06-15 19:32:07  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:32:07  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5545 corr=0.7120 r2=0.5053
+2026-06-15 19:32:08  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2569  val_loss=0.7980  lr=1.00e-03
+2026-06-15 19:32:09  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1933  val_loss=0.9626  lr=5.00e-04
+2026-06-15 19:32:11  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1283  val_loss=0.9375  lr=2.50e-04
+2026-06-15 19:32:11  INFO      src.models.cnn_model_tuned  Early stopping at epoch 31
+2026-06-15 19:32:11  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8669 corr=0.4683 r2=0.1626
+2026-06-15 19:32:11  INFO      __main__  Trial 117/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.0003, 'weight_decay': 0.0001, 'batch_size': 8, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:32:11  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1891  val_loss=1.1144  lr=3.00e-04
+2026-06-15 19:32:12  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1496  val_loss=1.3474  lr=1.50e-04
+2026-06-15 19:32:12  INFO      src.models.cnn_model_tuned  Early stopping at epoch 21
+2026-06-15 19:32:12  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7568 corr=0.4913 r2=0.1053
+2026-06-15 19:32:13  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1674  val_loss=0.8099  lr=3.00e-04
+2026-06-15 19:32:13  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:32:13  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5382 corr=0.7369 r2=0.5339
+2026-06-15 19:32:15  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2014  val_loss=0.7798  lr=3.00e-04
+2026-06-15 19:32:15  INFO      src.models.cnn_model_tuned  Early stopping at epoch 15
+2026-06-15 19:32:15  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8438 corr=0.4677 r2=0.2066
+2026-06-15 19:32:15  INFO      __main__  Trial 118/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 8, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:32:16  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1309  val_loss=1.5814  lr=5.00e-04
+2026-06-15 19:32:16  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1243  val_loss=0.9013  lr=5.00e-04
+2026-06-15 19:32:17  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:32:17  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7620 corr=0.4392 r2=0.0929
+2026-06-15 19:32:18  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1929  val_loss=1.8456  lr=5.00e-04
+2026-06-15 19:32:18  INFO      src.models.cnn_model_tuned  Early stopping at epoch 13
+2026-06-15 19:32:18  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5940 corr=0.7279 r2=0.4323
+2026-06-15 19:32:20  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2791  val_loss=0.9755  lr=5.00e-04
+2026-06-15 19:32:21  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1136  val_loss=0.9894  lr=2.50e-04
+2026-06-15 19:32:21  INFO      src.models.cnn_model_tuned  Early stopping at epoch 20
+2026-06-15 19:32:21  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8408 corr=0.4691 r2=0.2122
+2026-06-15 19:32:21  INFO      __main__  Trial 119/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 0.0, 'batch_size': 8, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:32:21  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2004  val_loss=0.7858  lr=3.00e-04
+2026-06-15 19:32:22  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1458  val_loss=0.8833  lr=1.50e-04
+2026-06-15 19:32:22  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:32:22  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7292 corr=0.4538 r2=0.1695
+2026-06-15 19:32:23  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2148  val_loss=2.3852  lr=3.00e-04
+2026-06-15 19:32:24  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1621  val_loss=1.7025  lr=3.00e-04
+2026-06-15 19:32:25  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0657  val_loss=0.7314  lr=1.50e-04
+2026-06-15 19:32:26  INFO      src.models.cnn_model_tuned  Early stopping at epoch 39
+2026-06-15 19:32:26  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6241 corr=0.6545 r2=0.3734
+2026-06-15 19:32:27  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1883  val_loss=0.8563  lr=3.00e-04
+2026-06-15 19:32:28  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1033  val_loss=1.2024  lr=1.50e-04
+2026-06-15 19:32:29  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:32:29  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8794 corr=0.4785 r2=0.1383
+2026-06-15 19:32:29  INFO      __main__  Trial 120/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:32:29  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1559  val_loss=1.0939  lr=5.00e-04
+2026-06-15 19:32:29  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0722  val_loss=0.6995  lr=2.50e-04
+2026-06-15 19:32:30  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0364  val_loss=0.6939  lr=1.25e-04
+2026-06-15 19:32:30  INFO      src.models.cnn_model_tuned  Early stopping at epoch 31
+2026-06-15 19:32:30  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7367 corr=0.4621 r2=0.1523
+2026-06-15 19:32:30  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1489  val_loss=0.5547  lr=5.00e-04
+2026-06-15 19:32:31  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0716  val_loss=1.0245  lr=2.50e-04
+2026-06-15 19:32:31  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:32:31  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5931 corr=0.6759 r2=0.4340
+2026-06-15 19:32:32  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1375  val_loss=1.1368  lr=5.00e-04
+2026-06-15 19:32:32  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0884  val_loss=1.2264  lr=2.50e-04
+2026-06-15 19:32:33  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:32:33  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9073 corr=0.5048 r2=0.0826
+2026-06-15 19:32:33  INFO      __main__  Trial 121/128 params={'channels': [128, 256, 512], 'kernel_size': 3, 'dropout': 0.4, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:32:33  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0996  val_loss=0.7425  lr=3.00e-04
+2026-06-15 19:32:33  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0660  val_loss=1.1062  lr=1.50e-04
+2026-06-15 19:32:34  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0293  val_loss=1.2112  lr=7.50e-05
+2026-06-15 19:32:34  INFO      src.models.cnn_model_tuned  Early stopping at epoch 33
+2026-06-15 19:32:34  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7418 corr=0.4667 r2=0.1404
+2026-06-15 19:32:34  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1395  val_loss=4.5279  lr=3.00e-04
+2026-06-15 19:32:35  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0465  val_loss=1.0361  lr=1.50e-04
+2026-06-15 19:32:35  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:32:35  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6156 corr=0.7138 r2=0.3904
+2026-06-15 19:32:36  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1862  val_loss=1.0578  lr=3.00e-04
+2026-06-15 19:32:37  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0857  val_loss=1.0163  lr=3.00e-04
+2026-06-15 19:32:37  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0652  val_loss=1.4385  lr=1.50e-04
+2026-06-15 19:32:38  INFO      src.models.cnn_model_tuned  Early stopping at epoch 36
+2026-06-15 19:32:38  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8731 corr=0.3884 r2=0.1506
+2026-06-15 19:32:38  INFO      __main__  Trial 122/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:32:38  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1059  val_loss=0.8762  lr=5.00e-04
+2026-06-15 19:32:38  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0731  val_loss=0.9211  lr=2.50e-04
+2026-06-15 19:32:38  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:32:38  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7519 corr=0.3779 r2=0.1170
+2026-06-15 19:32:39  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2193  val_loss=0.5164  lr=5.00e-04
+2026-06-15 19:32:39  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0457  val_loss=1.2258  lr=2.50e-04
+2026-06-15 19:32:40  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:32:40  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5515 corr=0.7247 r2=0.5107
+2026-06-15 19:32:41  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1729  val_loss=1.2955  lr=5.00e-04
+2026-06-15 19:32:41  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0596  val_loss=1.5672  lr=2.50e-04
+2026-06-15 19:32:42  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0407  val_loss=0.9842  lr=1.25e-04
+2026-06-15 19:32:42  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0534  val_loss=1.2182  lr=6.25e-05
+2026-06-15 19:32:42  INFO      src.models.cnn_model_tuned  Early stopping at epoch 43
+2026-06-15 19:32:42  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8994 corr=0.3280 r2=0.0987
+2026-06-15 19:32:42  INFO      __main__  Trial 123/128 params={'channels': [32, 64, 128], 'kernel_size': 3, 'dropout': 0.2, 'head_hidden': 512, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 0.0001, 'batch_size': 16, 'patience': 25, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:32:43  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1664  val_loss=0.5728  lr=3.00e-04
+2026-06-15 19:32:43  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1021  val_loss=1.1188  lr=3.00e-04
+2026-06-15 19:32:43  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0816  val_loss=0.9180  lr=1.50e-04
+2026-06-15 19:32:44  INFO      src.models.cnn_model_tuned    epoch  40  train_loss=0.0408  val_loss=0.7852  lr=1.50e-04
+2026-06-15 19:32:44  INFO      src.models.cnn_model_tuned  Early stopping at epoch 44
+2026-06-15 19:32:44  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7389 corr=0.4686 r2=0.1473
+2026-06-15 19:32:44  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1721  val_loss=0.6091  lr=3.00e-04
+2026-06-15 19:32:45  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0912  val_loss=0.9325  lr=1.50e-04
+2026-06-15 19:32:45  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:32:45  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5725 corr=0.7458 r2=0.4727
+2026-06-15 19:32:46  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2166  val_loss=1.2683  lr=3.00e-04
+2026-06-15 19:32:47  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0669  val_loss=1.1030  lr=1.50e-04
+2026-06-15 19:32:48  INFO      src.models.cnn_model_tuned  Early stopping at epoch 29
+2026-06-15 19:32:48  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9018 corr=0.3439 r2=0.0937
+2026-06-15 19:32:48  INFO      __main__  Trial 124/128 params={'channels': [128, 256, 512], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:32:48  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2436  val_loss=1.4049  lr=5.00e-04
+2026-06-15 19:32:48  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1195  val_loss=1.5333  lr=2.50e-04
+2026-06-15 19:32:49  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1255  val_loss=0.7888  lr=1.25e-04
+2026-06-15 19:32:49  INFO      src.models.cnn_model_tuned  Early stopping at epoch 31
+2026-06-15 19:32:49  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7230 corr=0.4568 r2=0.1834
+2026-06-15 19:32:50  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2079  val_loss=1.1130  lr=5.00e-04
+2026-06-15 19:32:50  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0992  val_loss=2.3862  lr=2.50e-04
+2026-06-15 19:32:50  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:32:50  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5551 corr=0.7343 r2=0.5043
+2026-06-15 19:32:52  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2477  val_loss=0.8004  lr=5.00e-04
+2026-06-15 19:32:52  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1013  val_loss=1.0453  lr=2.50e-04
+2026-06-15 19:32:53  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:32:53  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8471 corr=0.4882 r2=0.2004
+2026-06-15 19:32:53  INFO      __main__  Trial 125/128 params={'channels': [64, 128, 256], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 128, 'n_head_layers': 2, 'lr': 0.0005, 'weight_decay': 0.0, 'batch_size': 8, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:32:53  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3228  val_loss=0.7235  lr=5.00e-04
+2026-06-15 19:32:54  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.2242  val_loss=0.8886  lr=2.50e-04
+2026-06-15 19:32:54  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1785  val_loss=0.9522  lr=1.25e-04
+2026-06-15 19:32:54  INFO      src.models.cnn_model_tuned  Early stopping at epoch 31
+2026-06-15 19:32:54  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7347 corr=0.4350 r2=0.1569
+2026-06-15 19:32:56  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2693  val_loss=1.5667  lr=5.00e-04
+2026-06-15 19:32:56  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1756  val_loss=0.9050  lr=2.50e-04
+2026-06-15 19:32:57  INFO      src.models.cnn_model_tuned  Early stopping at epoch 26
+2026-06-15 19:32:57  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6074 corr=0.7153 r2=0.4064
+2026-06-15 19:32:58  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.3480  val_loss=0.8092  lr=5.00e-04
+2026-06-15 19:33:00  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.2015  val_loss=0.8945  lr=2.50e-04
+2026-06-15 19:33:01  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.1209  val_loss=0.9478  lr=1.25e-04
+2026-06-15 19:33:01  INFO      src.models.cnn_model_tuned  Early stopping at epoch 32
+2026-06-15 19:33:01  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8437 corr=0.4765 r2=0.2068
+2026-06-15 19:33:01  INFO      __main__  Trial 126/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 32, 'patience': 12, 'grad_clip': 0.5, 'max_epochs': 60}
+2026-06-15 19:33:01  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1913  val_loss=0.5962  lr=1.00e-03
+2026-06-15 19:33:02  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0624  val_loss=0.8315  lr=5.00e-04
+2026-06-15 19:33:02  INFO      src.models.cnn_model_tuned  Early stopping at epoch 21
+2026-06-15 19:33:02  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7269 corr=0.5160 r2=0.1748
+2026-06-15 19:33:02  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1207  val_loss=1.1546  lr=1.00e-03
+2026-06-15 19:33:03  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:33:03  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.5516 corr=0.7244 r2=0.5105
+2026-06-15 19:33:03  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1727  val_loss=2.2930  lr=1.00e-03
+2026-06-15 19:33:04  INFO      src.models.cnn_model_tuned  Early stopping at epoch 16
+2026-06-15 19:33:04  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8757 corr=0.4102 r2=0.1455
+2026-06-15 19:33:04  INFO      __main__  Trial 127/128 params={'channels': [128, 256, 512], 'kernel_size': 5, 'dropout': 0.2, 'head_hidden': 256, 'n_head_layers': 1, 'lr': 0.0003, 'weight_decay': 0.0001, 'batch_size': 32, 'patience': 25, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:33:04  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1048  val_loss=1.1394  lr=3.00e-04
+2026-06-15 19:33:05  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0827  val_loss=1.3069  lr=1.50e-04
+2026-06-15 19:33:05  INFO      src.models.cnn_model_tuned    epoch  30  train_loss=0.0479  val_loss=0.9046  lr=7.50e-05
+2026-06-15 19:33:05  INFO      src.models.cnn_model_tuned  Early stopping at epoch 30
+2026-06-15 19:33:05  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7392 corr=0.4683 r2=0.1466
+2026-06-15 19:33:06  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1672  val_loss=0.6675  lr=3.00e-04
+2026-06-15 19:33:06  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0552  val_loss=1.2287  lr=1.50e-04
+2026-06-15 19:33:07  INFO      src.models.cnn_model_tuned  Early stopping at epoch 28
+2026-06-15 19:33:07  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6281 corr=0.6663 r2=0.3653
+2026-06-15 19:33:09  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1295  val_loss=2.3000  lr=3.00e-04
+2026-06-15 19:33:10  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.0459  val_loss=1.0069  lr=1.50e-04
+2026-06-15 19:33:10  INFO      src.models.cnn_model_tuned  Early stopping at epoch 27
+2026-06-15 19:33:10  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.9138 corr=0.3501 r2=0.0695
+2026-06-15 19:33:10  INFO      __main__  Trial 128/128 params={'channels': [32, 64, 128], 'kernel_size': 5, 'dropout': 0.0, 'head_hidden': 128, 'n_head_layers': 1, 'lr': 0.0005, 'weight_decay': 0.0001, 'batch_size': 32, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:33:10  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.0525  val_loss=0.6792  lr=5.00e-04
+2026-06-15 19:33:11  INFO      src.models.cnn_model_tuned  Early stopping at epoch 17
+2026-06-15 19:33:11  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.7010 corr=0.4859 r2=0.2325
+2026-06-15 19:33:11  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1051  val_loss=2.4079  lr=5.00e-04
+2026-06-15 19:33:11  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:33:11  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.6776 corr=0.6647 r2=0.2612
+2026-06-15 19:33:12  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.1400  val_loss=0.8738  lr=5.00e-04
+2026-06-15 19:33:12  INFO      src.models.cnn_model_tuned  Early stopping at epoch 14
+2026-06-15 19:33:12  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8971 corr=0.3405 r2=0.1032
+2026-06-15 19:33:14  INFO      __main__  Best params: {'channels': [64, 128, 256, 512], 'kernel_size': 5, 'dropout': 0.4, 'head_hidden': 256, 'n_head_layers': 2, 'lr': 0.001, 'weight_decay': 1e-05, 'batch_size': 16, 'patience': 12, 'grad_clip': 1.0, 'max_epochs': 60}
+2026-06-15 19:33:16  INFO      src.models.cnn_model_tuned    epoch  10  train_loss=0.2232  val_loss=0.8994  lr=1.00e-03
+2026-06-15 19:33:16  INFO      src.models.cnn_model_tuned    epoch  20  train_loss=0.1255  val_loss=0.8121  lr=5.00e-04
+2026-06-15 19:33:17  INFO      src.models.cnn_model_tuned  Early stopping at epoch 21
+2026-06-15 19:33:17  INFO      src.models.cnn_model_tuned  CNN lead=12 val rmse=0.8403 corr=0.5608 r2=0.2119
+2026-06-15 19:33:17  INFO      __main__  Test rmse=0.9937 corr=0.1799 r2=-0.3220
+2026-06-15 19:33:17  INFO      src.models.cnn_model_tuned  Saved CNN model -> /work/ext/st12/shap-enso/data/tuned_wide/cnn/lead12_regression/models/cnn_lead12_regression.pt
+2026-06-15 19:33:17  INFO      __main__  Predictions saved -> /work/ext/st12/shap-enso/data/tuned_wide/cnn/lead12_regression/predictions/cnn_lead12_regression_test_predictions.csv
+2026-06-15 19:33:17  INFO      __main__  Metrics saved -> /work/ext/st12/shap-enso/data/tuned_wide/cnn/lead12_regression/metrics/cnn_lead12_regression_metrics.json
